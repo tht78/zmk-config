@@ -386,7 +386,7 @@ behaviors {
         label =           "TAP_DANCE_SELECT_WORD_W"; 
         #binding-cells =  <0>;
         tapping-term-ms = <TAPPING_TERM_MS>;
-        bindings =        <&kp W>, <&select_word>, <&extend_word>;
+        bindings =        <&kp W>, <&sel_word>, <&ext_word>;
     };
 
     td_sl: tap_sl {
@@ -394,7 +394,7 @@ behaviors {
         label =           "TAP_DANCE_SELECT_LINE_E";
         #binding-cells =  <0>;
         tapping-term-ms = <TAPPING_TERM_MS>;
-        bindings =        <&kp E>, <&select_line>, <&extend_line>;
+        bindings =        <&kp E>, <&sel_line>, <&ext_line>;
     };       
 
     td_cp: tap_cp {
