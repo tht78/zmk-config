@@ -1,3 +1,4 @@
+
 /*
  * Copyright (c) 2020 The ZMK Contributors
  * Copyright (c) 2022 Innaworks Development Limited, trading as MoErgo
@@ -264,8 +265,8 @@ combos {
     52 53 54    55 56 57 \
     69 70 71    72 73 74
 
-HOME_ROW_MOD(lhm, RIGHT_HAND_KEYS THUMB_KEYS)
-HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
+HOME_ROW_MOD(lh_hr_mt, RIGHT_HAND_KEYS THUMB_KEYS)
+HOME_ROW_MOD(rh_hr_mt, LEFT_HAND_KEYS THUMB_KEYS)
 
 
 
@@ -316,7 +317,7 @@ behaviors {
         bindings        = <&kp>, <&kp>;
     };
 
-    htsn: ht_shft_num {
+    ht_shft_num: ht_shft_num {
 	compatible      = "zmk,behavior-hold-tap";
         label           = "HOLD_TAP_SHIFT_NUM";
         #binding-cells  = <2>;
@@ -357,7 +358,7 @@ behaviors {
 
                       /* TAP DANCE */
 
-    tddm: tap_delete_mvcl {
+    td_del_mvcl: tap_delete_mvcl {
         compatible        = "zmk,behavior-tap-dance";
 	      label             = "TAP_DELETE_MOVE_CLIENT";
         #binding-cells    = <0>;
@@ -470,7 +471,7 @@ macros {
             , <&macro_tap &rgb_ug RGB_COLOR_HSB(300,100,50)>;
     };
 
-    sel_word: select_word {
+    select_word: select_word {
         compatible = "zmk,behavior-macro";
         label = "select_word";
         #binding-cells = <0>;
@@ -482,7 +483,7 @@ macros {
             , <&macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
     };
 
-    ext_word: extend_word {
+    extend_word: extend_word {
         compatible = "zmk,behavior-macro";
         label = "extend_word";
         #binding-cells = <0>;
@@ -493,7 +494,7 @@ macros {
         ;
     };
 
-    sel_line: select_line {
+    select_line: select_line {
         compatible = "zmk,behavior-macro";
         label = "select_line";
         #binding-cells = <0>;
@@ -504,7 +505,7 @@ macros {
         ;
     };
 
-    ext_line: extend_line {
+    extend_line: extend_line {
         compatible = "zmk,behavior-macro";
         label = "extend_line";
         #binding-cells = <0>;
@@ -523,28 +524,26 @@ macros {
     keymap {
         compatible = "zmk,keymap";
 
-/*
-|   1      |    2      |    3        |     4      |    5      |     6      |    7        |    8            |    9          |    10             |     11        |    12       |    13      |    14      |    15      |    16      |    17      |   18 |
-*/
+
         layer_Base {
             bindings = <
- &kp F1     &kp F2      &kp  F3       &kp  F4      &kp F5                                                                                                                                  &kp F6       &kp F7       &kp F8       &kp F9       &kp F10
- &to 0      &kp N1      &kp  N2       &kp  N3      &kp N4      &kp  N5                                                                                                        &kp N6       &kp N7       &kp N8       &kp N9       &kp N0       &kp F11
- &kp RA(N2) &as LS(Q) Q &as  LS(W) W  &as  LS(E) E &as LS(R) R &as  LS(T) T                                                                                                   &as LS(Y) Y  &as LS(U) U  &as LS(I) I  &as LS(O) O  &as LS(P) P  &kp F12
- &kp NUHS   &as LS(A) A &lhm LCTRL S  &lhm LSHFT D &gqt_mo 1 F &as  LS(G) G                                                                                                   &as LS(H) H  &gqt_mo 1 J  &rhm RSHFT K &rhm RCTRL L &kp RET      &kp EQUAL
- &kp PSCRN  &as LS(Z) Z &as  LS(X) X  &as  LS(C) C &as LS(V) V &as  LS(B) B &td_ext       &tddm            &gqt LALT LC(TAB) &kp LC(LS(TAB))     &kp LA(P)      &kp LA(O)     &as LS(N) N  &as LS(M) M  &kp COMMA    &kp DOT      &kp FSLH     &none
- &magic 2 0 &kp ESC     &kp  BSPC     &kp  LC(C)   &kp LC(V)                &gqt LGUI RET &gqt_mo 5 SPACE  &td_tags          &gqt_mo 1 LA(SPACE) &htsn 5 LSHIFT &gqt RGUI RET              &bspc_undo   &kp ESC      &kp LC(Z)    &kp RS(FSLH) &rgb_test
+ &kp F1     &kp F2             &kp F3              &kp F4              &kp F5                                                                                    &kp F6           &kp F7             &kp F8        &kp F9    &kp F10
+ &to 0      &kp N1             &kp N2              &kp N3              &kp N4       &kp N5                                                           &kp N6      &kp N7  &kp N8    &kp N9        &kp N0    &kp F11
+ &kp RA(N2) &as LS(Q) Q        &as LS(W) W         &as LS(E) E         &as LS(R) R  &as LS(T) T                                                      &as LS(Y) Y  &as LS(U) U         &as LS(I) I        &as LS(O) O   &as LS(P) P   &kp F12
+ &kp NUHS   &as LS(A) A        &lh_hr_mt LCTRL S   &lh_hr_mt LSHIFT D  &gqt_mo 1 F  &as LS(G) G                                                          &as LS(H) H  &gqt_mo 1 J  &rh_hr_mt RSHIFT K  &rh_hr_mt RCTRL L       &kp RET  &kp EQUAL
+ &kp PSCRN  &as LS(Z) Z        &as LS(X) X         &as LS(C) C         &as LS(V) V  &as LS(B) B     &td_ext         &td_del_mvcl   &gqt LALT LC(TAB)      &kp LC(LS(TAB))              &kp LA(P)        &kp LA(O)  &as LS(N) N  &as LS(M) M           &kp COMMA            &kp DOT      &kp FSLH      &none
+ &magic 2 0 &kp ESC           &kp BSPC           &kp LC(C)              &kp LC(V)   &gqt LGUI ENTER &gqt_mo 5 SPACE &td_tags       &gqt_mo 1 LA(SPACE)    &ht_shft_num 5 LSHIFT  &gqt RGUI ENTER                &bspc_undo            &kp ESC          &kp LC(Z)  &kp RS(FSLH)  &rgb_test
      >;
  };
 
         layer_Lower {
             bindings = <
- &trans     &trans     &trans        &trans        &trans                                                                                                                                  &kp C_MUTE    &kp C_VOL_DN &kp C_VOL_UP &trans     &trans
- &trans     &kp RA(N2) &trans        &trans        &trans      &trans                                                                                                         &kp RA(RBKT) &kp TILDE     &trans       &trans       &trans     &trans
- &trans     &kp RS(N1) &kp RS(N2)    &kp RS(N3)    &kp RA(N4)  &kp RS(N5)                                                                                                     &trans       &kp LC(LEFT)  &td_up_home  &trans       &kp LBKT   &trans
- &kp CAPS   &kp TAB    &kp RC(LEFT)  &sel_word     &ext_word   &kp LC(RIGHT)                                                                                                  &kp LEFT     &kp DOWN      &kp UP       &kp RIGHT    &kp SEMI   &kp SQT
- &trans     &trans     &kp LC(X)     &kp LC(C)     &trans      &trans      &trans          &trans          &trans            &trans              &trans         &trans        &trans       &kp LC(RIGHT) &td_down_end &trans       &trans     &trans
- &magic 2 0 &trans     &trans        &trans        &trans                  &kp LCTRL       &trans          &trans            &trans              &trans         &kp RCTRL                  &trans        &trans       &kp RA(EQUAL) &trans    &trans
+     &trans      &trans        &trans        &trans        &trans                                                                                        &kp C_MUTE  &kp C_VOL_DN   &kp C_VOL_UP    &trans   &trans
+     &trans  &kp RA(N2)        &trans        &trans        &trans         &trans                                                        &kp RA(RBKT)      &kp TILDE        &trans         &trans    &trans   &trans
+     &trans  &kp RS(N1)    &kp RS(N2)    &kp RS(N3)    &kp RA(N4)     &kp RS(N5)                                                              &trans   &kp LC(LEFT)   &td_up_home         &trans  &kp LBKT   &trans
+   &kp CAPS     &kp TAB  &kp RC(LEFT)  &select_word  &extend_word  &kp LC(RIGHT)                                                            &kp LEFT       &kp DOWN        &kp UP      &kp RIGHT  &kp SEMI  &kp SQT
+     &trans      &trans     &kp LC(X)     &kp LC(C)        &trans         &trans     &trans  &trans  &trans  &trans  &trans     &trans        &trans  &kp LC(RIGHT)  &td_down_end         &trans    &trans   &trans
+ &magic 2 0      &trans        &trans        &trans        &trans                 &kp LCTRL  &trans  &trans  &trans  &trans  &kp RCTRL                       &trans        &trans  &kp RA(EQUAL)    &trans   &trans
             >;
         };
 
