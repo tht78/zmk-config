@@ -1,3 +1,4 @@
+
 /*
  * Copyright (c) 2020 The ZMK Contributors
  * Copyright (c) 2022 Innaworks Development Limited, trading as MoErgo
@@ -22,6 +23,7 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/outputs.h>
 
+
 / {
     /* Glove80 system behavior & macros */
     behaviors {
@@ -35,9 +37,7 @@
             bindings = <&mo 1>, <&to 1>;
         };
     };
-};
 
-/ {
     macros {
         rgb_ug_status_macro: rgb_ug_status_macro_0 {
             label = "RGB_UG_STATUS";
@@ -46,7 +46,9 @@
             bindings
                 = <&rgb_ug RGB_STATUS>;
         };
+    };
 
+    macros {
         bt_0: bt_profile_macro_0 {
             label = "BT_0";
             compatible = "zmk,behavior-macro";
@@ -55,7 +57,9 @@
                 = <&out OUT_BLE>,
                   <&bt BT_SEL 0>;
         };
+    };
 
+    macros {
         bt_1: bt_profile_macro_1 {
             label = "BT_1";
             compatible = "zmk,behavior-macro";
@@ -64,7 +68,9 @@
                 = <&out OUT_BLE>,
                   <&bt BT_SEL 1>;
         };
+    };
 
+    macros {
         bt_2: bt_profile_macro_2 {
             label = "BT_2";
             compatible = "zmk,behavior-macro";
@@ -73,7 +79,9 @@
                 = <&out OUT_BLE>,
                   <&bt BT_SEL 2>;
         };
+    };
 
+    macros {
         bt_3: bt_profile_macro_3 {
             label = "BT_3";
             compatible = "zmk,behavior-macro";
@@ -83,9 +91,7 @@
                   <&bt BT_SEL 3>;
         };
     };
-};
 
-/ {
     magic: magic_hold_tap {
         compatible = "zmk,behavior-hold-tap";
         label = "MAGIC_HOLD_TAP";
@@ -94,7 +100,6 @@
         tapping-term-ms = <200>;
         bindings = <&mo>, <&rgb_ug_status_macro>;
     };
-};
 
     /* Custom Defined Behaviors */
 / {
@@ -229,7 +234,7 @@ combos {
 
 /* "Timerless" home row mod behavior using timers configured above */
 #define HOME_ROW_MOD(NAME, KEY_POSITIONS)                                                                 \
-    ZMK_BEHAVIOR(NAME, \
+    ZMK_BEHAVIOR(NAME, 											  \
         compatible                 = "zmk,behavior-hold-tap";                                             \
         #binding-cells             = <2>;                                                                 \
         flavor                     = "balanced";                        /* Fast hold behavior *           \
@@ -514,8 +519,6 @@ macros {
         = <&macro_tap &kp LS(DOWN) &kp LS(END)>
         ;
     };
-};
-
 };
 
     /* Automatically generated keymap */
