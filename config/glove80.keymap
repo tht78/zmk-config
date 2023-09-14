@@ -212,6 +212,22 @@ combos {
 
 };
 
+/************************************************************/
+                      /* Behaviors */
+/************************************************************/
+
+#define STRINGIFY(x) #x
+
+/* Create a ZMK behavior without having to specify the name three times */
+#define ZMK_BEHAVIOR(NAME, ...) \
+    behaviors { \
+        NAME: NAME { \
+            label = STRINGIFY(ZB_ ## NAME); \
+            __VA_ARGS__ \
+        }; \
+    };
+
+
     /* Automatically generated keymap */
     keymap {
         compatible = "zmk,keymap";
