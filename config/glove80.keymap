@@ -521,18 +521,19 @@ macros {
     /* Automatically generated keymap */
     keymap {
         compatible = "zmk,keymap";
-
-
-        base_layer {
+/*
+|   1      |    2      |    3        |     4      |    5      |     6      |    7        |    8            |    9          |    10             |     11        |    12       |    13      |    14      |    15      |    16      |    17      |   18 |
+*/
+        layer_Base {
             bindings = <
-     &kp F1    &kp F2   &kp F3    &kp F4     &kp F5                                                                                  &kp F6     &kp F7    &kp F8    &kp F9    &kp F10
-  &kp EQUAL    &kp N1   &kp N2    &kp N3     &kp N4  &kp N5                                                                  &kp N6  &kp N7     &kp N8    &kp N9    &kp N0  &kp MINUS
-    &kp TAB     &kp Q    &kp W     &kp E      &kp R   &kp T                                                                   &kp Y   &kp U      &kp I     &kp O     &kp P   &kp BSLH
-    &kp ESC     &kp A    &kp S     &kp D      &kp F   &kp G                                                                   &kp H   &kp J      &kp K     &kp L  &kp SEMI    &kp SQT
-  &kp GRAVE     &kp Z    &kp X     &kp C      &kp V   &kp B  &kp LSHFT  &kp LCTRL    &lower  &kp LGUI  &kp RCTRL  &kp RSHFT   &kp N   &kp M  &kp COMMA   &kp DOT  &kp FSLH  &kp PG_UP
- &magic 2 0  &kp HOME  &kp END  &kp LEFT  &kp RIGHT           &kp BSPC    &kp DEL  &kp LALT  &kp RALT    &kp RET  &kp SPACE          &kp UP   &kp DOWN  &kp LBKT  &kp RBKT  &kp PG_DN
-            >;
-        };
+ &kp F1     &kp F2      &kp  F3       &kp  F4      &kp F5                                                                                                                                  &kp F6       &kp F7       &kp F8       &kp F9       &kp F10
+ &to 0      &kp N1      &kp  N2       &kp  N3      &kp N4      &kp  N5                                                                                                        &kp N6       &kp N7       &kp N8       &kp N9       &kp N0       &kp F11
+ &kp RA(N2) &as LS(Q) Q &as  LS(W) W  &as  LS(E) E &as LS(R) R &as  LS(T) T                                                                                                   &as LS(Y) Y  &as LS(U) U  &as LS(I) I  &as LS(O) O  &as LS(P) P  &kp F12
+ &kp NUHS   &as LS(A) A &lhm LCTRL S  &lhm LSHFT D &gqt_mo 1 F &as  LS(G) G                                                                                                   &as LS(H) H  &gqt_mo 1 J  &rhm RSHFT K &rhm RCTRL L &kp RET      &kp EQUAL
+ &kp PSCRN  &as LS(Z) Z &as  LS(X) X  &as  LS(C) C &as LS(V) V &as  LS(B) B &td_ext       &tddm            &gqt LALT LC(TAB) &kp LC(LS(TAB))     &kp LA(P)      &kp LA(O)     &as LS(N) N  &as LS(M) M  &kp COMMA    &kp DOT      &kp FSLH     &none
+ &magic 2 0 &kp ESC     &kp  BSPC     &kp  LC(C)   &kp LC(V)                &gqt LGUI RET &gqt_mo 5 SPACE  &td_tags          &gqt_mo 1 LA(SPACE) &htsn 5 LSHIFT &gqt RGUI RET              &bspc_undo   &kp ESC      &kp LC(Z)    &kp RS(FSLH) &rgb_test
+     >;
+ };
 
         layer_Lower {
             bindings = <
