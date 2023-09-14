@@ -209,7 +209,7 @@ combos {
     ZMK_COMBO(combo_equals_rh,       29 31, &kp RS(N0))
 
     /* Both hands */
-
+    ZMK_COMBO(combo_caps_word,       37 42, &b_caps_word)        /* Home row both hands, 1 finger*/
 };
 
 /************************************************************/
