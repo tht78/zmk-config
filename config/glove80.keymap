@@ -178,41 +178,6 @@
         bindings = <BINDINGS>; \
     };
 
-combos {
-    compatible = "zmk,combos";
-
-    /* Left Hand */
-    ZMK_COMBO(combo_quotes_lh,       24 25, &kp LS(N2))          /* Top  row left hand, 0-gap */
-    ZMK_COMBO(combo_asterisk_lh,     25 26, &kp PIPE)            /* Top  row left hand, 0-gap */
-    ZMK_COMBO(combo_exclamation_lh,  24 26, &kp LS(N1))          /* Top  row left hand, 1-gap */
-
-    ZMK_COMBO(combo_question_lh,     37 38, &kp LS(MINUS))       /* Home row left hand, 0-gap */
-    ZMK_COMBO(combo_grave_lh,        36 37, &kp LS(EQUAL))       /* Home row left hand, 0-gap */
-    ZMK_COMBO(combo_tab_lh,          36 38, &kp TAB)             /* Home row left hand, 1-gap */
-
-    /* Right Hand */
-    ZMK_COMBO(combo_lbracket_rh,     17 18, &kp RA(N8))          /* Num  row right hand, 0-gap */
-    ZMK_COMBO(combo_rbracket_rh,     18 19, &kp RA(N9))          /* Num  row right hand, 0-gap */
-
-    ZMK_COMBO(combo_lparantheses_rh, 29 30, &kp LS(N8))          /* Top  row right hand, 0-gap */
-    ZMK_COMBO(combo_rparantheses_rh, 30 31, &kp LPAR)            /* Top  row right hand, 0-gap */
-    ZMK_COMBO(combo_and_rh,          28 29, &kp RS(N6))          /* Top  row right hand, 1-gap */
-
-    ZMK_COMBO(combo_lcurly_rh,       41 42, &kp RA(N7))          /* Home row right hand, 0-gap */
-    ZMK_COMBO(combo_rcurly_rh,       42 43, &kp RA(N0))          /* Home row right hand, 0-gap */
-    ZMK_COMBO(combo_tab_rh,          41 43, &kp TAB)             /* Home row right hand, 1-gap */
-
-    ZMK_COMBO(combo_greater_rh,      75 76, &kp NUBS)            /* Bsmt row right hand, 0-gap */
-    ZMK_COMBO(combo_less_rh,         76 77, &kp RS(NUBS))        /* Bsmt row right hand, 0-gap */
-
-    /* One gappers */
-    ZMK_COMBO(combo_equals_rh,       29 31, &kp RS(N0))
-
-    /* Both hands */
-    ZMK_COMBO(combo_caps_word,       37 42, &b_caps_word)        /* Home row both hands, 1 finger*/
-
-};
-
 
 /************************************************************/
                       /* Behaviors */
