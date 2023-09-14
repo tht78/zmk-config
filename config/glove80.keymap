@@ -242,7 +242,7 @@ combos {
         quick-tap-ms               = <HOME_ROW_MODS_QUICK_TAP_MS>;      /* Typing cool down *             \
         global-quick-tap;                                               /* Lockout when typing quickly */ \
         hold-trigger-key-positions = <KEY_POSITIONS>;                   /* Use opposite hand */           \
-        hold-trigger-on-release;                                        /* Enable chording mods */        \
+/*        hold-trigger-on-release;                                        /* Enable chording mods */        \*/
         bindings                   = <&kp>, <&kp>;                                                        \
     )
 
