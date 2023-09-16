@@ -265,9 +265,9 @@
 HOME_ROW_MOD(lhm, RIGHT_HAND_KEYS THUMB_KEYS)
 HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
 
-&caps_word {
-    continue-list = <UNDERSCORE MINUS BACKSPACE DELETE FSLH>;
-};
+    caps_word {
+        continue-list = <UNDERSCORE MINUS BACKSPACE DELETE FSLH>;
+    };
 
 /*****************************************************************************/
                                 /* Behaviors */
