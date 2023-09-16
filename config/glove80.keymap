@@ -102,7 +102,7 @@
     };
 
     /* Custom Defined Behaviors */
-        // WIP
+        // en_us version
 
 /************************************************************/
                         /* Timers */
@@ -177,34 +177,34 @@
         compatible = "zmk,combos";
 
         /* Left Hand */
-        ZMK_COMBO(combo_quotes_lh,       24 25, &kp LS(N2))          /* Top  row left hand, 0-gap */
-        ZMK_COMBO(combo_asterisk_lh,     25 26, &kp PIPE)            /* Top  row left hand, 0-gap */
-        ZMK_COMBO(combo_exclamation_lh,  24 26, &kp LS(N1))          /* Top  row left hand, 1-gap */
+        ZMK_COMBO(combo_quotes_lh,       24 25, &kp DQT)             /* Top  row left hand, 0-gap */
+        ZMK_COMBO(combo_asterisk_lh,     25 26, &kp STAR)            /* Top  row left hand, 0-gap */
+        ZMK_COMBO(combo_exclamation_lh,  24 26, &kp EXCL)            /* Top  row left hand, 1-gap */
 
-        ZMK_COMBO(combo_question_lh,     37 38, &kp LS(MINUS))       /* Home row left hand, 0-gap */
-        ZMK_COMBO(combo_grave_lh,        36 37, &kp LS(EQUAL))       /* Home row left hand, 0-gap */
+        ZMK_COMBO(combo_question_lh,     37 38, &kp QMARK)           /* Home row left hand, 0-gap */
+        ZMK_COMBO(combo_grave_lh,        36 37, &kp GRAVE)           /* Home row left hand, 0-gap */
         ZMK_COMBO(combo_tab_lh,          36 38, &kp TAB)             /* Home row left hand, 1-gap */
 
         /* Right Hand */
-        ZMK_COMBO(combo_lbracket_rh,     17 18, &kp RA(N8))          /* Num  row right hand, 0-gap */
-        ZMK_COMBO(combo_rbracket_rh,     18 19, &kp RA(N9))          /* Num  row right hand, 0-gap */
+        ZMK_COMBO(combo_lbracket_rh,     17 18, &kp LBKT)            /* Num  row right hand, 0-gap */
+        ZMK_COMBO(combo_rbracket_rh,     18 19, &kp RBKT)            /* Num  row right hand, 0-gap */
 
-        ZMK_COMBO(combo_lparantheses_rh, 29 30, &kp LS(N8))          /* Top  row right hand, 0-gap */
-        ZMK_COMBO(combo_rparantheses_rh, 30 31, &kp LPAR)            /* Top  row right hand, 0-gap */
-        ZMK_COMBO(combo_and_rh,          28 29, &kp RS(N6))          /* Top  row right hand, 0-gap */
-        ZMK_COMBO(combo_equals_rh,       29 31, &kp RS(N0))          /* Top  row right hand, 1-gap */
+        ZMK_COMBO(combo_lparantheses_rh, 29 30, &kp LPAR)            /* Top  row right hand, 0-gap */
+        ZMK_COMBO(combo_rparantheses_rh, 30 31, &kp RPAR)            /* Top  row right hand, 0-gap */
+        ZMK_COMBO(combo_and_rh,          28 29, &kp AMPS)            /* Top  row right hand, 0-gap */
+        ZMK_COMBO(combo_equals_rh,       29 31, &kp EQUAL)           /* Top  row right hand, 1-gap */
 
-        ZMK_COMBO(combo_lcurly_rh,       41 42, &kp RA(N7))          /* Home row right hand, 0-gap */
-        ZMK_COMBO(combo_rcurly_rh,       42 43, &kp RA(N0))          /* Home row right hand, 0-gap */
+        ZMK_COMBO(combo_lcurly_rh,       41 42, &kp LBRC)            /* Home row right hand, 0-gap */
+        ZMK_COMBO(combo_rcurly_rh,       42 43, &kp RBRC)            /* Home row right hand, 0-gap */
         ZMK_COMBO(combo_tab_rh,          41 43, &kp TAB)             /* Home row right hand, 1-gap */
 
-        ZMK_COMBO(combo_greater_rh,      75 76, &kp NUBS)            /* Bsmt row right hand, 0-gap */
-        ZMK_COMBO(combo_less_rh,         76 77, &kp RS(NUBS))        /* Bsmt row right hand, 0-gap */
+        ZMK_COMBO(combo_greater_rh,      75 76, &kp GT)              /* Bsmt row right hand, 0-gap */
+        ZMK_COMBO(combo_less_rh,         76 77, &kp LS)              /* Bsmt row right hand, 0-gap */
 
         /* One gappers */
 
         /* Both hands */
-        ZMK_COMBO(combo_caps_word,       37 42, &b_caps_word)        /* Home row both hands, 1 finger*/
+        ZMK_COMBO(combo_caps_word,       37 42, &caps_word)        /* Home row both hands, 1 finger*/
     };
 
 /************************************************************/
@@ -265,6 +265,10 @@
 HOME_ROW_MOD(lhm, RIGHT_HAND_KEYS THUMB_KEYS)
 HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
 
+&caps_word {
+    continue-list = <UNDERSCORE MINUS BACKSPACE DELETE FSLH>;
+};
+
 /*****************************************************************************/
                                 /* Behaviors */
 /*****************************************************************************/
@@ -316,6 +320,27 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
             bindings         = <&kp>, <&kp>;
         };
 
+        gqt_mo: global-quick-tap-momentary-layer {
+            compatible       = "zmk,behavior-hold-tap";
+            label            = "GLOBAL_QUICK_TAP_MOMENTARY_LAYER";
+            #binding-cells   = <2>;
+            flavor           = "balanced";
+            tapping-term-ms  = <TAPPING_TERM_MS>;
+            quick-tap-ms     = <125>;
+            global-quick-tap;
+            bindings         = <&mo>, <&kp>;
+        };
+
+        mo_kp: mo_kp {
+            compatible       = "zmk,behavior-hold-tap";
+            label            = "HOLD_TAP_SHIFT_NUM";
+            #binding-cells   = <2>;
+            flavor           = "hold-preferred";
+            tapping-term-ms  = <TAPPING_TERM_MS>;
+            quick-tap-ms     = <QUICK_TAP_MS>;
+            bindings         = <&mo>, <&kp>;
+        };
+
         htsn: ht_shft_num {
             compatible       = "zmk,behavior-hold-tap";
             label            = "HOLD_TAP_SHIFT_NUM";
@@ -326,15 +351,14 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
             bindings         = <&mo>, <&skq>;
         };
 
-        gqt_mo: global-quick-tap-momentary-layer {
+        ralt_rofi: ht_rofi_launcher {
             compatible       = "zmk,behavior-hold-tap";
-            label            = "GLOBAL_QUICK_TAP_MOMENTARY_LAYER";
+            label            = "RALT_ROFI";
             #binding-cells   = <2>;
-            flavor           = "balanced";
+            flavor           = "hold-preferred";
             tapping-term-ms  = <TAPPING_TERM_MS>;
-            quick-tap-ms     = <125>;
-            global-quick-tap;
-            bindings         = <&mo>, <&kp>;
+            quick-tap-ms     = <QUICK_TAP_MS>;
+            bindings         = <&kp RALT>, <&kp LA(SPACE)>;
         };
 
                       /* CAPS_WORD */
@@ -349,12 +373,12 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
 
                       /* MOD MORPH */
                       
-        bspc_undo: backspace_undo {
+        bspc_del: backspace_del {
             compatible       = "zmk,behavior-mod-morph";
-            label            = "BACKSPACE_UNDO";
+            label            = "BACKSPACE_DELETE";
             #binding-cells   = <0>;
-            bindings         = <&kp BACKSPACE>, <&kp LC(Z)>;
-            mods             = <(MOD_RCTL)>;
+            bindings         = <&kp BACKSPACE>, <&kp DEL>;
+            mods             = <(MOD_LCTL|MOD_RCTL)>;
         };
 
                       /* TAP DANCE */
@@ -364,7 +388,7 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
             label            = "TAP_DELETE_MOVE_CLIENT";
             #binding-cells   = <0>;
             tapping-term-ms  = <TAPPING_TERM_MS>;
-            bindings         = <&kp DELETE>, <&kp LG(R)>;
+            bindings         = <&kp DELETE>, <&kp LG(S)>;
         };
 
         td_up_home: td_up_home {
@@ -399,28 +423,12 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
             bindings         = <&sel_line>, <&ext_line>;
         };       
 
-        td_cp: tap_cp {
+        td_ct: tap_ct {
             compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_COPY";
+            label            = "TAP_DANCE_COPY_CUT";
             #binding-cells   = <0>;
             tapping-term-ms  = <QUICK_TAP_MS>;
-            bindings         = <&kp C>, <&kp LC(C)>;
-        };
-
-        td_paste: tap_paste {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_PASTE";
-            #binding-cells   = <0>;
-            tapping-term-ms  = <QUICK_TAP_MS>;
-            bindings         = <&kp V>, <&kp LC(V)>;
-        };
-
-        td_cut: tap_cut {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_CUT";
-            #binding-cells   = <0>;
-            tapping-term-ms  = <QUICK_TAP_MS>;
-            bindings         = <&kp X>, <&kp LC(X)>;
+            bindings         = <&kp LC(C)>, <&kp LC(X)>;
         };
 
         td_ext: tap_ext {
@@ -431,6 +439,24 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
             bindings         = <&kp LC(F8)>
                              , <&kp LC(F9)>
                              , <&kp LC(F10)>;
+        };
+
+        left_thumb: left_thumb {
+            compatible       = "zmk,behavior-tap-dance";
+            label            = "TAP_DANCE_TABS_SPACE_ALTTAB";
+            #binding-cells   = <0>;
+            tapping-term-ms  = <300>;
+            bindings         = <&gqt_th SPACE LC(TAB)>
+                             , <&kp RA(TAB)>
+        };
+
+        right_thumb: right_thumb {
+            compatible       = "zmk,behavior-tap-dance";
+            label            = "TAP_DANCE_TABS_PLACEHOLDER";
+            #binding-cells   = <0>;
+            tapping-term-ms  = <300>;
+            bindings         = <&kp LC(LS(TAB))>
+                             , <&kp RA(TAB)>
         };
 
         td_tags: tap_tags {
@@ -553,13 +579,13 @@ ZMK_MACRO_ZERO_PAR(sel_word,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &to 0         &kp N1        &kp  N2       &kp N3        &kp N4        &kp N5                                                                                                                        &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp F11
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp RA(N2)    &as LS(Q) Q   &as LS(W) W   &as LS(E) E   &as LS(R) R   &as LS(T) T                                                                                                                   &as LS(Y) Y   &as LS(U) U   &as LS(I) I   &as LS(O) O   &as LS(P) P   &kp F12
+     &kp AT        &kp Q         &kp W         &kp E         &kp R         &kp T                                                                                                                         &kp Y         &kp U         &kp I         &kp O         &kp P         &kp F12
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp NUHS      &as LS(A) A  &lhm LCTRL S  &lhm LSHFT D   &gqt_mo 1 F   &as LS(G) G                                                                                                                   &as LS(H) H   &gqt_mo 1 J  &rhm RSHFT K  &rhm RCTRL L   &kp RET       &kp EQUAL
+     &kp APOS      &kp A        &lhm LCTRL S  &lhm LSHFT D   &gqt_mo 1 F   &kp G                                                                                                                         &kp H         &gqt_mo 1 J  &rhm RSHFT K  &rhm RCTRL L   &kp RET       &kp NUBS
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp PSCRN     &as LS(Z) Z  &as  LS(X) X   &as LS(C) C   &as LS(V) V   &as LS(B) B     &td_ext          &tddm            &gqt LALT LC(TAB)   &kp LC(LS(TAB))        &kp LA(P)      &kp LA(O)         &as LS(N) N   &as LS(M) M   &kp COMMA     &kp DOT       &kp FSLH      &none
+     &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &td_ext          &tddm             &left_thumb         &right_thumb     &kp LA(P)         &kp LA(O)           &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &none
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 2 0    &kp ESC       &kp  BSPC     &kp LC(C)     &kp LC(V)                     &gqt LGUI RET    &gqt_mo 3 SPACE   &td_tags           &gqt_th RALT LA(SPACE) &htsn 3 LSHIFT &gqt RGUI RET                   &bspc_undo    &kp ESC       &kp LC(Z)     &kp RS(FSLH)  &rgb_test
+     &magic 2 0    &kp ESC       &bspc_del     &kp LC(C)     &kp LC(V)                     &gqt LGUI RET    &mo_kp 3 SPACE    &td_tags            &ralt_rofi       &htsn 3 LSHIFT    &mo_kp 1 RET                      &bspc_del     &kp ESC       &kp LC(Z)     &kp UNDER     &rgb_test
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
@@ -569,15 +595,15 @@ ZMK_MACRO_ZERO_PAR(sel_word,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                                               ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      &trans        &trans        &trans        &trans        &trans                                                                                                                                                    &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &kp RA(N2)    &trans        &trans        &trans        &trans                                                                                                                        &kp RA(RBKT)  &kp TILDE     &trans        &trans        &trans        &trans
+     &trans        &kp AT        &trans        &trans        &trans        &trans                                                                                                                        &kp TILDE     &trans        &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &kp RS(N1)    &kp RS(N2)    &kp RS(N3)    &kp RA(N4)    &kp RS(N5)                                                                                                                    &kp LC(LEFT)  &td_down_end  &td_up_home   &kp LC(RIGHT) &kp LBKT      &trans
+     &trans        &kp EXCL      &kp DQT       &kp HASH      &kp DOLLAR    &kp PRCNT                                                                                                                     &kp LC(LEFT)  &td_down_end  &td_up_home   &kp LC(RIGHT) &kp RA(W)      &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp CAPS      &kp TAB       &trans        &trans        &trans        &trans                                                                                                                        &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp SEMI      &kp SQT
+     &kp CAPS      &trans        &trans        &trans        &trans        &trans                                                                                                                        &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp RA(L)     &kp RA(Z)
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans        &trans        &trans        &trans          &trans           &trans            &trans              &trans           &trans            &trans              &trans        &td_sw        &kp RCTRL     &td_sl        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 2 0    &trans        &trans        &trans        &trans                        &kp LCTRL        &trans            &trans              &trans           &trans            &kp RCTRL                         &trans        &trans        &kp RA(EQUAL) &trans        &trans
+     &magic 2 0    &trans        &trans        &kp ESC       &trans                        &kp LCTRL        &trans            &trans              &trans           &trans            &kp RCTRL                         &trans        &trans        &trans        &trans        &trans
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
@@ -613,7 +639,7 @@ ZMK_MACRO_ZERO_PAR(sel_word,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans        &trans        &trans        &trans          &trans           &trans            &trans              &trans           &trans            &trans              &kp KP_MINUS    &kp KP_N1    &kp KP_N2    &kp KP_N3     &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &trans        &trans        &trans                        &trans           &trans            &trans              &trans           &kp SPACE         &trans                              &trans       &kp KP_N0    &kp DOT       &trans        &trans
+     &trans        &trans        &trans        &kp ESC       &trans                        &trans           &trans            &trans              &trans           &kp SPACE         &trans                              &trans       &kp KP_N0    &kp DOT       &trans        &trans
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
