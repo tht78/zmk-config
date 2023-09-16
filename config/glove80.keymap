@@ -273,7 +273,6 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
 /*****************************************************************************/
                                 /* Behaviors */
 /*****************************************************************************/
-/ {
     behaviors {
 
                       /* Sticky keys */
@@ -457,13 +456,12 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
                              , <&kp LA(O)>;
         };
     };
-};
 
 /************************************************************/
                         /* Macros */
 /************************************************************/ 
 
-#define ZMK_MACRO(name, ...) \
+#define ZMK_MACRO_ZERO_PAR(name, ...) \
     / { \
         behaviors { \
             name: name { \
@@ -475,7 +473,7 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
         }; \
    };
 
-ZMK_MACRO(sel_word2,
+ZMK_MACRO_ZERO_PAR(sel_word2,
     wait-ms = <0>;
     tap-ms  = <0>;
     bindings
@@ -484,7 +482,6 @@ ZMK_MACRO(sel_word2,
         , <&macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
 )
 
-/ {
     macros {
 
         rgb_test: rgb_test {
@@ -546,7 +543,6 @@ ZMK_MACRO(sel_word2,
             ;
         };
     };
-};
 
 /************************************************************/
                         /* Keymap */
