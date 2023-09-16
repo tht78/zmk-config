@@ -469,7 +469,7 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
             }; \
         };
 
-ZMK_MACRO_ZERO_PAR(sel_word2,
+ZMK_MACRO_ZERO_PAR(sel_word,
     wait-ms = <0>;
     tap-ms  = <0>;
     bindings
@@ -494,7 +494,7 @@ ZMK_MACRO_ZERO_PAR(sel_word2,
                 , <&macro_tap &rgb_ug RGB_COLOR_HSB(300,100,50)>;
         };
 
-        sel_word: select_word {
+        sel_word_old: select_word {
             compatible = "zmk,behavior-macro";
             label = "select_word";
             #binding-cells = <0>;
@@ -555,7 +555,7 @@ ZMK_MACRO_ZERO_PAR(sel_word2,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp RA(N2)    &as LS(Q) Q   &as LS(W) W   &as LS(E) E   &as LS(R) R   &as LS(T) T                                                                                                                   &as LS(Y) Y   &as LS(U) U   &as LS(I) I   &as LS(O) O   &as LS(P) P   &kp F12
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp NUHS      &as LS(A) A  &lhm LCTRL S  &lhm LSHFT D   &gqt_mo 1 F   &as LS(G) G                                                                                                                   &as LS(H) H   &gqt_mo 1 J   &rhm RSHFT K  &rhm RCTRL L  &kp RET       &kp EQUAL
+     &kp NUHS      &as LS(A) A  &lhm LCTRL S  &lhm LSHFT D   &gqt_mo 1 F   &as LS(G) G                                                                                                                   &as LS(H) H   &gqt_mo 1 J  &rhm RSHFT K  &rhm RCTRL L   &kp RET       &kp EQUAL
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &as LS(Z) Z  &as  LS(X) X   &as LS(C) C   &as LS(V) V   &as LS(B) B     &td_ext          &tddm            &gqt LALT LC(TAB)   &kp LC(LS(TAB))        &kp LA(P)      &kp LA(O)         &as LS(N) N   &as LS(M) M   &kp COMMA     &kp DOT       &kp FSLH      &none
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
