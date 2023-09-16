@@ -23,7 +23,8 @@
 #include <dt-bindings/zmk/outputs.h>
 
 
-/ {
+/ {                 /* Root node */
+
     /* Glove80 system behavior & macros */
     behaviors {
         // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
@@ -99,7 +100,6 @@
         tapping-term-ms = <200>;
         bindings = <&mo>, <&rgb_ug_status_macro>;
     };
-};
 
     /* Custom Defined Behaviors */
         // WIP
@@ -173,7 +173,6 @@
         bindings = <BINDINGS>; \
     };
 
-/ {
     combos {
         compatible = "zmk,combos";
 
@@ -207,7 +206,6 @@
         /* Both hands */
         ZMK_COMBO(combo_caps_word,       37 42, &b_caps_word)        /* Home row both hands, 1 finger*/
     };
-};
 
 /************************************************************/
                       /* Behaviors */
@@ -270,7 +268,7 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
 /*****************************************************************************/
                                 /* Behaviors */
 /*****************************************************************************/
-/ {
+
     behaviors {
 
                       /* Sticky keys */
@@ -456,7 +454,6 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
                              , <&kp LA(O)>;
         };
     };
-};
 
 /************************************************************/
                         /* Macros */
@@ -483,7 +480,6 @@ ZMK_MACRO_ZERO_PAR(sel_word2,
         , <&macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
 )
 
-/ {
     macros {
 
         rgb_test: rgb_test {
@@ -545,12 +541,10 @@ ZMK_MACRO_ZERO_PAR(sel_word2,
             ;
         };
     };
-};
 
 /************************************************************/
                         /* Keymap */
 /************************************************************/
-/ {
     keymap {
         compatible = "zmk,keymap";
 
