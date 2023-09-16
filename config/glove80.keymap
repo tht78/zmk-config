@@ -270,15 +270,19 @@ combos {
 HOME_ROW_MOD(lhm, RIGHT_HAND_KEYS THUMB_KEYS)
 HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
 
+/*****************************************************************************/
+                                /* Behaviors */
+/*****************************************************************************/
+
 behaviors {
 
                       /* Sticky keys */
 
     skq: sticky_key_quick_release {
-        compatible = "zmk,behavior-sticky-key";
-        label = "STICKY_KEY_QUICK_RELEASE";
-        #binding-cells = <1>;
-        bindings = <&kp>;
+        compatible       = "zmk,behavior-sticky-key";
+        label            = "STICKY_KEY_QUICK_RELEASE";
+        #binding-cells   = <1>;
+        bindings         = <&kp>;
         release-after-ms = <1000>;
         quick-release;
         ignore-modifiers;
@@ -287,83 +291,83 @@ behaviors {
                       /* Hold Taps */
 
     as: auto_shift {
-        compatible =      "zmk,behavior-hold-tap";
-        label =           "AUTO_SHIFT";
-        #binding-cells =  <2>;
-        tapping_term_ms = <280>;
-        quick_tap_ms =    <0>;
-        flavor =          "tap-preferred";
-        bindings =        <&kp>, <&kp>;
+        compatible       = "zmk,behavior-hold-tap";
+        label            = "AUTO_SHIFT";
+        #binding-cells   = <2>;
+        tapping_term_ms  = <280>;
+        quick_tap_ms     = <0>;
+        flavor           = "tap-preferred";
+        bindings         = <&kp>, <&kp>;
     };
 
     gqt: global-quick-tap {
-        compatible      = "zmk,behavior-hold-tap";
-        label           = "GLOBAL_QUICK_TAP";
-        #binding-cells  = <2>;
-        flavor          = "balanced";
-        tapping-term-ms = <TAPPING_TERM_MS>;
-        quick-tap-ms    = <150>;
+        compatible       = "zmk,behavior-hold-tap";
+        label            = "GLOBAL_QUICK_TAP";
+        #binding-cells   = <2>;
+        flavor           = "balanced";
+        tapping-term-ms  = <TAPPING_TERM_MS>;
+        quick-tap-ms     = <150>;
         global-quick-tap;
-        bindings =        <&kp>, <&kp>;
+        bindings         = <&kp>, <&kp>;
     };
 
     gqt_th: global-quick-tap_th {
-        compatible      = "zmk,behavior-hold-tap";
-        label           = "GLOBAL_QUICK_TAP_TH";
-        #binding-cells  = <2>;
-        flavor          = "hold-preferred";
-        tapping-term-ms = <TAPPING_TERM_MS>;
-        quick-tap-ms    = <200>;
-        bindings        = <&kp>, <&kp>;
+        compatible       = "zmk,behavior-hold-tap";
+        label            = "GLOBAL_QUICK_TAP_TH";
+        #binding-cells   = <2>;
+        flavor           = "hold-preferred";
+        tapping-term-ms  = <TAPPING_TERM_MS>;
+        quick-tap-ms     = <200>;
+        bindings         = <&kp>, <&kp>;
     };
 
     htsn: ht_shft_num {
-	    compatible      = "zmk,behavior-hold-tap";
-        label           = "HOLD_TAP_SHIFT_NUM";
-        #binding-cells  = <2>;
-        flavor          = "hold-preferred";
-        tapping-term-ms = <TAPPING_TERM_MS>;
-        quick-tap-ms    = <QUICK_TAP_MS>;
-        bindings        = <&mo>, <&skq>;
+	      compatible       = "zmk,behavior-hold-tap";
+        label            = "HOLD_TAP_SHIFT_NUM";
+        #binding-cells   = <2>;
+        flavor           = "hold-preferred";
+        tapping-term-ms  = <TAPPING_TERM_MS>;
+        quick-tap-ms     = <QUICK_TAP_MS>;
+        bindings         = <&mo>, <&skq>;
     };
 
     gqt_mo: global-quick-tap-momentary-layer {
-        compatible =      "zmk,behavior-hold-tap";
-        label =           "GLOBAL_QUICK_TAP_MOMENTARY_LAYER";
-        #binding-cells =  <2>;
-        flavor =          "balanced";
-        tapping-term-ms = <TAPPING_TERM_MS>;
-        quick-tap-ms =    <125>;
+        compatible       = "zmk,behavior-hold-tap";
+        label            = "GLOBAL_QUICK_TAP_MOMENTARY_LAYER";
+        #binding-cells   = <2>;
+        flavor           = "balanced";
+        tapping-term-ms  = <TAPPING_TERM_MS>;
+        quick-tap-ms     = <125>;
         global-quick-tap;
-        bindings =        <&mo>, <&kp>;
+        bindings         = <&mo>, <&kp>;
     };
 
                       /* CAPS_WORD */
     b_caps_word: b_caps_word {
-        compatible =      "zmk,behavior-caps-word";
-        label =           "B_CAPS_WORD";
-        #binding-cells =  <0>;
-        continue-list =   <UNDERSCORE MINUS BACKSPACE DELETE FSLH>;
-        mods =            <(MOD_LSFT | MOD_RSFT)>;
+        compatible       = "zmk,behavior-caps-word";
+        label            = "B_CAPS_WORD";
+        #binding-cells   = <0>;
+        continue-list    = <UNDERSCORE MINUS BACKSPACE DELETE FSLH>;
+        mods             = <(MOD_LSFT | MOD_RSFT)>;
     };
 
                       /* MOD MORPH */
     bspc_undo: backspace_undo {
-        compatible =      "zmk,behavior-mod-morph";
-        label =           "BACKSPACE_UNDO";
-        #binding-cells =  <0>;
-        bindings =        <&kp BACKSPACE>, <&kp LC(Z)>;
-        mods =            <(MOD_RCTL)>;
+        compatible       = "zmk,behavior-mod-morph";
+        label            = "BACKSPACE_UNDO";
+        #binding-cells   = <0>;
+        bindings         = <&kp BACKSPACE>, <&kp LC(Z)>;
+        mods             = <(MOD_RCTL)>;
     };
 
                       /* TAP DANCE */
 
     tddm: tap_delete_mvcl {
-        compatible        = "zmk,behavior-tap-dance";
-	    label             = "TAP_DELETE_MOVE_CLIENT";
-        #binding-cells    = <0>;
-        tapping-term-ms   = <TAPPING_TERM_MS>;
-        bindings          = <&kp DELETE>, <&kp LG(R)>;
+        compatible       = "zmk,behavior-tap-dance";
+	      label            = "TAP_DELETE_MOVE_CLIENT";
+        #binding-cells   = <0>;
+        tapping-term-ms  = <TAPPING_TERM_MS>;
+        bindings         = <&kp DELETE>, <&kp LG(R)>;
     };
 
     td_up_home: td_up_home {
@@ -387,7 +391,7 @@ behaviors {
         label =           "TAP_DANCE_SELECT_WORD_W"; 
         #binding-cells =  <0>;
         tapping-term-ms = <TAPPING_TERM_MS>;
-        bindings =        <&kp W>, <&sel_word>, <&ext_word>;
+        bindings =        <&sel_word>, <&ext_word>;
     };
 
     td_sl: tap_sl {
@@ -395,7 +399,7 @@ behaviors {
         label =           "TAP_DANCE_SELECT_LINE_E";
         #binding-cells =  <0>;
         tapping-term-ms = <TAPPING_TERM_MS>;
-        bindings =        <&kp E>, <&sel_line>, <&ext_line>;
+        bindings =        <&sel_line>, <&ext_line>;
     };       
 
     td_cp: tap_cp {
@@ -449,11 +453,8 @@ behaviors {
 };
 
 /************************************************************/
-	
                         /* Macros */
-			
 /************************************************************/ 
-
 
   macros {
 
@@ -520,6 +521,7 @@ behaviors {
 /************************************************************/
                         /* Keymap */
 /************************************************************/
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -537,7 +539,7 @@ behaviors {
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &as LS(Z) Z  &as  LS(X) X   &as LS(C) C   &as LS(V) V   &as LS(B) B     &td_ext          &tddm            &gqt LALT LC(TAB)  &kp LC(LS(TAB))     &kp LA(P)       &kp LA(O)           &as LS(N) N   &as LS(M) M   &kp COMMA     &kp DOT       &kp FSLH      &none
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 2 0    &kp ESC       &kp  BSPC     &kp LC(C)     &kp LC(V)                     &gqt LGUI RET    &gqt_mo 5 SPACE   &td_tags          &gqt_mo 1 LA(SPACE) &htsn 5 LSHIFT  &gqt RGUI RET                     &bspc_undo    &kp ESC       &kp LC(Z)     &kp RS(FSLH)  &rgb_test
+     &magic 2 0    &kp ESC       &kp  BSPC     &kp LC(C)     &kp LC(V)                     &gqt LGUI RET    &gqt_mo 2 SPACE   &td_tags          &gqt_mo 1 LA(SPACE) &htsn 2 LSHIFT  &gqt RGUI RET                     &bspc_undo    &kp ESC       &kp LC(Z)     &kp RS(FSLH)  &rgb_test
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
@@ -546,89 +548,73 @@ behaviors {
         layer_Lower {
             bindings = <
 
- &trans     &trans     &trans        &trans        &trans                                                                                                                                  &kp C_MUTE    &kp C_VOL_DN &kp C_VOL_UP &trans     &trans
- &trans     &kp RA(N2) &trans        &trans        &trans      &trans                                                                                                         &kp RA(RBKT) &kp TILDE     &trans       &trans       &trans     &trans
- &trans     &kp RS(N1) &kp RS(N2)    &kp RS(N3)    &kp RA(N4)  &kp RS(N5)                                                                                                     &trans       &kp LC(LEFT)  &td_up_home  &trans       &kp LBKT   &trans
- &kp CAPS   &kp TAB    &kp RC(LEFT)  &sel_word     &ext_word   &kp LC(RIGHT)                                                                                                  &kp LEFT     &kp DOWN      &kp UP       &kp RIGHT    &kp SEMI   &kp SQT
- &trans     &trans     &kp LC(X)     &kp LC(C)     &trans      &trans      &trans          &trans          &trans            &trans              &trans         &trans        &trans       &kp LC(RIGHT) &td_down_end &trans       &trans     &trans
- &magic 2 0 &trans     &trans        &trans        &trans                  &kp LCTRL       &trans          &trans            &trans              &trans         &kp RCTRL                  &trans        &trans       &kp RA(EQUAL) &trans    &trans
-            >;
-        };
-
-        layer_Magic {
-            bindings = <
-  &bt BT_CLR            &none            &none            &none            &none                                                                                  &none   &none   &none   &none  &bt BT_CLR_ALL
-       &none            &none            &none            &none            &none            &none                                                         &none   &none   &none   &none   &none           &none
-       &none  &rgb_ug RGB_SPI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG                                                         &none   &none   &none   &none   &none           &none
- &bootloader  &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF                                                         &none   &none   &none   &none   &none     &bootloader
-  &reset            &none            &none            &none            &none            &none   &bt_2   &bt_3         &none   &none   &none   &none   &none   &none   &none   &none   &none      &reset
-       &none            &none            &none            &none            &none                    &bt_0   &bt_1  &out OUT_USB   &none   &none   &none           &none   &none   &none   &none           &none
-            >;
-        };
-
-        layer_Navigation {
-            bindings = <
- &trans       &trans    &trans           &trans       &trans                                                                                      &trans          &trans          &trans          &trans  &trans
- &trans       &trans    &trans           &trans       &trans       &trans                                                         &trans  &kp RG(RS(N1))  &kp RG(RS(N2))  &kp RG(RS(N3))  &kp RG(RS(N4))  &trans
- &trans       &trans    &trans  &kp LC(LS(TAB))  &kp LC(TAB)  &kp LA(TAB)                                                          &kp Y        &kp HOME       &kp PG_UP   &kp RG(RC(O))          &trans  &trans
- &trans  &kp LA(TAB)  &kp HOME        &kp PG_UP    &kp PG_DN      &kp END                                                  &kp RG(RC(H))    &kp RG(LEFT)   &kp RG(RIGHT)   &kp RG(RC(L))          &trans  &trans
- &trans       &trans  &kp LEFT           &kp UP     &kp DOWN    &kp RIGHT  &trans  &trans  &trans  &trans  &trans  &trans         &trans         &kp END       &kp PG_DN          &trans          &trans  &trans
- &trans       &trans    &trans           &trans       &trans               &trans  &trans  &trans  &trans  &trans  &trans                         &trans          &trans          &trans          &trans  &trans
-            >;
-        };
-
-        layer_Media_navigation {
-            bindings = <
- &trans           &trans         &trans  &trans    &trans                                                                                       &trans  &trans     &trans           &trans  &trans
- &trans           &trans         &trans  &trans    &trans     &trans                                                                  &trans    &trans  &trans     &trans           &trans  &trans
- &trans           &trans  &kp LG(LC(O))  &trans    &trans     &trans                                                                  &trans    &trans  &trans     &trans           &trans  &trans
- &trans           &trans       &kp LEFT  &kp UP  &kp DOWN  &kp RIGHT                                                                &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT           &trans  &trans
- &trans  &kp PAUSE_BREAK         &trans  &trans    &trans     &trans         &trans  &trans  &trans  &trans  &trans         &trans    &trans    &trans  &trans     &trans  &kp PAUSE_BREAK  &trans
- &trans        &kp LSHFT         &trans  &trans    &trans             &mt LSHFT RET  &trans  &trans  &trans  &trans  &mt RSHFT RET              &trans  &trans     &trans           &trans  &trans
+// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                                              ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+     &trans        &trans        &trans        &trans        &trans                                                                                                                                                   &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                              ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &kp RA(N2)    &trans        &trans        &trans        &trans                                                                                                                       &kp RA(RBKT)  &kp TILDE     &trans        &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                              ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &kp RS(N1)    &kp RS(N2)    &kp RS(N3)    &kp RA(N4)    &kp RS(N5)                                                                                                                   &kp LC(LEFT)  &td_down_end  &td_up_home   &kp LC(RIGHT) &kp LBKT      &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                              ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &kp CAPS      &kp TAB       &trans        &trans        &trans        &trans                                                                                                                       &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp SEMI      &kp SQT
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans          &trans           &trans            &trans            &trans            &trans            &trans              &trans        &td_sw        &kp RCTRL     &td_sl        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &magic 2 0    &trans        &trans        &trans        &trans                        &kp LCTRL        &trans            &trans            &trans            &trans            &kp RCTRL                         &trans        &trans        &kp RA(EQUAL) &trans        &trans
+// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
 
         layer_NumPad {
             bindings = <
- &trans       &trans         &trans  &trans   &trans                                                                              &kp KP_NUM     &trans     &trans        &trans  &trans
- &trans       &trans         &trans  &trans   &trans  &trans                                                     &kp KP_MULTIPLY      &trans     &trans     &trans        &trans  &trans
- &trans       &trans         &trans  &trans   &trans  &trans                                                        &kp KP_SLASH   &kp KP_N7  &kp KP_N8  &kp KP_N9        &trans  &trans
- &trans  &kp LA(TAB)  &kp LG(LS(U))  &trans  &kp F11  &trans                                                         &kp KP_PLUS   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_ENTER  &trans
- &trans       &trans         &trans  &trans   &trans  &trans  &trans  &trans  &trans  &trans     &trans  &trans     &kp KP_MINUS   &kp KP_N1  &kp KP_N2  &kp KP_N3        &trans  &trans
- &trans       &trans         &trans  &trans   &trans          &trans  &trans  &trans  &trans  &kp SPACE  &trans                       &trans  &kp KP_N0    &kp DOT        &trans  &trans
+// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                                              ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+     &trans        &trans        &trans        &trans        &trans                                                                                                                                                     &kp KP_NUM   &trans       &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                              ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans                                                                                                                       &kp KP_MULTIPLY &trans       &trans       &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                              ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans                                                                                                                       &kp KP_SLASH    &kp KP_N7    &kp KP_N8    &kp KP_N9     &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                              ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &kp LA(TAB)   &kp LG(LS(U)) &trans        &kp F11       &trans                                                                                                                       &kp KP_PLUS     &kp KP_N4    &kp KP_N5    &kp KP_N6     &kp KP_ENTER  &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans          &trans           &trans            &trans            &trans            &trans            &trans              &kp KP_MINUS    &kp KP_N1    &kp KP_N2    &kp KP_N3     &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans                        &trans           &trans            &trans            &trans            &kp SPACE         &trans                              &trans       &kp KP_N0    &kp DOT       &trans        &trans
+// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
 
-        layer_LH_Numpad {
+        layer_Magic {
             bindings = <
- &trans     &trans     &trans     &trans     &trans                                                                  &trans  &trans  &trans  &trans  &trans
- &trans     &trans  &kp KP_N7  &kp KP_N8  &kp KP_N9  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &kp LCTRL  &kp KP_N4  &kp KP_N5  &kp KP_N6  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
- &trans     &trans  &kp KP_N1  &kp KP_N2  &kp KP_N3  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
- &trans     &trans     &trans  &kp KP_N0     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
- &trans     &trans     &trans     &trans     &trans          &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                                              ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+     &bt BT_CLR    &none         &none         &none         &none                                                                                                                                                    &none         &none         &none         &none         &bt BT_CLR_ALL
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                              ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &none         &none         &none         &none         &none         &none                                                                                                                        &none         &none         &none         &none         &none         &none
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                              ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &none       &rgb_ug RGB_SPI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG                                                                                                        &none         &none         &none         &none         &none         &none
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                              ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    &bootloader &rgb_ug RGB_SPD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF                                                                                                         &none         &none         &none         &none         &none         &bootloader
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &reset        &none         &none         &none         &none         &none           &bt_2            &bt_3             &none             &none             &none             &none               &none         &none         &none         &none         &none         &reset
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &none         &none         &none         &none         &none                         &bt_0            &bt_1             &out OUT_USB      &none             &none             &none                             &none         &none         &none         &none         &none
+// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
 
-        layer_F_keys {
+        layer_trans {
             bindings = <
- &trans  &trans   &trans   &trans   &trans                                                                   &trans   &trans   &trans  &trans  &trans
- &trans  &trans  &kp F10  &kp F11  &kp F12  &trans                                                  &trans  &kp F10  &kp F11  &kp F12  &trans  &trans
- &trans  &trans   &kp F7   &kp F8   &kp F9  &trans                                                  &trans   &kp F7   &kp F8   &kp F9  &trans  &trans
- &trans  &trans   &kp F4   &kp F5   &kp F6  &trans                                                  &trans   &kp F4   &kp F5   &kp F6  &trans  &trans
- &trans  &trans   &kp F1   &kp F2   &kp F3  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &kp F1   &kp F2   &kp F3  &trans  &trans
- &trans  &trans   &trans   &trans   &trans          &trans  &trans  &trans  &trans  &trans  &trans           &trans   &trans   &trans  &trans  &trans
-            >;
-        };
-
-        layer_Awesome {
-            bindings = <
- &trans  &trans  &trans  &trans  &trans                                                                  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                                              ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+     &trans        &trans        &trans        &trans        &trans                                                                                                                                                   &trans        &trans        &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                              ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans                                                                                                                       &trans        &trans        &trans        &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                              ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans                                                                                                                       &trans        &trans        &trans        &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                              ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans                                                                                                                       &trans        &trans        &trans        &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans        &trans          &trans           &trans            &trans            &trans            &trans            &trans              &trans        &trans        &trans        &trans        &trans        &trans
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &trans        &trans        &trans        &trans        &trans                        &trans           &trans            &trans            &trans            &trans            &trans                            &trans        &trans        &trans        &trans        &trans
+// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────┼─────────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
 
