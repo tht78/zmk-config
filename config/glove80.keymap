@@ -460,7 +460,6 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
 /************************************************************/ 
 
 #define ZMK_MACRO_ZERO_PAR(name, ...) \
-    / { \
         behaviors { \
             name: name { \
                  label          = STRINGIFY(ZB_ ## NAME); \
@@ -468,8 +467,7 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
                  #binding-cells = <0>; \
                  __VA_ARGS__ \
             }; \
-        }; \
-   };
+        };
 
 ZMK_MACRO_ZERO_PAR(sel_word2,
     wait-ms = <0>;
