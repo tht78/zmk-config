@@ -447,7 +447,7 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
             #binding-cells   = <0>;
             tapping-term-ms  = <300>;
             bindings         = <&gqt_th SPACE LC(TAB)>
-                             , <&kp RA(TAB)>
+                             , <&kp RA(TAB)>;
         };
 
         right_thumb: right_thumb {
@@ -456,7 +456,7 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
             #binding-cells   = <0>;
             tapping-term-ms  = <300>;
             bindings         = <&kp LC(LS(TAB))>
-                             , <&kp RA(TAB)>
+                             , <&kp RA(TAB)>;
         };
 
         td_tags: tap_tags {
