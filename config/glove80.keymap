@@ -100,7 +100,6 @@
         bindings = <&mo>, <&rgb_ug_status_macro>;
     };
 
-    /* Custom Defined Behaviors */
 
     /* Custom Defined Behaviors */
         // WIP
@@ -285,7 +284,7 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
             release-after-ms = <1000>;
             quick-release;
             ignore-modifiers;
-          };
+        };
 
                       /* Hold Taps */
 
@@ -456,6 +455,7 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
                              , <&kp LA(O)>;
         };
     };
+};
 
 /************************************************************/
                         /* Macros */
