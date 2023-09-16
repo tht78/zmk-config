@@ -199,7 +199,7 @@
         ZMK_COMBO(combo_tab_rh,          41 43, &kp TAB)             /* Home row right hand, 1-gap */
 
         ZMK_COMBO(combo_greater_rh,      75 76, &kp GT)              /* Bsmt row right hand, 0-gap */
-        ZMK_COMBO(combo_less_rh,         76 77, &kp LS)              /* Bsmt row right hand, 0-gap */
+        ZMK_COMBO(combo_less_rh,         76 77, &kp LT)              /* Bsmt row right hand, 0-gap */
 
         /* One gappers */
 
