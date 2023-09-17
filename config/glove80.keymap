@@ -205,11 +205,11 @@
         ZMK_COMBO(combo_greaterthan_rh,  76 77, &kp GT)              /* Bsmt row right hand, 0-gap */
 
         /* Both hands */
-        ZMK_COMBO(combo_caps_word,       37 42, &caps_word)          /* Home row both hands, D & K*/
-        ZMK_COMBO(combo_n0,              36 41, &kp N0)              /* Home row both hands, S & J*/
-        ZMK_COMBO(combo_percent,         36 43, &kp PERCENT)         /* Home row both hands, S & L*/
-        ZMK_COMBO(combo_caret,           38 41, &kp CARET)           /* Home row both hands, F & J*/
-        ZMK_COMBO(combo_dollasign,       38 43, &kp DOLLAR           /* Home row both hands, F & L*/
+        ZMK_COMBO(combo_caps_word,       37 42, &caps_word)          /* Home row both hands, D & K */
+        ZMK_COMBO(combo_n0,              36 41, &kp N0)              /* Home row both hands, S & J */
+        ZMK_COMBO(combo_percent,         36 43, &kp PERCENT)         /* Home row both hands, S & L */
+        ZMK_COMBO(combo_caret,           38 41, &kp CARET)           /* Home row both hands, F & J */
+        ZMK_COMBO(combo_dollasign,       38 43, &kp DOLLAR)           /* Home row both hands, F & L */
     };
 
 /************************************************************/
