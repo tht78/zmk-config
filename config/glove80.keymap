@@ -198,13 +198,18 @@
         ZMK_COMBO(combo_rcurly_rh,       42 43, &kp RBRC)            /* Home row right hand, 0-gap */
         ZMK_COMBO(combo_tab_rh,          41 43, &kp TAB)             /* Home row right hand, 1-gap */
 
-        ZMK_COMBO(combo_greater_rh,      75 76, &kp GT)              /* Bsmt row right hand, 0-gap */
-        ZMK_COMBO(combo_less_rh,         76 77, &kp LT)              /* Bsmt row right hand, 0-gap */
+        ZMK_COMBO(combo_slash_rh,        59 60, &kp SLASH)           /* Btm  row right hand, 0-gap */
+        ZMK_COMBO(combo_backslash_rh,    60 61, &kp BACKSLASH)       /* Btm  row right hand, 0-gap */
 
-        /* One gappers */
+        ZMK_COMBO(combo_lessthan_rh,     75 76, &kp LT)              /* Bsmt row right hand, 0-gap */
+        ZMK_COMBO(combo_greaterthan_rh,  76 77, &kp GT)              /* Bsmt row right hand, 0-gap */
 
         /* Both hands */
-        ZMK_COMBO(combo_caps_word,       37 42, &caps_word)        /* Home row both hands, 1 finger*/
+        ZMK_COMBO(combo_caps_word,       37 42, &caps_word)          /* Home row both hands, D & K*/
+        ZMK_COMBO(combo_n0,              36 41, &kp N0)              /* Home row both hands, S & J*/
+        ZMK_COMBO(combo_percent,         36 43, &kp PERCENT)         /* Home row both hands, S & L*/
+        ZMK_COMBO(combo_caret,           38 41, &kp CARET)           /* Home row both hands, F & J*/
+        ZMK_COMBO(combo_dollasign,       38 43, &kp DOLLAR           /* Home row both hands, F & L*/
     };
 
 /************************************************************/
@@ -396,7 +401,7 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
             label            = "TAP_DANCE_PAGE_UP_HOME"; 
             #binding-cells   = <0>;
             tapping-term-ms  = <TAPPING_TERM_MS>;
-            bindings         = <&kp UP>, <&kp HOME>;
+              bindings         = <&kp PAGE_UP>, <&kp HOME>;
         };
 
         td_down_end: td_down_end {
@@ -404,7 +409,7 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
             label            = "TAP_DANCE_PAGE_DOWN_END"; 
             #binding-cells   = <0>;
             tapping-term-ms  = <TAPPING_TERM_MS>;
-            bindings         = <&kp DOWN>, <&kp END>;
+            bindings         = <&kp PAGE_DOWN>, <&kp END>;
         };
 
         td_sw: tap_sw {
@@ -585,7 +590,7 @@ ZMK_MACRO_ZERO_PAR(sel_word,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &td_ext          &tddm             &left_thumb         &right_thumb     &kp LA(P)         &kp LA(O)           &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &none
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 2 0    &kp ESC       &bspc_del     &kp LC(C)     &kp LC(V)                     &gqt LGUI RET    &lt 3 SPACE    &td_tags      &ralt_rofi RALT LA(SPACE) &htsn 3 LSHIFT &lt 3 RET                      &bspc_del     &kp ESC       &kp LC(Z)     &kp UNDER     &rgb_test
+     &magic 2 0    &kp ESC       &bspc_del     &kp LC(C)     &kp LC(V)                     &gqt LGUI RET    &lt 3 SPACE       &td_tags      &ralt_rofi RALT LA(SPACE) &htsn 3 LSHIFT &lt 3 RET                         &bspc_del     &kp ESC       &kp LC(Z)     &kp UNDER     &rgb_test
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
