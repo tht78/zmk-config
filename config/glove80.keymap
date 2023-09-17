@@ -391,7 +391,7 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
             label            = "COLON_SEMICOLON";
             #binding-cells   = <0>;
             bindings         = <&kp COLON>, <&kp SEMICOLON>;
-            mods             = <(MOD_LSHFT|MOD_RSHFT)>;
+            mods             = <(MOD_LSFT|MOD_RSFT)>;
         };
 
                       /* TAP DANCE */
@@ -606,7 +606,7 @@ ZMK_MACRO_ZERO_PAR(sel_word,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &td_ext          &tddm             &left_thumb         &right_thumb     &kp LA(P)         &kp LA(O)           &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &none
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 2 0    &kp ESC       &bspc_del     &td_ct        &td_paste_undo                &gqt LGUI RET    &lt 3 SPACE       &td_tags      &ralt_rofi RALT LA(SPACE) &htsn 3 LSHIFT &lt 3 RET                         &bspc_del     &kp ESC       &colon_semi   &kp UNDER     &rgb_test
+     &magic 2 0    &kp ESC       &bspc_del     &td_ct        &td_paste_undo                &gqt LGUI RET    &lt 3 SPACE       &td_tags      &ralt_rofi RALT LA(SPACE) &htsn 3 LSHIFT &lt 1 RET                         &bspc_del     &kp ESC       &colon_semi   &kp UNDER     &rgb_test
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
