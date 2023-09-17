@@ -386,6 +386,14 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
             mods             = <(MOD_LCTL|MOD_RCTL)>;
         };
 
+        colon_semi: colon_semi {
+            compatible       = "zmk,behavior-mod-morph";
+            label            = "COLON_SEMICOLON";
+            #binding-cells   = <0>;
+            bindings         = <&kp COLON>, <&kp SEMICOLON>;
+            mods             = <(MOD_LSHFT|MOD_RSHFT)>;
+        };
+
                       /* TAP DANCE */
 
         tddm: tap_delete_mvcl {
@@ -598,7 +606,7 @@ ZMK_MACRO_ZERO_PAR(sel_word,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &td_ext          &tddm             &left_thumb         &right_thumb     &kp LA(P)         &kp LA(O)           &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &none
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 2 0    &kp ESC       &bspc_del     &td_ct       &td_paste_undo                &gqt LGUI RET    &lt 3 SPACE       &td_tags      &ralt_rofi RALT LA(SPACE) &htsn 3 LSHIFT &lt 3 RET                         &bspc_del     &kp ESC       &kp SEMI      &kp UNDER     &rgb_test
+     &magic 2 0    &kp ESC       &bspc_del     &td_ct        &td_paste_undo                &gqt LGUI RET    &lt 3 SPACE       &td_tags      &ralt_rofi RALT LA(SPACE) &htsn 3 LSHIFT &lt 3 RET                         &bspc_del     &kp ESC       &colon_semi   &kp UNDER     &rgb_test
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
@@ -610,13 +618,13 @@ ZMK_MACRO_ZERO_PAR(sel_word,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &kp AT        &trans        &trans        &trans        &trans                                                                                                                        &kp TILDE     &trans        &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &kp EXCL      &kp DQT       &kp HASH      &kp DOLLAR    &kp PRCNT                                                                                                                     &kp LC(LEFT)  &td_down_end  &td_up_home   &kp LC(RIGHT) &kp RA(W)      &trans
+     &trans        &kp EXCL      &kp DQT       &kp HASH      &kp DOLLAR    &kp PRCNT                                                                                                                     &kp N0        &td_down_end  &td_up_home   &kp LC(RIGHT) &kp DOLLAR   &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp CAPS      &trans        &trans        &trans        &trans        &trans                                                                                                                        &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp RA(L)     &kp RA(Z)
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &trans        &trans        &trans        &trans          &trans           &trans            &trans              &trans           &trans            &trans              &trans        &td_sw        &kp RCTRL     &td_sl        &trans        &trans
+     &trans        &trans        &trans        &trans        &trans        &trans          &trans           &trans            &trans              &trans           &trans            &trans              &trans        &LC(LEFT)     &td_sw        &kp LC(RIGHT) &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 2 0    &trans        &trans        &kp ESC       &trans                        &kp LCTRL        &trans            &trans              &trans           &trans            &kp RCTRL                         &trans        &trans        &trans        &trans        &trans
+     &magic 2 0    &trans        &trans        &kp ESC       &trans                        &kp LCTRL        &trans            &trans              &trans           &trans            &kp RCTRL                         &trans        &td_sl        &trans        &trans        &trans
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
