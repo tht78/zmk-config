@@ -472,7 +472,7 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
             #binding-cells   = <0>;
             tapping-term-ms  = <300>;
             bindings         = <&gqt_th SPACE LC(TAB)>
-                             , <&kp RC(SPACE)>;
+                             , <&kp RC(RETURN)>;
         };
 
         right_thumb: right_thumb {
