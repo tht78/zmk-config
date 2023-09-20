@@ -184,7 +184,7 @@
         ZMK_COMBO(combo_exclamation_lh,  24 26, &kp EXCL)            /* Top  row left hand, 1-gap */
 
         ZMK_COMBO(combo_question_lh,     37 38, &kp QMARK)           /* Home row left hand, 0-gap */
-        ZMK_COMBO(combo_grave_lh,        36 37, &kp GRAVE)           /* Home row left hand, 0-gap */
+*/        ZMK_COMBO(combo_grave_lh,        36 37, &kp GRAVE) */          /* Home row left hand, 0-gap */
         ZMK_COMBO(combo_tab_lh,          36 38, &kp TAB)             /* Home row left hand, 1-gap */
 
         /* Right Hand */
@@ -466,6 +466,15 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
                              , <&kp LC(F10)>;
         };
 
+        app_shift: app_shift {
+            compatible       = "zmk,behavior-tap-dance";
+            label            = "TAP_DANCE_APPSWITCH";
+            #binding-cells   = <0>;
+            tapping-term-ms  = <200>;
+            bindings         = <&gqt_th LGUI RETURN>
+                             , <&alt_tab>;
+        };
+
         left_thumb: left_thumb {
             compatible       = "zmk,behavior-tap-dance";
             label            = "TAP_DANCE_TABS_SPACE_ALTTAB";
@@ -519,6 +528,16 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
                  __VA_ARGS__ \
             }; \
         };
+
+ZMK_MACRO_ZERO_PAR(alt_tab,
+    wait-ms = <0>;
+    tap-ms = <0>;
+    bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp TAB>
+        , <&macro_tap &sk LALT>
+        , <&macro_release &kp LALT>;
+)
 
 ZMK_MACRO_ZERO_PAR(sel_word,
     wait-ms = <0>;
@@ -602,15 +621,15 @@ ZMK_MACRO_ZERO_PAR(sel_word,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭   Tapdance     ╮╭   Tapdance    ╮╭   Tapdance     ╮╭   Tapdance     ╮                                       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      &kp F1        &kp F2        &kp  F3       &kp F4        &kp F5                                                                                                                                                    &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╰ F8,F9,F10      ╯╰ Delete, Move C╯╰ LC(TAB),LC(RET)╯╰ LC(Tab),LG(ESC)╯                                       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &to 0         &kp N1        &kp  N2       &kp N3        &kp N4        &kp N5                                                                                                                        &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp F11
+     &kp PIPE      &kp N1        &kp  N2       &kp N3        &kp N4        &kp N5                                                                                                                        &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp F11
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭   Holdtap      ╮╭   Layertap    ╮╭   Tapdance     ╮                                                         ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp AT_SIGN   &kp Q         &kp W         &kp E         &kp R         &kp T                                                                                                                         &kp Y         &kp U         &kp I         &kp O         &kp P         &kp F12
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╰ Win/Mod,Return ╯╰ Layer 3, SPACE╯╰ LAlt, GUI 1-4  ╯                                                         ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp APOS      &kp A        &lhm LCTRL S  &lhm LSHFT D   &gqt_mo 1 F   &kp G                                                                                                                         &kp H         &gqt_mo 1 J  &rhm RSHFT K  &rhm RCTRL L   &kp RETURN    &kp NUBS
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭────────────────┬─────────────────┬─────────────────╮ ╭────────────────┬─────────────────┬─────────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &td_ext          &tddm             &left_thumb         &right_thumb     &kp LA(P)         &kp LA(O)           &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &none
+     &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &td_ext          &tddm             &left_thumb         &right_thumb     &kp LA(P)         &kp LA(O)           &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 2 0    &kp ESCAPE    &bspc_del     &td_ct        &td_paste_undo                &gqt LGUI RET    &lt 3 SPACE       &td_tags      &ralt_rofi RALT LA(SPACE) &htsn 3 LSHIFT &lt 1 RET                         &bspc_del     &kp ESCAPE    &colon_semi   &kp UNDER     &rgb_test
+     &magic 2 0    &kp ESCAPE    &bspc_del     &td_ct        &td_paste_undo                &app_shift       &lt 3 SPACE       &td_tags      &ralt_rofi RALT LA(SPACE) &htsn 3 LSHIFT &lt 1 RET                         &bspc_del     &kp ESCAPE    &colon_semi   &kp UNDER     &rgb_test
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰────────────────┼─────────────────┼─────────────────╯ ╰────────────────┼─────────────────┼─────────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
