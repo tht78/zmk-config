@@ -553,10 +553,10 @@ ZMK_MACRO_ZERO_PAR(win_home,
     wait-ms = <30>;
     tap-ms  = <40>;
     bindings 
-            = <&macro_tap &kp PERCENT
+            = <&macro_tap &kp PERCENT>
             , <&macro_press &kp LSHFT>
-            , &kp U &kp S &kp E &kp R &kp P &kp R &kp O &kp F &kp I &kp L &kp E &kp PERCENT>
-            , &macro_release &kp LSHFT>;
+            , <&kp U &kp S &kp E &kp R &kp P &kp R &kp O &kp F &kp I &kp L &kp E &kp PERCENT>
+            , <&macro_release &kp LSHFT>;
 )
 
     macros {
