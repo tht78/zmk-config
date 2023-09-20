@@ -184,7 +184,8 @@
         ZMK_COMBO(combo_exclamation_lh,  24 26, &kp EXCL)            /* Top  row left hand, 1-gap */
 
         ZMK_COMBO(combo_question_lh,     37 38, &kp QMARK)           /* Home row left hand, 0-gap */
-*/        ZMK_COMBO(combo_grave_lh,        36 37, &kp GRAVE) */          /* Home row left hand, 0-gap */
+/*        ZMK_COMBO(combo_grave_lh,        36 37, &kp GRAVE) */          /* Home row left hand, 0-gap */
+        ZMK_COMBO(combo_app_switch)      36 37, &alt_tab)            /* Home row left hand, 0-gap */
         ZMK_COMBO(combo_tab_lh,          36 38, &kp TAB)             /* Home row left hand, 1-gap */
 
         /* Right Hand */
