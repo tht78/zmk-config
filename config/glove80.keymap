@@ -105,10 +105,11 @@
         // en_us version
 
 
-/************************************************************/
-                              /* VARIABLES */
-/************************************************************/
+/****************************************************************/
+                         /* VARIABLES */
+/****************************************************************/
 	
+#define COMBO_TIMEOUT_MS 50                /* How quickly combo keys must be pressed together */
 #define QUICK_TAP_MS 200
 #define TAPPING_TERM_MS 280
 #define TAPPING_TERM_MS_SLOWER 250
@@ -119,15 +120,126 @@
 #define THUMBS_TAPPING_TERM_MS 200         /* How long thumb keys can be held before rolls send the higher layer key */
 #define THUMBS_QUICK_TAP_MS 250            /* How quickly to double tap thumb keys to hold down the key */
 #define CONTINUE_SELECTION_TIMEOUT 60000   /* How long until the selection continuation mode times out */
-#define COMBO_TIMEOUT_MS 50                /* How quickly combo keys must be pressed together */
 
-/*****************************************************************************/
-                              /* KEY POSITIONS */
-/*****************************************************************************/
+/* Left hand key positions for use with right hand mods */
+#define LEFT_HAND_KEYS \
+    0  1  2  3  4      \
+    10 11 12 13 14 15  \
+    22 23 24 25 26 27  \
+    34 35 36 37 38 39  \
+    46 47 48 49 50 51  \
+    64 65 66 67 68
+
+/* Right hand key positions for use with left hand mods */
+#define RIGHT_HAND_KEYS \
+        5  6  7  8  9   \
+    16 17 18 19 20 21   \
+    28 29 30 31 32 33   \
+    40 41 42 43 44 45   \
+    58 59 60 61 62 63   \
+       75 76 77 78 79
+
+/* Thumb key positions for use with mods on both hands */
+#define THUMB_KEYS       \
+    52 53 54    55 56 57 \
+    69 70 71    72 73 74
+
+/****************************************************************/
+                         /* Helper functions */
+/****************************************************************/
+
+/* Convert NAME parameters into a ZMK label string */
+#define STRINGIFY(x) #x
+
+/* COMBOS */
+#define ZMK_COMBO(NAME, KEY_POSITIONS, BINDINGS)  \
+    NAME {                                        \
+        timeout-ms    = <COMBO_TIMEOUT_MS>;       \
+        key-positions = <KEY_POSITIONS>;          \
+        bindings      = <BINDINGS>;               \
+    };
+
+/* Create a ZMK behavior without having to specify the name three times */
+#define ZMK_BEHAVIOR(NAME, ...)                   \
+    behaviors {                                   \
+        NAME: NAME {                              \
+            label = STRINGIFY(ZB_ ## NAME);       \
+            __VA_ARGS__                           \
+        };                                        \
+    };
+
+/* "Timerless" home row mod */
+#define HOME_ROW_MOD(NAME, KEY_POSITIONS)                                                                 \
+    ZMK_BEHAVIOR(NAME, 											                                                              \
+        compatible                 = "zmk,behavior-hold-tap";                                             \
+        #binding-cells             = <2>;                                                                 \
+        flavor                     = "balanced";                        /* Fast hold behavior */          \
+        tapping-term-ms            = <HOME_ROW_MODS_TAPPING_TERM_MS>;   /* Mouse usage */                 \
+        quick-tap-ms               = <HOME_ROW_MODS_QUICK_TAP_MS>;      /* Typing cool down */            \
+        global-quick-tap;                                               /* Lockout when typing quickly */ \
+        hold-trigger-key-positions = <KEY_POSITIONS>;                   /* Use opposite hand */           \
+        bindings                   = <&kp>, <&kp>;                                                        \
+    )
+
+/* Hold-Tap helper */
+#define HOLD_TAP(NAME, ...) \
+    ZMK_BEHAVIOR(NAME, \
+        compatible = "zmk,behavior-hold-tap"; \
+        #binding-cells = <2>; \
+        __VA_ARGS__ \
+    )
+
+/* Balanced Hold-Tap for home row mods and thumb layer keys */
+#define BALANCED_HOLD_TAP(NAME, ...) \
+    HOLD_TAP(NAME, \
+        flavor = "balanced";  /* Fast hold */ \
+        __VA_ARGS__ \
+    )
+
+/* Mod-Morph helper */
+#define MOD_MORPH(NAME, STANDARD, MORPHED, MODS) \
+    ZMK_BEHAVIOR(NAME, \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>; \
+        bindings = <STANDARD>, <MORPHED>; \
+        mods = <(MODS)>; \
+    )
+
+/* Mod-Morph that sends another key when Shift is held */
+#define SHIFT_MORPH(NAME, LOWER, UPPER) \
+    MOD_MORPH(NAME, LOWER, UPPER, MOD_LSFT|MOD_RSFT)
+
+/* Wrap ZMK_MACRO to avoid needing to specify Macro node */
+#define ZMKMACRO(NAME, ...) \
+    macros { \
+        ZMK_MACRO(NAME, __VA_ARGS__) \
+    };
+
+#define ZMK_MACRO_ZERO_PAR(name, ...) \
+        behaviors { \
+            name: name { \
+                 label          = STRINGIFY(ZB_ ## NAME); \
+                 compatible     = "zmk,behavior-macro"; \
+                 #binding-cells = <0>; \
+                 __VA_ARGS__ \
+            }; \
+        };
+
+/* Instant key press Macro helper */
+#define FAST_MACRO(NAME, BINDINGS) \
+    ZMKMACRO(NAME, \
+        tap-ms = <0>; \
+        wait-ms = <0>; \
+        bindings = <BINDINGS>; \
+    )
+
+/****************************************************************/
+                         /* KEY POSITIONS */
+/****************************************************************/
 /* Use these key positions for Hold-Tap hold-trigger-key-positions and Combos
 
 ┌────┬────┬────┬────┬────┐                           ┌────┬────┬────┬────┬────┐
-│ 0  │ 1  │ 2  │  3 │ 4  │                           │ 5  │  6 │ 7  │ 8  │ 9  │
+│ 0  │ 1  │ 2  │ 3  │ 4  │                           │ 5  │ 6  │ 7  │ 8  │ 9  │
 ├────┼────┼────┼────┼────┼────┐                 ┌────┼────┼────┼────┼────┼────┤
 │ 10 │ 11 │ 12 │ 13 │ 14 │ 15 │                 │ 16 │ 17 │ 18 │ 19 │ 20 │ 21 │
 ├────┼────┼────┼────┼────┼────┤                 ├────┼────┼────┼────┼────┼────┤
@@ -146,18 +258,10 @@
                     └────┴────┴────┘       └────┴────┴────┘
 */
 
-/************************************************************/
-                        /* Combos */
-/************************************************************/
+/****************************************************************/
+                         /* Combos */
+/****************************************************************/
 	
-/* Helper for defining combos using the timeout configured above */
-#define ZMK_COMBO(NAME, KEY_POSITIONS, BINDINGS) \
-    NAME { \
-        timeout-ms = <COMBO_TIMEOUT_MS>; \
-        key-positions = <KEY_POSITIONS>; \
-        bindings = <BINDINGS>; \
-    };
-
     combos {
         compatible = "zmk,combos";
 
@@ -196,64 +300,13 @@
 
         ZMK_COMBO(combo_caps_word,       37 42, &caps_word)          /* Home row both hands, D & K */
 
-        ZMK_COMBO(combo_n0,              36 41, &kp N0)              /* Home row both hands, S & J */
+        /* ZMK_COMBO(combo_n0,              36 41, &kp N0)              /* Home row both hands, S & J */ */
         ZMK_COMBO(combo_percent,         36 43, &kp PERCENT)         /* Home row both hands, S & L */
-    };
-
-/************************************************************/
-                      /* Behaviors */
-/************************************************************/
-
-#define STRINGIFY(x) #x
-
-/* Create a ZMK behavior without having to specify the name three times */
-#define ZMK_BEHAVIOR(NAME, ...) \
-    behaviors { \
-        NAME: NAME { \
-            label = STRINGIFY(ZB_ ## NAME); \
-            __VA_ARGS__ \
-        }; \
     };
 
 /*****************************************************************************/
                                 /* Home Row Mods */
 /*****************************************************************************/
-
-/* "Timerless" home row mod behavior using timers configured above */
-#define HOME_ROW_MOD(NAME, KEY_POSITIONS)                                                                 \
-    ZMK_BEHAVIOR(NAME, 											                                                              \
-        compatible                 = "zmk,behavior-hold-tap";                                             \
-        #binding-cells             = <2>;                                                                 \
-        flavor                     = "balanced";                        /* Fast hold behavior */          \
-        tapping-term-ms            = <HOME_ROW_MODS_TAPPING_TERM_MS>;   /* Mouse usage */                 \
-        quick-tap-ms               = <HOME_ROW_MODS_QUICK_TAP_MS>;      /* Typing cool down */            \
-        global-quick-tap;                                               /* Lockout when typing quickly */ \
-        hold-trigger-key-positions = <KEY_POSITIONS>;                   /* Use opposite hand */           \
-        bindings                   = <&kp>, <&kp>;                                                        \
-    )
-
-/* Left hand key positions for use with right hand mods */
-#define LEFT_HAND_KEYS \
-    0  1  2  3  4      \
-    10 11 12 13 14 15  \
-    22 23 24 25 26 27  \
-    34 35 36 37 38 39  \
-    46 47 48 49 50 51  \
-    64 65 66 67 68
-
-/* Right hand key positions for use with left hand mods */
-#define RIGHT_HAND_KEYS \
-        5  6  7  8  9   \
-    16 17 18 19 20 21   \
-    28 29 30 31 32 33   \
-    40 41 42 43 44 45   \
-    58 59 60 61 62 63   \
-       75 76 77 78 79
-
-/* Thumb key positions for use with mods on both hands */
-#define THUMB_KEYS       \
-    52 53 54    55 56 57 \
-    69 70 71    72 73 74
 
 HOME_ROW_MOD(lhm, RIGHT_HAND_KEYS THUMB_KEYS)
 HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
@@ -305,13 +358,24 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
 
         ht_hp: hold_tap_hold_preferred {
             compatible       = "zmk,behavior-hold-tap";
-            label            = "GLOBAL_QUICK_TAP";
+            label            = "HOLD_TAB_HOLD_PREFERRED_kp";
             #binding-cells   = <2>;
             flavor           = "hold-preferred";
             tapping-term-ms  = <TAPPING_TERM_MS>;
             quick-tap-ms     = <QUICK_TAP_MS>;
             global-quick-tap;
             bindings         = <&kp>, <&kp>;
+        };
+
+        ht_hpm: hold_tap_hold_preferred_mt {
+            compatible       = "zmk,behavior-hold-tap";
+            label            = "HOLD_TAB_HOLD_PREFERRED_MT";
+            #binding-cells   = <2>;
+            flavor           = "hold-preferred";
+            tapping-term-ms  = <TAPPING_TERM_MS>;
+            quick-tap-ms     = <QUICK_TAP_MS>;
+            global-quick-tap;
+            bindings         = <&mt>, <&kp>;
         };
 
         gqt_th: global-quick-tap_th {
@@ -531,16 +595,6 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
 /************************************************************/
                         /* Macros */
 /************************************************************/ 
-
-#define ZMK_MACRO_ZERO_PAR(name, ...) \
-        behaviors { \
-            name: name { \
-                 label          = STRINGIFY(ZB_ ## NAME); \
-                 compatible     = "zmk,behavior-macro"; \
-                 #binding-cells = <0>; \
-                 __VA_ARGS__ \
-            }; \
-        };
 
 ZMK_MACRO_ZERO_PAR(alt_tab,
     wait-ms = <30>;
