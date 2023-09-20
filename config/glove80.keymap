@@ -621,19 +621,13 @@ FAST_MACRO(sel_word,
         , <&macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
 )
 
-FAST_MACRO(extend_word,
-    bindings
-        = <&macro_tap &kp LC(LS(RIGHT))>
+FAST_MACRO(extend_word, <&macro_tap &kp LC(LS(RIGHT))>
 )
 
-FAST_MACRO(select_line,
-    bindings
-        = <&macro_tap &kp HOME &kp LS(END)>
+FAST_MACRO(select_line, <&macro_tap &kp HOME &kp LS(END)>
 )
 
-FAST_MACRO(extend_line,
-    bindings
-        = <&macro_tap &kp LS(DOWN) &kp LS(END)>
+FAST_MACRO(extend_line, <&macro_tap &kp LS(DOWN) &kp LS(END)>
 )
 
 ZMK_MACRO(win_home,
