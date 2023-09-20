@@ -562,11 +562,20 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
                              , <&kp LG(KP_N4)>;
         };
 
+        trb1: trb_1 {
+            compatible       = "zmk,behavior-tap-dance";
+            label            = "TAP_DANCE_THUMB_RIGHT_BOTTOM_1";
+            #binding-cells   = <0>;
+            tapping-term-ms  = <300>;
+            bindings         = <&ht_hpm RALT LA(SPACE)>
+                             , <&kp LALT >;
+        };
+
         trb2: trb_2 {
             compatible       = "zmk,behavior-tap-dance";
             label            = "TAP_DANCE_THUMB_RIGHT_BOTTOM_2";
             #binding-cells   = <0>;
-            tapping-term-ms  = <300>;
+            tapping-term-ms  = <200>;
             bindings         = <&htsn 3 LSHFT>
                              , <&tog 3 >;
         };
@@ -595,33 +604,46 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
                         /* Macros */
 /************************************************************/ 
 
-ZMK_MACRO_ZERO_PAR(alt_tab,
-    wait-ms = <30>;
+ZMKMACRO(alt_tab,
+    wait-ms = <40>;
     tap-ms = <40>;
     bindings
         = <&macro_press &kp LALT>
         , <&macro_tap &kp TAB>
+        , <&macro_pause_for_release>
         , <&macro_release &kp LALT>;
 )
 
-ZMK_MACRO_ZERO_PAR(sel_word,
-    wait-ms = <0>;
-    tap-ms  = <0>;
+FAST_MACRO(sel_word,
     bindings
         = <&macro_tap &kp LC(RIGHT)>
-        , <&macro_wait_time 1> // let cursor move to the next word!
+        , <&macro_wait_time 1>
         , <&macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
 )
 
-// %USERPROFILE% on Windows
-ZMK_MACRO_ZERO_PAR(win_home,
+FAST_MACRO(extend_word,
+    bindings
+        = <&macro_tap &kp LC(LS(RIGHT))>
+)
+
+FAST_MACRO(select_line,
+    bindings
+        = <&macro_tap &kp HOME &kp LS(END)>
+)
+
+FAST_MACRO(extend_line,
+    bindings
+        = <&macro_tap &kp LS(DOWN) &kp LS(END)>
+)
+
+ZMK_MACRO(win_home,
     wait-ms = <30>;
     tap-ms  = <40>;
     bindings 
-            = <&macro_tap &kp PERCENT>
-            , <&macro_press &kp LSHFT>
+            = <&kp PERCENT>
+            , <&macro_press &kp LEFT_SHIFT>
             , <&kp U &kp S &kp E &kp R &kp P &kp R &kp O &kp F &kp I &kp L &kp E &kp PERCENT>
-            , <&macro_release &kp LSHFT>;
+            , <&macro_release &kp LEFT_SHIFT>;
 )
 
     macros {
@@ -652,7 +674,7 @@ ZMK_MACRO_ZERO_PAR(win_home,
                 , <&macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
         };
 
-        ext_word: extend_word {
+        ext_word_old: extend_word {
             compatible = "zmk,behavior-macro";
             label = "extend_word";
             #binding-cells = <0>;
@@ -663,7 +685,7 @@ ZMK_MACRO_ZERO_PAR(win_home,
             ;
         };
 
-        sel_line: select_line {
+        sel_line_old: select_line {
             compatible = "zmk,behavior-macro";
             label = "select_line";
             #binding-cells = <0>;
@@ -674,7 +696,7 @@ ZMK_MACRO_ZERO_PAR(win_home,
             ;
         };
 
-        ext_line: extend_line {
+        ext_line_old: extend_line {
             compatible = "zmk,behavior-macro";
             label = "extend_line";
             #binding-cells = <0>;
@@ -704,9 +726,9 @@ ZMK_MACRO_ZERO_PAR(win_home,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╰ Win/Mod,Return ╯╰ Layer 3, SPACE╯╰ LAlt, GUI 1-4  ╯                                                         ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp APOS      &kp A        &lhm LCTRL S  &lhm LSHFT D   &gqt_mo 1 F   &kp G                                                                                                                         &kp H         &gqt_mo 1 J  &rhm RSHFT K  &rhm RCTRL L   &kp RETURN    &kp NUBS
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭────────────────┬─────────────────┬─────────────────╮ ╭────────────────┬─────────────────┬─────────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &td_ext          &tddm             &left_thumb         &right_thumb     &kp LA(P)         &kp LA(O)           &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &to 0
+     &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &td_ext          &tddm             &left_thumb         &right_thumb           &kp LA(P)   &kp LA(O)           &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 2 0    &kp ESCAPE    &bspc_del     &td_ct        &td_paste_undo                &app_shift       &lt 3 SPACE       &td_tags      &ralt_rofi RALT LA(SPACE) &trb2          &trb3                             &bspc_del     &kp ESCAPE    &colon_semi   &kp UNDER     &rgb_test
+     &magic 2 0    &kp ESCAPE    &bspc_del     &td_ct        &td_paste_undo                &app_shift       &lt 3 SPACE       &td_tags            &ht_hpm RALT LA(SPACE) &trb2       &trb3                             &bspc_del     &kp ESCAPE    &colon_semi   &kp UNDER     &rgb_test
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰────────────────┼─────────────────┼─────────────────╯ ╰────────────────┼─────────────────┼─────────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
@@ -718,13 +740,13 @@ ZMK_MACRO_ZERO_PAR(win_home,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &kp AT        &trans        &trans        &trans        &trans                                                                                                                        &kp TILDE     &trans        &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &kp EXCL      &kp DQT       &kp HASH      &kp DOLLAR    &kp PRCNT                                                                                                                     &kp N0        &td_up_home   &td_down_end  &kp LC(RIGHT) &kp DOLLAR    &trans
+     &trans        &kp EXCL      &kp DQT       &kp HASH      &kp DOLLAR    &kp PRCNT                                                                                                                     &kp N0        &td_down_end  &td_up_home  &kp LC(RIGHT) &kp DOLLAR    &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp CAPS      &trans        &trans        &trans        &trans        &trans                                                                                                                        &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp RA(L)     &kp RA(Z)
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭────────────────┬─────────────────┬─────────────────╮ ╭────────────────┬─────────────────┬─────────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &trans        &trans        &trans        &trans          &trans           &trans            &trans              &trans           &trans            &trans              &trans        &kp LC(LEFT)  &td_sw        &kp LC(RIGHT) &win_home     &trans
+     &trans        &trans        &trans        &trans        &trans        &trans          &trans           &trans            &trans              &trans           &trans            &trans              &kp RCTRL     &kp LC(LEFT)  &td_sw        &kp LC(RIGHT) &kp trans     &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 2 0    &trans        &trans        &kp ESCAPE    &trans                        &kp LCTRL        &trans            &trans              &trans           &trans            &kp RCTRL                         &trans        &td_sl        &trans        &kp TILDE     &trans
+     &magic 2 0    &trans        &trans        &kp ESCAPE    &trans                        &kp LCTRL        &trans            &trans              &trans           &trans            &kp trans                         &trans        &td_sl        &trans        &kp TILDE     &trans
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯ ╰────────────────┴─────────────────┴─────────────────╯ ╰────────────────┴─────────────────┴─────────────────╯ ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
             >;
         };
