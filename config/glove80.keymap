@@ -624,11 +624,11 @@ FAST_MACRO(ext_word,
         &macro_tap &kp LC(LS(RIGHT))
 )
 
-FAST_MACRO(select_line, 
+FAST_MACRO(sel_line, 
         &macro_tap &kp HOME &kp LS(END)
 )
 
-FAST_MACRO(extend_line, 
+FAST_MACRO(ext_line, 
         &macro_tap &kp LS(DOWN) &kp LS(END)
 )
 
