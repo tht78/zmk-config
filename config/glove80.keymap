@@ -621,15 +621,15 @@ FAST_MACRO(sel_word,
 )
 
 FAST_MACRO(extend_word, 
-        <&macro_tap &kp LC(LS(RIGHT))>
+        &macro_tap &kp LC(LS(RIGHT))
 )
 
 FAST_MACRO(select_line, 
-        <&macro_tap &kp HOME &kp LS(END)>
+        &macro_tap &kp HOME &kp LS(END)
 )
 
 FAST_MACRO(extend_line, 
-        <&macro_tap &kp LS(DOWN) &kp LS(END)>
+        &macro_tap &kp LS(DOWN) &kp LS(END)
 )
 
 ZMK_MACRO(win_home,
