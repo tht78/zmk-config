@@ -614,20 +614,22 @@ ZMKMACRO(alt_tab,
         , <&macro_release &kp LALT>;
 )
 
-FAST_MACRO(sel_word,
-    bindings
-        = <&macro_tap &kp LC(RIGHT)>
-        , <&macro_wait_time 1>
-        , <&macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
+FAST_MACRO(sel_word, \
+        <&macro_tap &kp LC(RIGHT)> \
+        <&macro_wait_time 1> \
+        <&macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
 )
 
-FAST_MACRO(extend_word, <&macro_tap &kp LC(LS(RIGHT))>
+FAST_MACRO(extend_word, 
+        <&macro_tap &kp LC(LS(RIGHT))>
 )
 
-FAST_MACRO(select_line, <&macro_tap &kp HOME &kp LS(END)>
+FAST_MACRO(select_line, 
+        <&macro_tap &kp HOME &kp LS(END)>
 )
 
-FAST_MACRO(extend_line, <&macro_tap &kp LS(DOWN) &kp LS(END)>
+FAST_MACRO(extend_line, 
+        <&macro_tap &kp LS(DOWN) &kp LS(END)>
 )
 
 ZMK_MACRO(win_home,
