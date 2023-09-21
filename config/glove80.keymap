@@ -620,7 +620,7 @@ FAST_MACRO(sel_word,
         &macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))
 )
 
-FAST_MACRO(extend_word, 
+FAST_MACRO(ext_word, 
         &macro_tap &kp LC(LS(RIGHT))
 )
 
