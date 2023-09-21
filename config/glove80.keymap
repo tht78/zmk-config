@@ -614,9 +614,9 @@ ZMKMACRO(alt_tab,
         , <&macro_release &kp LALT>;
 )
 
-FAST_MACRO(sel_word, \
-        <&macro_tap &kp LC(RIGHT)> \
-        <&macro_wait_time 1> \
+FAST_MACRO(sel_word,
+        <&macro_tap &kp LC(RIGHT)>
+        <&macro_wait_time 1>
         <&macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
 )
 
