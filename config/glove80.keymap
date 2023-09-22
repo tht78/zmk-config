@@ -361,7 +361,11 @@ HOLD_TAP_HOLD_PREFERRED(ht_hpm_test,
             bindings         = <&mt>, <&kp>;
 )
 
-TAP_DANCE_QUICK(td_del_mv, bindings = <&kp DELETE>, <&kp LG(S)>;)
+TAP_DANCE_QUICK(tddm,        bindings = <&kp DELETE>, <&kp LG(S)>;)
+TAP_DANCE_QUICK(td_up_home,  bindings = <&kp PAGE_UP>, <&kp HOME>;)
+TAP_DANCE_QUICK(td_down_end, bindings = <&kp PAGE_DOWN>, <&kp DOWN>;)
+TAP_DANCE_QUICK(td_sw,       bindings = <&sel_word>, <&ext_word>;)
+TAP_DANCE_QUICK(td_sl,       bindings = <&sel_line>, <&ext_line>;)
 
 /*****************************************************************************/
                                 /* Behaviors */
@@ -483,7 +487,7 @@ TAP_DANCE_QUICK(td_del_mv, bindings = <&kp DELETE>, <&kp LG(S)>;)
 
                       /* TAP DANCE */
 
-        tddm: tap_delete_mvcl {
+        tddm_old: tap_delete_mvcl {
             compatible       = "zmk,behavior-tap-dance";
             label            = "TAP_DELETE_MOVE_CLIENT";
             #binding-cells   = <0>;
@@ -491,15 +495,15 @@ TAP_DANCE_QUICK(td_del_mv, bindings = <&kp DELETE>, <&kp LG(S)>;)
             bindings         = <&kp DELETE>, <&kp LG(S)>;
         };
 
-        td_up_home: td_up_home {
+        td_up_home_old: td_up_home {
             compatible       ="zmk,behavior-tap-dance";
             label            = "TAP_DANCE_PAGE_UP_HOME"; 
             #binding-cells   = <0>;
             tapping-term-ms  = <TAPPING_TERM_MS>;
-              bindings         = <&kp PAGE_UP>, <&kp HOME>;
+            bindings         = <&kp PAGE_UP>, <&kp HOME>;
         };
 
-        td_down_end: td_down_end {
+        td_down_end_old: td_down_end {
             compatible       = "zmk,behavior-tap-dance";
             label            = "TAP_DANCE_PAGE_DOWN_END"; 
             #binding-cells   = <0>;
@@ -507,7 +511,7 @@ TAP_DANCE_QUICK(td_del_mv, bindings = <&kp DELETE>, <&kp LG(S)>;)
             bindings         = <&kp PAGE_DOWN>, <&kp END>;
         };
 
-        td_sw: tap_sw {
+        td_sw_old: tap_sw {
             compatible       = "zmk,behavior-tap-dance";
             label            = "TAP_DANCE_SELECT_WORD_W"; 
             #binding-cells   = <0>;
@@ -515,7 +519,7 @@ TAP_DANCE_QUICK(td_del_mv, bindings = <&kp DELETE>, <&kp LG(S)>;)
             bindings         = <&sel_word>, <&ext_word>;
         };
 
-        td_sl: tap_sl {
+        td_sl_old: tap_sl {
             compatible       = "zmk,behavior-tap-dance";
             label            = "TAP_DANCE_SELECT_LINE_E";
             #binding-cells   = <0>;
