@@ -185,6 +185,23 @@
         __VA_ARGS__ \
     )
 
+/* Tap-dance helper */
+#define TAP_DANCE_QUICK(NAME, BINDINGS) \
+    ZMK_BEHAVIOR(NAME, \
+        compatible      = "zmk,behavior-tap-dance"; \
+        #binding-cells  = <0>; \
+        tapping-term-ms = <TAPPING_TERM_MS>; \
+        bindings        = BINDINGS; \
+    )
+
+/* Tap-dance helper with custom tapping-term-ms */
+#define TAP_DANCE_CUSTOM(NAME, ...) \
+    ZMK_BEHAVIOR(NAME, \
+        compatible = "zmk,behavior-tap-dance"; \
+        #binding-cells = <0>; \
+        __VA_ARGS__ \
+    )
+
 /* Balanced Hold-Tap for home row mods and thumb layer keys */
 #define HOLD_TAP_BALANCED(NAME, ...) \
     HOLD_TAP(NAME, \
@@ -332,28 +349,24 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
                                 /* Behaviors Functions */
 /*****************************************************************************/
 
-HOLD_TAP_HOLD_PREFERRED(ht_hp_test,
+HOLD_TAP_HOLD_PREFERRED(ht_hp,
             tapping-term-ms  = <TAPPING_TERM_MS>;
             quick_tap_ms     = <QUICK_TAP_MS>;
             bindings         = <&kp>, <&kp>;
-            )
+)
+
+HOLD_TAP_HOLD_PREFERRED(ht_hpm_test,
+            tapping-term-ms  = <TAPPING_TERM_MS>;
+            quick_tap_ms     = <QUICK_TAP_MS>;
+            bindings         = <&mt>, <&kp>;
+)
+
+TAP_DANCE_QUICK(td_del_mv, <&kp DELETE> <&kp LG(S)>)
 
 /*****************************************************************************/
                                 /* Behaviors */
 /*****************************************************************************/
     behaviors {
-
-                      /* Sticky keys */
-
-        skq: sticky_key_quick_release {
-            compatible       = "zmk,behavior-sticky-key";
-            label            = "STICKY_KEY_QUICK_RELEASE";
-            #binding-cells   = <1>;
-            bindings         = <&kp>;
-            release-after-ms = <1000>;
-            quick-release;
-            ignore-modifiers;
-        };
 
                       /* Hold Taps */
 
@@ -367,18 +380,7 @@ HOLD_TAP_HOLD_PREFERRED(ht_hp_test,
             bindings         = <&kp>, <&kp>;
         };
 
-        gqt: global-quick-tap {
-            compatible       = "zmk,behavior-hold-tap";
-            label            = "GLOBAL_QUICK_TAP";
-            #binding-cells   = <2>;
-            flavor           = "balanced";
-            tapping-term-ms  = <TAPPING_TERM_MS>;
-            quick-tap-ms     = <150>;
-            global-quick-tap;
-            bindings         = <&kp>, <&kp>;
-        };
-
-        ht_hp: hold_tap_hold_preferred {
+        ht_hp_old: hold_tap_hold_preferred {
             compatible       = "zmk,behavior-hold-tap";
             label            = "HOLD_TAB_HOLD_PREFERRED_kp";
             #binding-cells   = <2>;
