@@ -361,7 +361,7 @@ HOLD_TAP_HOLD_PREFERRED(ht_hpm_test,
             bindings         = <&mt>, <&kp>;
 )
 
-TAP_DANCE_QUICK(td_del_mv, <&kp DELETE> <&kp LG(S)>)
+TAP_DANCE_QUICK(td_del_mv, <&kp DELETE>, <&kp LG(S)>)
 
 /*****************************************************************************/
                                 /* Behaviors */
