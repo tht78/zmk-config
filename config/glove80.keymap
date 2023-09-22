@@ -186,7 +186,7 @@
     )
 
 /* Tap-dance helper */
-#define TAP_DANCE_2KEYS(NAME, ...) \
+#define TAP_DANCE_QUICK(NAME, ...) \
     ZMK_BEHAVIOR(NAME, \
         compatible      = "zmk,behavior-tap-dance"; \
         #binding-cells  = <0>; \
