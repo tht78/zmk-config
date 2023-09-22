@@ -186,12 +186,12 @@
     )
 
 /* Tap-dance helper */
-#define TAP_DANCE_QUICK(NAME, BINDINGS) \
+#define TAP_DANCE_2KEYS(NAME, ...) \
     ZMK_BEHAVIOR(NAME, \
         compatible      = "zmk,behavior-tap-dance"; \
         #binding-cells  = <0>; \
         tapping-term-ms = <TAPPING_TERM_MS>; \
-        bindings        = BINDINGS; \
+        bindings        = __VA_ARGS__ \
     )
 
 /* Tap-dance helper with custom tapping-term-ms */
