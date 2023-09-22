@@ -112,14 +112,10 @@
 #define COMBO_TIMEOUT_MS 50                /* How quickly combo keys must be pressed together */
 #define QUICK_TAP_MS 200
 #define TAPPING_TERM_MS 280
-#define TAPPING_TERM_MS_SLOWER 250
 #define STICKY_KEY_RELEASE_AFTER_MS 600    /* How long Sticky Keys stay pressed */
-#define AUTOSHIFT_TAPPING_TERM_MS 200      /* How long to hold for Autoshift */
 #define HOME_ROW_MODS_TAPPING_TERM_MS 300  /* How long to hold to activate home row mods for same side or mouse usage */
 #define HOME_ROW_MODS_QUICK_TAP_MS 150     /* Cool down after typing before home row mods can be used */
 #define THUMBS_TAPPING_TERM_MS 200         /* How long thumb keys can be held before rolls send the higher layer key */
-#define THUMBS_QUICK_TAP_MS 250            /* How quickly to double tap thumb keys to hold down the key */
-#define CONTINUE_SELECTION_TIMEOUT 60000   /* How long until the selection continuation mode times out */
 
 /* Left hand key positions for use with right hand mods */
 #define LEFT_HAND_KEYS \
@@ -190,9 +186,16 @@
     )
 
 /* Balanced Hold-Tap for home row mods and thumb layer keys */
-#define BALANCED_HOLD_TAP(NAME, ...) \
+#define HOLD_TAP_BALANCED(NAME, ...) \
     HOLD_TAP(NAME, \
         flavor = "balanced";  /* Fast hold */ \
+        __VA_ARGS__ \
+    )
+
+/* Hold-preferred Hold-Tap */
+#define HOLD_TAP_HOLD_PREFERRED(NAME, ...) \
+    HOLD_TAP(NAME, \
+        flavor = "hold-preferred"; \
         __VA_ARGS__ \
     )
 
@@ -259,6 +262,22 @@
 */
 
 /****************************************************************/
+                         /* Behavior Changes */
+/****************************************************************/
+
+    behaviors {
+
+        behavior_caps_word {
+            continue-list = <UNDERSCORE MINUS BACKSPACE DELETE FSLH>;
+        };
+
+        behavior_sticky_key {
+            release-after-ms = <STICKY_KEY_RELEASE_AFTER_MS>;
+            quick-release;
+        };
+    };
+
+/****************************************************************/
                          /* Combos */
 /****************************************************************/
 	
@@ -309,14 +328,19 @@
 HOME_ROW_MOD(lhm, RIGHT_HAND_KEYS THUMB_KEYS)
 HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
 
-    caps_word {
-        continue-list = <UNDERSCORE MINUS BACKSPACE DELETE FSLH>;
-    };
+/*****************************************************************************/
+                                /* Behaviors Functions */
+/*****************************************************************************/
+
+HOLD_TAP_HOLD_PREFERRED(ht_hp_test,
+            tapping-term-ms  = <TAPPING_TERM_MS>;
+            quick_tap_ms     = <QUICK_TAP_MS>;
+            bindings         = <&kp>, <&kp>;
+            )
 
 /*****************************************************************************/
                                 /* Behaviors */
 /*****************************************************************************/
-
     behaviors {
 
                       /* Sticky keys */
@@ -414,7 +438,7 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
             flavor           = "hold-preferred";
             tapping-term-ms  = <TAPPING_TERM_MS>;
             quick-tap-ms     = <QUICK_TAP_MS>;
-            bindings         = <&mo>, <&skq>;
+            bindings         = <&mo>, <&sk>;
         };
 
         ralt_rofi: ht_rofi_launcher {
