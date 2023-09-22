@@ -191,7 +191,7 @@
         compatible      = "zmk,behavior-tap-dance"; \
         #binding-cells  = <0>; \
         tapping-term-ms = <TAPPING_TERM_MS>; \
-        bindings        = __VA_ARGS__ \
+        __VA_ARGS__ \
     )
 
 /* Tap-dance helper with custom tapping-term-ms */
@@ -361,7 +361,7 @@ HOLD_TAP_HOLD_PREFERRED(ht_hpm_test,
             bindings         = <&mt>, <&kp>;
 )
 
-TAP_DANCE_QUICK(td_del_mv, <&kp DELETE>, <&kp LG(S)>;)
+TAP_DANCE_QUICK(td_del_mv, bindings = <&kp DELETE>, <&kp LG(S)>;)
 
 /*****************************************************************************/
                                 /* Behaviors */
