@@ -368,7 +368,7 @@ HOME_ROW_MOD_LT(rhmlt, LEFT_HAND_KEYS THUMB_KEYS)
                                 /* Behaviors Functions */
 /*****************************************************************************/
 
-SHIFT_MORPH(colon_semi, <&kp COLON>, <&kp SEMICOLON>)
+SHIFT_MORPH(colon_semi, &kp COLON, &kp SEMICOLON)
 
 HOLD_TAP_HOLD_PREFERRED(ht_hp,  bindings = <&kp>, <&kp>;)
 HOLD_TAP_HOLD_PREFERRED(ht_hpm, bindings = <&mt>, <&kp>;)
