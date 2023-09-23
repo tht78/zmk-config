@@ -397,7 +397,7 @@ TAP_DANCE_QUICK(td_paste_undo,  bindings = <&kp LC(V)>,     <&kp LC(Z)>;)
 TAP_DANCE_QUICK(td_copy_paste,  bindings = <&kp LC(C)>,     <&kp LC(V)>;)
 
 TAP_DANCE_CUSTOM(lth_1,         tapping-term-ms = <THUMB_TAP_MS>;
-                                bindings = <&kp LC(F8)>,    <&kp LC(F9)>,   <&kp LC(F109)>;
+                                bindings = <&kp LC(F8)>,    <&kp LC(F9)>,   <&kp LC(F10)>;
 )
 
 TAP_DANCE_QUICK(lth_2,          bindings = <&kp DELETE>,    <&kp LG(S)>;)
