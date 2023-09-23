@@ -396,27 +396,27 @@ TAP_DANCE_CUSTOM(lth_6,         tapping-term-ms = <THUMB_TAP_MS>;
 )
 
 TAP_DANCE_CUSTOM(rth_1,         tapping-term-ms = <THUMB_TAP_MS>;
-                                bindings = <&kp LC(LS(TAB))>, &kp LG(ESCAPE);
+                                bindings = <&kp LC(LS(TAB))>, <&kp LG(ESCAPE)>;
 )
 
 TAP_DANCE_CUSTOM(rth_2,         tapping-term-ms = <THUMB_TAP_MS>;
-                                bindings = <&kp LA(P)>, &kp LA(P);      /* PLACEHOLDER */
+                                bindings = <&kp LA(P)>, <&kp LA(P)>;      /* PLACEHOLDER */
 )
 
 TAP_DANCE_CUSTOM(rth_3,         tapping-term-ms = <THUMB_TAP_MS>;
-                                bindings = <&kp LA(O)>, &tog 3;         /* PLACEHOLDER */
+                                bindings = <&kp LA(O)>, <&tog 3>;         /* PLACEHOLDER */
 )
 
 TAP_DANCE_CUSTOM(rth_4,         tapping-term-ms = <THUMB_TAP_MS>;
-                                bindings = <&ht_hpm RALT LA(SPACE)>, &to 0;
+                                bindings = <&ht_hpm RALT LA(SPACE)>, <&to 0>;
 )
 
 TAP_DANCE_CUSTOM(rth_5,         tapping-term-ms = <THUMB_TAP_MS>;
-                                bindings = <&htsn 3 LSHFT>, &kp LG(ESCAPE);
+                                bindings = <&htsn 3 LSHFT>, <&kp LG(ESCAPE)>;
 )
 
 TAP_DANCE_CUSTOM(rth_6,         tapping-term-ms = <TAPPING_TERM_MS>;
-                                bindings = <&kp RETURN>, &kp LG(ESCAPE);  /* PLACEHOLDER */
+                                bindings = <&kp RETURN>, <&kp LG(ESCAPE)>;  /* PLACEHOLDER */
 )
 
 /*****************************************************************************/
