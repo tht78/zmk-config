@@ -368,12 +368,7 @@ HOME_ROW_MOD_LT(rhmlt, LEFT_HAND_KEYS THUMB_KEYS)
                                 /* Behaviors Functions */
 /*****************************************************************************/
 
-ZMK_BEHAVIOR(colon_semi,
-            compatible       = "zmk,behavior-mod-morph";
-            #binding-cells   = <0>;
-            bindings         = <&kp COLON>, <&kp SEMICOLON>;
-            mods             = <(MOD_LSFT|MOD_RSFT)>;
-)
+SHIFT_MORPH(colon_semi, <&kp COLON>, <&kp SEMICOLON>)
 
 HOLD_TAP_HOLD_PREFERRED(ht_hp,  bindings = <&kp>, <&kp>;)
 HOLD_TAP_HOLD_PREFERRED(ht_hpm, bindings = <&mt>, <&kp>;)
@@ -386,14 +381,14 @@ TAP_DANCE_QUICK(td_sl,          bindings = <&sel_line>,     <&ext_line>;)
 TAP_DANCE_QUICK(td_paste_undo,  bindings = <&kp LC(V)>,     <&kp LC(Z)>;)
 TAP_DANCE_QUICK(td_copy_paste,  bindings = <&kp LC(C)>,     <&kp LC(V)>;)
 
-TAP_DANCE_CUSTOM(lth_1,        tapping-term-ms = <THUMB_TAP_MS>;
+TAP_DANCE_CUSTOM(lth_1,         tapping-term-ms = <THUMB_TAP_MS>;
                                 bindings = <&kp LC(F8)>,    <&kp LC(F9)>,   <&kp LC(F9)>;
 )
 
 TAP_DANCE_QUICK(lth_2,          bindings = <&kp DELETE>,    <&kp LG(S)>;)
 
 TAP_DANCE_CUSTOM(lth_3,         tapping-term-ms = <THUMB_TAP_MS>;
-                                bindings = <&ht_hp SPACE LC(TAB)>, <&kp RG(E)>;
+                                bindings = <&ht_hp SPACE LC(TAB)>, <&kp LG(ESCAPE)>;
 )
 
 TAP_DANCE_CUSTOM(lth_4,         tapping-term-ms = <TAPPING_TERM_MS>;
@@ -413,7 +408,7 @@ TAP_DANCE_CUSTOM(lth_6,         tapping-term-ms = <THUMB_TAP_MS>;
 )
 
 TAP_DANCE_CUSTOM(rth_1,         tapping-term-ms = <THUMB_TAP_MS>;
-                                bindings = <&kp LC(LS(TAB))>, <&kp LG(ESCAPE)>;
+                                bindings = <&kp LC(LS(TAB))>, <&kp LG(E)>;
 )
 
 TAP_DANCE_CUSTOM(rth_2,         tapping-term-ms = <THUMB_TAP_MS>;
