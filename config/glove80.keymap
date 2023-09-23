@@ -111,6 +111,7 @@
 	
 #define COMBO_TIMEOUT_MS 50                /* How quickly combo keys must be pressed together */
 #define QUICK_TAP_MS 200
+#define THUMB_TAP_MS 300
 #define TAPPING_TERM_MS 280
 #define STICKY_KEY_RELEASE_AFTER_MS 600    /* How long Sticky Keys stay pressed */
 #define HOME_ROW_MODS_TAPPING_TERM_MS 300  /* How long to hold to activate home row mods for same side or mouse usage */
@@ -349,23 +350,51 @@ HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
                                 /* Behaviors Functions */
 /*****************************************************************************/
 
+HOLD_TAP_BALANCED(gqt_mo,
+            tapping-term-ms  = <TAPPING_TERM_MS>;
+            quick_tap_ms     = <125>;
+            bindings         = <&mo>, <&kp>;
+)
+
 HOLD_TAP_HOLD_PREFERRED(ht_hp,
             tapping-term-ms  = <TAPPING_TERM_MS>;
             quick_tap_ms     = <QUICK_TAP_MS>;
             bindings         = <&kp>, <&kp>;
 )
 
-HOLD_TAP_HOLD_PREFERRED(ht_hpm_test,
+HOLD_TAP_HOLD_PREFERRED(ht_hpm,
             tapping-term-ms  = <TAPPING_TERM_MS>;
             quick_tap_ms     = <QUICK_TAP_MS>;
             bindings         = <&mt>, <&kp>;
 )
 
-TAP_DANCE_QUICK(tddm,        bindings = <&kp DELETE>, <&kp LG(S)>;)
-TAP_DANCE_QUICK(td_up_home,  bindings = <&kp PAGE_UP>, <&kp HOME>;)
-TAP_DANCE_QUICK(td_down_end, bindings = <&kp PAGE_DOWN>, <&kp DOWN>;)
-TAP_DANCE_QUICK(td_sw,       bindings = <&sel_word>, <&ext_word>;)
-TAP_DANCE_QUICK(td_sl,       bindings = <&sel_line>, <&ext_line>;)
+HOLD_TAP_HOLD_PREFERRED(htsn,
+            tapping-term-ms  = <TAPPING_TERM_MS>;
+            quick_tap_ms     = <QUICK_TAP_MS>;
+            bindings         = <&mo>, <&sk>;
+)
+
+HOLD_TAP_HOLD_PREFERRED(gqt_th,
+            tapping-term-ms  = <TAPPING_TERM_MS>;
+            quick_tap_ms     = <QUICK_TAP_MS>;
+            bindings         = <&kp>, <&kp>;
+)
+
+TAP_DANCE_QUICK(tddm,          bindings = <&kp DELETE>,    <&kp LG(S)>;)
+TAP_DANCE_QUICK(td_up_home,    bindings = <&kp PAGE_UP>,   <&kp HOME>;)
+TAP_DANCE_QUICK(td_down_end,   bindings = <&kp PAGE_DOWN>, <&kp DOWN>;)
+TAP_DANCE_QUICK(td_sw,         bindings = <&sel_word>,     <&ext_word>;)
+TAP_DANCE_QUICK(td_sl,         bindings = <&sel_line>,     <&ext_line>;)
+TAP_DANCE_QUICK(td_paste_undo, bindings = <&kp LC(V)>,     <&kp LC(Z)>;)
+TAP_DANCE_QUICK(td_ct,         bindings = <&kp LC(C)>,     <&kp LC(X)>;)
+
+TAP_DANCE_CUSTOM(td_ext,       tapping-term-ms = <THUMB_TAP_MS>;
+                               bindings = <&kp LC(F8)>,    <&kp LC(F9)>,   <&kp LC(F9)>;
+)
+
+TAP_DANCE_CUSTOM(app_shift,    tapping-term-ms = <100>;
+                               bindings = <&gqt_th LGUI RETURN>, <&kp LG(D)>;
+)
 
 /*****************************************************************************/
                                 /* Behaviors */
@@ -374,39 +403,7 @@ TAP_DANCE_QUICK(td_sl,       bindings = <&sel_line>, <&ext_line>;)
 
                       /* Hold Taps */
 
-        as: auto_shift {
-            compatible       = "zmk,behavior-hold-tap";
-            label            = "AUTO_SHIFT";
-            #binding-cells   = <2>;
-            tapping_term_ms  = <280>;
-            quick_tap_ms     = <0>;
-            flavor           = "tap-preferred";
-            bindings         = <&kp>, <&kp>;
-        };
-
-        ht_hp_old: hold_tap_hold_preferred {
-            compatible       = "zmk,behavior-hold-tap";
-            label            = "HOLD_TAB_HOLD_PREFERRED_kp";
-            #binding-cells   = <2>;
-            flavor           = "hold-preferred";
-            tapping-term-ms  = <TAPPING_TERM_MS>;
-            quick-tap-ms     = <QUICK_TAP_MS>;
-            global-quick-tap;
-            bindings         = <&kp>, <&kp>;
-        };
-
-        ht_hpm: hold_tap_hold_preferred_mt {
-            compatible       = "zmk,behavior-hold-tap";
-            label            = "HOLD_TAB_HOLD_PREFERRED_MT";
-            #binding-cells   = <2>;
-            flavor           = "hold-preferred";
-            tapping-term-ms  = <TAPPING_TERM_MS>;
-            quick-tap-ms     = <QUICK_TAP_MS>;
-            global-quick-tap;
-            bindings         = <&mt>, <&kp>;
-        };
-
-        gqt_th: global-quick-tap_th {
+        gqt_th_old: global-quick-tap_th {
             compatible       = "zmk,behavior-hold-tap";
             label            = "GLOBAL_QUICK_TAP_TH";
             #binding-cells   = <2>;
@@ -416,7 +413,7 @@ TAP_DANCE_QUICK(td_sl,       bindings = <&sel_line>, <&ext_line>;)
             bindings         = <&kp>, <&kp>;
         };
 
-        gqt_mo: global-quick-tap-momentary-layer {
+        gqt_mo_old: global-quick-tap-momentary-layer {
             compatible       = "zmk,behavior-hold-tap";
             label            = "GLOBAL_QUICK_TAP_MOMENTARY_LAYER";
             #binding-cells   = <2>;
@@ -427,17 +424,7 @@ TAP_DANCE_QUICK(td_sl,       bindings = <&sel_line>, <&ext_line>;)
             bindings         = <&mo>, <&kp>;
         };
 
-        mo_kp: mo_kp {
-            compatible       = "zmk,behavior-hold-tap";
-            label            = "HOLD_TAP_SHIFT_NUM";
-            #binding-cells   = <2>;
-            flavor           = "hold-preferred";
-            tapping-term-ms  = <TAPPING_TERM_MS>;
-            quick-tap-ms     = <QUICK_TAP_MS>;
-            bindings         = <&mo>, <&kp>;
-        };
-
-        htsn: ht_shft_num {
+        htsn_old: ht_shft_num {
             compatible       = "zmk,behavior-hold-tap";
             label            = "HOLD_TAP_SHIFT_NUM";
             #binding-cells   = <2>;
@@ -445,26 +432,6 @@ TAP_DANCE_QUICK(td_sl,       bindings = <&sel_line>, <&ext_line>;)
             tapping-term-ms  = <TAPPING_TERM_MS>;
             quick-tap-ms     = <QUICK_TAP_MS>;
             bindings         = <&mo>, <&sk>;
-        };
-
-        ralt_rofi: ht_rofi_launcher {
-            compatible       = "zmk,behavior-hold-tap";
-            label            = "RALT_ROFI";
-            #binding-cells   = <2>;
-            flavor           = "hold-preferred";
-            tapping-term-ms  = <TAPPING_TERM_MS>;
-            quick-tap-ms     = <QUICK_TAP_MS>;
-            bindings         = <&kp>, <&kp>;
-        };
-
-                      /* CAPS_WORD */
-
-        b_caps_word: b_caps_word {
-            compatible       = "zmk,behavior-caps-word";
-            label            = "B_CAPS_WORD";
-            #binding-cells   = <0>;
-            continue-list    = <UNDERSCORE MINUS BACKSPACE DELETE FSLH>;
-            mods             = <(MOD_LSFT | MOD_RSFT)>;
         };
 
                       /* MOD MORPH */
@@ -486,81 +453,6 @@ TAP_DANCE_QUICK(td_sl,       bindings = <&sel_line>, <&ext_line>;)
         };
 
                       /* TAP DANCE */
-
-        tddm_old: tap_delete_mvcl {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DELETE_MOVE_CLIENT";
-            #binding-cells   = <0>;
-            tapping-term-ms  = <TAPPING_TERM_MS>;
-            bindings         = <&kp DELETE>, <&kp LG(S)>;
-        };
-
-        td_up_home_old: td_up_home {
-            compatible       ="zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_PAGE_UP_HOME"; 
-            #binding-cells   = <0>;
-            tapping-term-ms  = <TAPPING_TERM_MS>;
-            bindings         = <&kp PAGE_UP>, <&kp HOME>;
-        };
-
-        td_down_end_old: td_down_end {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_PAGE_DOWN_END"; 
-            #binding-cells   = <0>;
-            tapping-term-ms  = <TAPPING_TERM_MS>;
-            bindings         = <&kp PAGE_DOWN>, <&kp END>;
-        };
-
-        td_sw_old: tap_sw {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_SELECT_WORD_W"; 
-            #binding-cells   = <0>;
-            tapping-term-ms  = <TAPPING_TERM_MS>;
-            bindings         = <&sel_word>, <&ext_word>;
-        };
-
-        td_sl_old: tap_sl {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_SELECT_LINE_E";
-            #binding-cells   = <0>;
-            tapping-term-ms  = <TAPPING_TERM_MS>;
-            bindings         = <&sel_line>, <&ext_line>;
-        };       
-
-        td_paste_undo: tap_paste_undo {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_PASTE_UNDO";
-            #binding-cells   = <0>;
-            tapping-term-ms  = <QUICK_TAP_MS>;
-            bindings         = <&kp LC(V)>, <&kp LC(Z)>;
-        };
-
-        td_ct: tap_ct {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_COPY_CUT";
-            #binding-cells   = <0>;
-            tapping-term-ms  = <QUICK_TAP_MS>;
-            bindings         = <&kp LC(C)>, <&kp LC(X)>;
-        };
-
-        td_ext: tap_ext {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_EXTENSIONS";
-            #binding-cells   = <0>;
-            tapping-term-ms  = <300>;
-            bindings         = <&kp LC(F8)>
-                             , <&kp LC(F9)>
-                             , <&kp LC(F10)>;
-        };
-
-        app_shift: app_shift {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_APPSWITCH";
-            #binding-cells   = <0>;
-            tapping-term-ms  = <100>;
-            bindings         = <&gqt_th LGUI RETURN>
-                             , <&alt_tab>;
-        };
 
         left_thumb: left_thumb {
             compatible       = "zmk,behavior-tap-dance";
@@ -632,16 +524,6 @@ TAP_DANCE_QUICK(td_sl,       bindings = <&sel_line>, <&ext_line>;)
 /************************************************************/
                         /* Macros */
 /************************************************************/ 
-
-ZMKMACRO(alt_tab,
-    wait-ms = <40>;
-    tap-ms = <40>;
-    bindings
-        = <&macro_press &kp LALT>
-        , <&macro_tap &kp TAB>
-        , <&macro_pause_for_release>
-        , <&macro_release &kp LALT>;
-)
 
 ZMKMACRO(rgb_test,
     wait-ms = <0>;
