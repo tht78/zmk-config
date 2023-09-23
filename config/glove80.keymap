@@ -211,12 +211,12 @@
     )
 
 /* Hold-preferred Hold-Tap */
-#define HOLD_TAP_HOLD_PREFERRED(NAME, ...) \
-    HOLD_TAP(NAME, \
-        flavor           = "hold-preferred"; \
-        tapping-term-ms  = <TAPPING_TERM_MS>;
-        quick_tap_ms     = <QUICK_TAP_MS>;
-        __VA_ARGS__ \
+#define HOLD_TAP_HOLD_PREFERRED(NAME, ...)    \
+    HOLD_TAP(NAME,                            \
+        flavor           = "hold-preferred";  \
+        tapping-term-ms  = <TAPPING_TERM_MS>; \
+        quick_tap_ms     = <QUICK_TAP_MS>;    \
+        __VA_ARGS__                           \
     )
 
 /* Mod-Morph helper */
