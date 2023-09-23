@@ -178,6 +178,19 @@
         bindings                   = <&kp>, <&kp>;                                                        \
     )
 
+/* "Timerless" home row mod */
+#define HOME_ROW_MOD_LT(NAME, KEY_POSITIONS)                                                                 \
+    ZMK_BEHAVIOR(NAME, 											                                                              \
+        compatible                 = "zmk,behavior-hold-tap";                                             \
+        #binding-cells             = <2>;                                                                 \
+        flavor                     = "balanced";                        /* Fast hold behavior */          \
+        tapping-term-ms            = <HOME_ROW_MODS_TAPPING_TERM_MS>;   /* Mouse usage */                 \
+        quick-tap-ms               = <HOME_ROW_MODS_QUICK_TAP_MS>;      /* Typing cool down */            \
+        global-quick-tap;                                               /* Lockout when typing quickly */ \
+        hold-trigger-key-positions = <KEY_POSITIONS>;                   /* Use opposite hand */           \
+        bindings                   = <&mo>, <&kp>;                                                        \
+    )
+
 /* Tap-dance helper */
 #define TAP_DANCE_QUICK(NAME, ...) \
     ZMK_BEHAVIOR(NAME, \
@@ -348,14 +361,18 @@
 HOME_ROW_MOD(lhm, RIGHT_HAND_KEYS THUMB_KEYS)
 HOME_ROW_MOD(rhm, LEFT_HAND_KEYS THUMB_KEYS)
 
+HOME_ROW_MOD_LT(lhmlt, RIGHT_HAND_KEYS THUMB_KEYS)
+HOME_ROW_MOD_LT(rhmlt, LEFT_HAND_KEYS THUMB_KEYS)
+
 /*****************************************************************************/
                                 /* Behaviors Functions */
 /*****************************************************************************/
 
-HOLD_TAP_BALANCED(gqt_mo,
-            tapping-term-ms  = <TAPPING_TERM_MS>;
-            quick_tap_ms     = <QUICK_TAP_MS>;
-            bindings         = <&mo>, <&kp>;
+ZMK_BEHAVIOR(colon_semi,
+            compatible       = "zmk,behavior-mod-morph";
+            #binding-cells   = <0>;
+            bindings         = <&kp COLON>, <&kp SEMICOLON>;
+            mods             = <(MOD_LSFT|MOD_RSFT)>;
 )
 
 HOLD_TAP_HOLD_PREFERRED(ht_hp,  bindings = <&kp>, <&kp>;)
@@ -426,16 +443,7 @@ TAP_DANCE_CUSTOM(rth_6,         tapping-term-ms = <TAPPING_TERM_MS>;
     behaviors {
 
                       /* MOD MORPH */
-                      
-        bspc_del: backspace_del {
-            compatible       = "zmk,behavior-mod-morph";
-            label            = "BACKSPACE_DELETE";
-            #binding-cells   = <0>;
-            bindings         = <&kp BACKSPACE>, <&kp DEL>;
-            mods             = <(MOD_LCTL|MOD_RCTL)>;
-        };
-
-        colon_semi: colon_semi {
+        colon_semi_old: colon_semi {
             compatible       = "zmk,behavior-mod-morph";
             label            = "COLON_SEMICOLON";
             #binding-cells   = <0>;
@@ -443,73 +451,6 @@ TAP_DANCE_CUSTOM(rth_6,         tapping-term-ms = <TAPPING_TERM_MS>;
             mods             = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-                      /* TAP DANCE */
-
-        left_thumb: left_thumb {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_TABS_SPACE_ALTTAB";
-            #binding-cells   = <0>;
-            tapping-term-ms  = <300>;
-            bindings         = <&ht_hp SPACE LC(TAB)>
-                             , <&kp RC(RETURN)>;
-        };
-
-        right_thumb: right_thumb {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_TABS_LAST-WINDOW";
-            #binding-cells   = <0>;
-            tapping-term-ms  = <300>;
-            bindings         = <&kp LC(LS(TAB))>
-                             , <&kp LG(ESCAPE)>;
-        };
-
-        td_tags: tap_tags {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_TAGS";
-            #binding-cells   = <0>;
-            tapping-term-ms  = <300>;
-            bindings         = <&ht_hp LALT LG(KP_N1)>
-                             , <&kp LG(KP_N2)>
-                             , <&kp LG(KP_N3)>
-                             , <&kp LG(KP_N4)>;
-        };
-
-        trb1: trb_1 {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_THUMB_RIGHT_BOTTOM_1";
-            #binding-cells   = <0>;
-            tapping-term-ms  = <300>;
-            bindings         = <&ht_hpm RALT LA(SPACE)>
-                             , <&kp LALT >;
-        };
-
-        trb2: trb_2 {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_THUMB_RIGHT_BOTTOM_2";
-            #binding-cells   = <0>;
-            tapping-term-ms  = <100>;
-            bindings         = <&htsn 3 LSHFT>
-                             , <&tog 3 >;
-        };
-
-        trb3: trb_3 {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_THUMB_RIGHT_BOTTOM_3";
-            #binding-cells   = <0>;
-            tapping-term-ms  = <300>;
-            bindings         = <&lt 1 RETURN>
-                             , <&tog 1 >;
-        };
-
-        td_obs: tap_obs {
-            compatible       = "zmk,behavior-tap-dance";
-            label            = "TAP_DANCE_OBSIDIAN";
-            #binding-cells   = <0>;
-            tapping-term-ms  = <300>;
-            bindings         = <&kp LC(LS(TAB))>
-                             , <&kp LA(P)>
-                             , <&kp LA(O)>;
-        };
     };
 
 /************************************************************/
@@ -560,7 +501,7 @@ FAST_MACRO(ext_line,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭   Holdtap      ╮╭   Layertap    ╮╭   Tapdance     ╮                                                         ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp AT_SIGN   &kp Q         &kp W         &kp E         &kp R         &kp T                                                                                                                         &kp Y         &kp U         &kp I         &kp O         &kp P         &kp F12
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╰ GUI, Return    ╯╰ Layer 3, SPACE╯╰ LAlt, GUI 1-4  ╯                                                         ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp APOS      &kp A        &lhm LCTRL S  &lhm LSHFT D   &gqt_mo 1 F   &kp G                                                                                                                         &kp H         &gqt_mo 1 J  &rhm RSHFT K  &rhm RCTRL L   &kp RETURN    &kp NUBS
+     &kp APOS      &kp A        &lhm LCTRL S  &lhm LSHFT D   &lhmlt 1 F    &kp G                                                                                                                         &kp H         &rhmlt 1 J    &rhm RSHFT K  &rhm RCTRL L  &kp RETURN    &kp NUBS
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭────────────────┬─────────────────┬─────────────────╮ ╭────────────────┬─────────────────┬─────────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &lth_1           &lth_2            &lth_3              &rth_1           &rth_2            &rth_3              &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
