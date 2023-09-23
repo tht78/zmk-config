@@ -362,63 +362,31 @@ HOLD_TAP_HOLD_PREFERRED(ht_hp,  bindings = <&kp>, <&kp>;)
 HOLD_TAP_HOLD_PREFERRED(ht_hpm, bindings = <&mt>, <&kp>;)
 HOLD_TAP_HOLD_PREFERRED(htsn,   bindings = <&mo>, <&sk>;)
 
-TAP_DANCE_QUICK(tddm,          bindings = <&kp DELETE>,    <&kp LG(S)>;)
-TAP_DANCE_QUICK(td_up_home,    bindings = <&kp PAGE_UP>,   <&kp HOME>;)
-TAP_DANCE_QUICK(td_down_end,   bindings = <&kp PAGE_DOWN>, <&kp DOWN>;)
-TAP_DANCE_QUICK(td_sw,         bindings = <&sel_word>,     <&ext_word>;)
-TAP_DANCE_QUICK(td_sl,         bindings = <&sel_line>,     <&ext_line>;)
-TAP_DANCE_QUICK(td_paste_undo, bindings = <&kp LC(V)>,     <&kp LC(Z)>;)
-TAP_DANCE_QUICK(td_ct,         bindings = <&kp LC(C)>,     <&kp LC(X)>;)
+TAP_DANCE_QUICK(tddm,           bindings = <&kp DELETE>,    <&kp LG(S)>;)
+TAP_DANCE_QUICK(td_up_home,     bindings = <&kp PAGE_UP>,   <&kp HOME>;)
+TAP_DANCE_QUICK(td_down_end,    bindings = <&kp PAGE_DOWN>, <&kp DOWN>;)
+TAP_DANCE_QUICK(td_sw,          bindings = <&sel_word>,     <&ext_word>;)
+TAP_DANCE_QUICK(td_sl,          bindings = <&sel_line>,     <&ext_line>;)
+TAP_DANCE_QUICK(td_paste_undo,  bindings = <&kp LC(V)>,     <&kp LC(Z)>;)
+TAP_DANCE_QUICK(td_copy_paste,  bindings = <&kp LC(C)>,     <&kp LC(V)>;)
 
-TAP_DANCE_CUSTOM(td_ext,       tapping-term-ms = <THUMB_TAP_MS>;
-                               bindings = <&kp LC(F8)>,    <&kp LC(F9)>,   <&kp LC(F9)>;
+TAP_DANCE_CUSTOM(td_ext,        tapping-term-ms = <THUMB_TAP_MS>;
+                                bindings = <&kp LC(F8)>,    <&kp LC(F9)>,   <&kp LC(F9)>;
 )
 
-TAP_DANCE_CUSTOM(lth_4,        tapping-term-ms = <TAPPING_TERM_MS>;
-                               bindings = <&ht_hp LGUI RETURN>, <&kp LG(D)>;
+TAP_DANCE_CUSTOM(lth_4,         tapping-term-ms = <TAPPING_TERM_MS>;
+                                bindings = <&ht_hp LGUI RETURN>, <&kp LG(D)>;
 )
 
-TAP_DANCE_CUSTOM(lth_5,        tapping-term-ms = <TAPPING_TERM_MS>;
-                               bindings = <&lt 3 SPACE>, <&kp LC(RETURN)>;
+TAP_DANCE_CUSTOM(lth_5,         tapping-term-ms = <TAPPING_TERM_MS>;
+                                bindings = <&lt 3 SPACE>, <&kp LC(RETURN)>;
 )
 
 /*****************************************************************************/
                                 /* Behaviors */
 /*****************************************************************************/
+
     behaviors {
-
-                      /* Hold Taps */
-
-        gqt_th_old: global-quick-tap_th {
-            compatible       = "zmk,behavior-hold-tap";
-            label            = "GLOBAL_QUICK_TAP_TH";
-            #binding-cells   = <2>;
-            flavor           = "hold-preferred";
-            tapping-term-ms  = <TAPPING_TERM_MS>;
-            quick-tap-ms     = <200>;
-            bindings         = <&kp>, <&kp>;
-        };
-
-        gqt_mo_old: global-quick-tap-momentary-layer {
-            compatible       = "zmk,behavior-hold-tap";
-            label            = "GLOBAL_QUICK_TAP_MOMENTARY_LAYER";
-            #binding-cells   = <2>;
-            flavor           = "balanced";
-            tapping-term-ms  = <TAPPING_TERM_MS>;
-            quick-tap-ms     = <125>;
-            global-quick-tap;
-            bindings         = <&mo>, <&kp>;
-        };
-
-        htsn_old: ht_shft_num {
-            compatible       = "zmk,behavior-hold-tap";
-            label            = "HOLD_TAP_SHIFT_NUM";
-            #binding-cells   = <2>;
-            flavor           = "hold-preferred";
-            tapping-term-ms  = <TAPPING_TERM_MS>;
-            quick-tap-ms     = <QUICK_TAP_MS>;
-            bindings         = <&mo>, <&sk>;
-        };
 
                       /* MOD MORPH */
                       
@@ -559,7 +527,7 @@ FAST_MACRO(ext_line,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭────────────────┬─────────────────┬─────────────────╮ ╭────────────────┬─────────────────┬─────────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &td_ext          &tddm             &left_thumb         &right_thumb           &kp LA(P)   &kp LA(O)           &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 2 0    &kp ESCAPE    &bspc_del     &td_ct        &td_paste_undo                &lth_4       &lth_5       &td_tags            &ht_hpm RALT LA(SPACE) &trb2       &trb3                             &bspc_del     &kp ESCAPE    &colon_semi   &kp UNDER     &rgb_test
+     &magic 2 0    &kp LG(ESC)    &bspc_del     &kp ESC        &td_copy_paste                &lth_4       &lth_5       &td_tags            &ht_hpm RALT LA(SPACE) &trb2       &trb3                             &bspc_del     &kp ESCAPE    &colon_semi   &kp UNDER     &rgb_test
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰────────────────┼─────────────────┼─────────────────╯ ╰────────────────┼─────────────────┼─────────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
