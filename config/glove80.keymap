@@ -397,7 +397,7 @@ TAP_DANCE_QUICK(td_paste_undo,  bindings = <&kp LC(V)>,     <&kp LC(Z)>;)
 TAP_DANCE_QUICK(td_copy_paste,  bindings = <&kp LC(C)>,     <&kp LC(V)>;)
 
 TAP_DANCE_CUSTOM(lth_1,         tapping-term-ms = <THUMB_TAP_MS>;
-                                bindings = <&kp LC(F8)>,    <&kp LC(F9)>,   <&kp LC(F10)>;
+                                bindings = <&kp LC(F8)>,    <&kp LC(F9)>,   <&kp LC(F109)>;
 )
 
 TAP_DANCE_QUICK(lth_2,          bindings = <&kp DELETE>,    <&kp LG(S)>;)
@@ -410,7 +410,7 @@ TAP_DANCE_CUSTOM(lth_4,         tapping-term-ms = <TAPPING_TERM_MS>;
                                 bindings = <&ht_hp LGUI RETURN>, <&kp LC(RETURN)>;
 )
 
-TAP_DANCE_CUSTOM(lth_5,         tapping-term-ms = <QUICK_TAP_MS>;
+TAP_DANCE_CUSTOM(lth_5,         tapping-term-ms = <200>;
                                 bindings = <&lh_th_5 3 SPACE>, <&kp LG(D)>;
 )
 
@@ -438,7 +438,7 @@ TAP_DANCE_CUSTOM(rth_4,         tapping-term-ms = <THUMB_TAP_MS>;
                                 bindings = <&ht_hpm RALT LA(SPACE)>, <&to 0>;    /* TBD */
 )
 
-TAP_DANCE_CUSTOM(rth_5,         tapping-term-ms = <QUICK_TAP_MS>;
+TAP_DANCE_CUSTOM(rth_5,         tapping-term-ms = <200>;
                                 bindings = <&rh_th_5 3 LSHFT>, <&kp LG(ESCAPE)>;  /* TBD */
 )
 
