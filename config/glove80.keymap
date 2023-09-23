@@ -204,10 +204,10 @@
     )
 
 /* Balanced Hold-Tap for home row mods and thumb layer keys */
-#define HOLD_TAP_BALANCED(NAME, ...) \
-    HOLD_TAP(NAME, \
-        flavor           = "balanced";  /* Fast hold */ \
-        __VA_ARGS__ \
+#define HOLD_TAP_BALANCED(NAME, ...)   \
+    HOLD_TAP(NAME,                     \
+        flavor           = "balanced"; \
+        __VA_ARGS__                    \
     )
 
 /* Hold-preferred Hold-Tap */
@@ -361,7 +361,6 @@ HOLD_TAP_BALANCED(gqt_mo,
 HOLD_TAP_HOLD_PREFERRED(ht_hp,  bindings = <&kp>, <&kp>;)
 HOLD_TAP_HOLD_PREFERRED(ht_hpm, bindings = <&mt>, <&kp>;)
 HOLD_TAP_HOLD_PREFERRED(htsn,   bindings = <&mo>, <&sk>;)
-HOLD_TAP_HOLD_PREFERRED(lth_5,  bindings = <&lt>, <&kp>;)
 
 TAP_DANCE_QUICK(tddm,          bindings = <&kp DELETE>,    <&kp LG(S)>;)
 TAP_DANCE_QUICK(td_up_home,    bindings = <&kp PAGE_UP>,   <&kp HOME>;)
@@ -377,6 +376,10 @@ TAP_DANCE_CUSTOM(td_ext,       tapping-term-ms = <THUMB_TAP_MS>;
 
 TAP_DANCE_CUSTOM(lth_4,        tapping-term-ms = <TAPPING_TERM_MS>;
                                bindings = <&ht_hp LGUI RETURN>, <&kp LG(D)>;
+)
+
+TAP_DANCE_CUSTOM(lth_5,        tapping-term-ms = <TAPPING_TERM_MS>;
+                               bindings = <&lt 3 SPACE>, <&kp LC(RETURN)>;
 )
 
 /*****************************************************************************/
@@ -556,7 +559,7 @@ FAST_MACRO(ext_line,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭────────────────┬─────────────────┬─────────────────╮ ╭────────────────┬─────────────────┬─────────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &td_ext          &tddm             &left_thumb         &right_thumb           &kp LA(P)   &kp LA(O)           &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├────────────────┼─────────────────┼─────────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 2 0    &kp ESCAPE    &bspc_del     &td_ct        &td_paste_undo                &lth_4       &lth_5 3 SPACE       &td_tags            &ht_hpm RALT LA(SPACE) &trb2       &trb3                             &bspc_del     &kp ESCAPE    &colon_semi   &kp UNDER     &rgb_test
+     &magic 2 0    &kp ESCAPE    &bspc_del     &td_ct        &td_paste_undo                &lth_4       &lth_5       &td_tags            &ht_hpm RALT LA(SPACE) &trb2       &trb3                             &bspc_del     &kp ESCAPE    &colon_semi   &kp UNDER     &rgb_test
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰────────────────┼─────────────────┼─────────────────╯ ╰────────────────┼─────────────────┼─────────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
