@@ -156,14 +156,6 @@
         bindings      = <BINDINGS>;               \
     };
 
-#define ZMK_COMBO_NUM(NAME, KEY_POSITIONS, BINDINGS)  \
-    NAME {                                        \
-        timeout-ms    = <COMBO_TIMEOUT_MS>;       \
-        key-positions = <KEY_POSITIONS>;          \
-        layers        = <2>;                      \
-        bindings      = <BINDINGS>;               \
-    };
-
 /* Create a ZMK behavior without having to specify the name three times */
 #define ZMK_BEHAVIOR(NAME, ...)                   \
     behaviors {                                   \
@@ -363,7 +355,6 @@
         ZMK_COMBO(combo_caret,           0, 25 30, &kp CARET)           /* Home row both hands, E & I */
         ZMK_COMBO(combo_grave,           0, 48 61, &kp GRAVE)           /* Home row both hands, X & C */
 
-        /* NUM Layer */
         ZMK_COMBO(combo_plus,            2, 41 42, &kp PLUS)
         ZMK_COMBO(combo_minus,           2, 42 43, &kp MINUS)
         ZMK_COMBO(combo_divide,          2, 29 30, &kp KP_DIVIDE)
@@ -493,7 +484,7 @@ FAST_MACRO(dot_sk,
         &macro_tap &kp DOT
         &macro_tap &kp SPACE
         &macro_tap &sk LSHFT
-        )
+)
 
 /************************************************************/
                         /* Keymap */
