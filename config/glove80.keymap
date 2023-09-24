@@ -155,6 +155,14 @@
         bindings      = <BINDINGS>;               \
     };
 
+#define ZMK_COMBO_NUM(NAME, KEY_POSITIONS, BINDINGS)  \
+    NAME {                                        \
+        timeout-ms    = <COMBO_TIMEOUT_MS>;       \
+        key-positions = <KEY_POSITIONS>;          \
+        layers        = <2>;                      \
+        bindings      = <BINDINGS>;               \
+    };
+
 /* Create a ZMK behavior without having to specify the name three times */
 #define ZMK_BEHAVIOR(NAME, ...)                   \
     behaviors {                                   \
@@ -353,6 +361,14 @@
         ZMK_COMBO(combo_percent,         36 43, &kp PERCENT)         /* Home row both hands, S & L */
         ZMK_COMBO(combo_caret,           25 30, &kp CARET)           /* Home row both hands, E & I */
         ZMK_COMBO(combo_grave,           48 61, &kp GRAVE)           /* Home row both hands, X & C */
+
+        /* NUM Layer */
+        ZMK_COMBO_NUM(combo_plus,        41 42, &kp PLUS)
+        ZMK_COMBO_NUM(combo_minus,       42 43, &kp MINUS)
+        ZMK_COMBO_NUM(combo_divide,      29 30, &kp KP_DIVIDE)
+        ZMK_COMBO_NUM(combo_multiply,    30 31, &kp KP_MULTIPLY)
+        ZMK_COMBO_NUM(combo_comma,       59 60, &kp KP_COMMA)
+        ZMK_COMBO_NUM(combo_dot,         60 61, &kp KP_DOT)
     };
 
 /*****************************************************************************/
@@ -524,9 +540,9 @@ FAST_MACRO(dot_sk,
         layer_NumPad {
             bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-     &trans        &trans        &trans        &trans        &trans                                                                                                                                    &kp KP_NUM   &trans       &trans        &trans        &kp CLEAR
+     &trans        &trans        &trans        &trans        &trans                                                                                                                                    &kp KP_NUM   &trans       &trans        &trans        &kp K_WWW
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &trans        &trans        &trans        &trans                                                                                                      &kp KP_MULTIPLY &trans       &trans       &trans        &trans        &kp C_PWR
+     &trans        &trans        &trans        &trans        &trans        &trans                                                                                                      &kp KP_MULTIPLY &trans       &trans       &trans        &trans        &kp K_SLEEP
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans        &kp HOME      &kp PG_UP     &trans                                                                                                      &kp KP_SLASH    &kp KP_N7    &kp KP_N8    &kp KP_N9     &kp PSCRN     &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
