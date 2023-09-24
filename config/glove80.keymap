@@ -374,9 +374,8 @@ SHIFT_MORPH(comma_semi, &td_comma_semi, &kp SEMICOLON)
 
 HOLD_TAP_HOLD_PREFERRED(ht_hp,  bindings = <&kp>, <&kp>;)
 HOLD_TAP_HOLD_PREFERRED(ht_hpm, bindings = <&mt>, <&kp>;)
-HOLD_TAP_HOLD_PREFERRED(htsn,   bindings = <&mo>, <&sk>;)
 
-HOLD_TAP(lh_th_5, 
+HOLD_TAP(ht_mo_kp, 
     flavor = "tap-preferred";
     tapping-term-ms = <125>;
     quick_tap_ms    = <120>;
@@ -410,10 +409,10 @@ TAP_DANCE_CUSTOM(lth_3,         tapping-term-ms = <TAPPING_TERM_MS>;
                                 bindings = <&ht_hp SPACE LC(TAB)>, <&kp LG(ESCAPE)>;)
 
 TAP_DANCE_CUSTOM(lth_4,         tapping-term-ms = <TAPPING_TERM_MS>;
-                                bindings = <&ht_hp LGUI RETURN>, <&kp LC(RETURN)>;)
+                                bindings = <&ht_mo_kp 2 RETURN>, <&kp LC(RETURN)>;)
 
 TAP_DANCE_CUSTOM(lth_5,         tapping-term-ms = <TAPPING_TERM_MS>;
-                                bindings = <&lh_th_5 2 SPACE>, <&kp LG(D)>;)
+                                bindings = <&ht_hp LGUI SPACE>, <&kp LG(D)>;)
 
 TAP_DANCE_CUSTOM(lth_6,         tapping-term-ms = <THUMB_TAP_MS>;
                                 bindings        = 
