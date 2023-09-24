@@ -375,18 +375,18 @@ HOLD_TAP_HOLD_PREFERRED(ht_hp,  bindings = <&kp>, <&kp>;)
 HOLD_TAP_HOLD_PREFERRED(ht_hpm, bindings = <&mt>, <&kp>;)
 HOLD_TAP_HOLD_PREFERRED(htsn,   bindings = <&mo>, <&sk>;)
 
-HOLD_TAP(rh_th_5, 
-    flavor = "hold-preferred";
-    tapping-term-ms = <THUMB_TAP_MS>;
-    quick_tap_ms    = <TAPPING_TERM_MS>;
-    bindings        = <&mo>, <&sk>;
-  )
-
 HOLD_TAP(lh_th_5, 
     flavor = "tap-preferred";
     tapping-term-ms = <125>;
     quick_tap_ms    = <120>;
     bindings        = <&mo>, <&kp>;
+  )
+
+HOLD_TAP(rh_th_5, 
+    flavor = "hold-preferred";
+    tapping-term-ms = <THUMB_TAP_MS>;
+    quick_tap_ms    = <TAPPING_TERM_MS>;
+    bindings        = <&mo>, <&sk>;
   )
 
 TAP_DANCE_QUICK(td_up_home,     bindings = <&kp PAGE_UP>,   <&kp HOME>;)
@@ -395,7 +395,7 @@ TAP_DANCE_QUICK(td_sw,          bindings = <&sel_word>,     <&ext_word>;)
 TAP_DANCE_QUICK(td_sl,          bindings = <&sel_line>,     <&ext_line>;)
 TAP_DANCE_QUICK(td_paste_undo,  bindings = <&kp LC(V)>,     <&kp LC(Z)>;)
 TAP_DANCE_QUICK(td_copy_paste,  bindings = <&kp LC(C)>,     <&kp LC(V)>;)
-TAP_DANCE_QUICK(td_comma_semi,  bindings = <&kp COMMA>,      <&kp SEMICOLON>;)
+TAP_DANCE_QUICK(td_comma_semi,  bindings = <&kp COMMA>,     <&kp SEMICOLON>;)
 
 TAP_DANCE_CUSTOM(lth_1,         tapping-term-ms = <THUMB_TAP_MS>;
                                 bindings = <&kp LC(F8)>,    <&kp LC(F9)>,   <&kp LC(F10)>;
@@ -481,9 +481,9 @@ FAST_MACRO(ext_line,
 )
 
 FAST_MACRO(dot_sk,
-        &makro_tap &kp DOT
-        &makro_tap &kp SPACE
-        &makro_tap &sk LSHFT
+        &macro_tap &kp DOT
+        &macro_tap &kp SPACE
+        &macro_tap &sk LSHFT
         )
 
 /************************************************************/
