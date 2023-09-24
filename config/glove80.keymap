@@ -370,6 +370,7 @@ HOME_ROW_MOD_LT(rhmlt, LEFT_HAND_KEYS THUMB_KEYS)
 /*****************************************************************************/
 
 SHIFT_MORPH(colon_semi, &kp COLON, &kp SEMICOLON)
+SHIFT_MORPH(comma_semi, &td_comma_semi, &kp SEMICOLON)
 
 HOLD_TAP_HOLD_PREFERRED(ht_hp,  bindings = <&kp>, <&kp>;)
 HOLD_TAP_HOLD_PREFERRED(ht_hpm, bindings = <&mt>, <&kp>;)
@@ -396,6 +397,7 @@ TAP_DANCE_QUICK(td_sl,          bindings = <&sel_line>,     <&ext_line>;)
 TAP_DANCE_QUICK(td_paste_undo,  bindings = <&kp LC(V)>,     <&kp LC(Z)>;)
 TAP_DANCE_QUICK(td_copy_paste,  bindings = <&kp LC(C)>,     <&kp LC(V)>;)
 TAP_DANCE_QUICK(td_comma_semi,  bindings = <&kp COMMA>,     <&kp SEMICOLON>;)
+TAP_DANCE_QUICK(td_dot_sk,      bindings = <&kp DOT>,       <&dot_sk>;)
 
 TAP_DANCE_CUSTOM(lth_1,         tapping-term-ms = <THUMB_TAP_MS>;
                                 bindings = <&kp LC(F8)>,    <&kp LC(F9)>,   <&kp LC(F10)>;
@@ -504,7 +506,7 @@ FAST_MACRO(dot_sk,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp APOS      &kp A        &lhm LCTRL S  &lhm LSHFT D   &lhmlt 1 F    &kp G                                                                                                       &kp H         &rhmlt 1 J    &rhm RSHFT K  &rhm RCTRL L  &kp RETURN    &kp NUBS
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &lth_1        &lth_2         &lth_3           &rth_1        &rth_2         &rth_3           &kp N         &kp M         &td_comma_semi &dot_sk      &kp MINUS     &to 0
+     &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &lth_1        &lth_2         &lth_3           &rth_1        &rth_2         &rth_3           &kp N         &kp M         &td_comma_semi &td_dot_sk   &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &magic 3 0    &kp LG(ESC)   &kp BSPC      &kp ESC       &td_copy_paste                &lth_4        &lth_5         &lth_6           &rth_4        &rth_5         &rth_6                         &kp BSPC      &kp ESCAPE    &colon_semi   &kp UNDER     &rgb_test
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
