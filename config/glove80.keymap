@@ -182,7 +182,7 @@
     ZMK_BEHAVIOR(NAME, 											                                                              \
         compatible                 = "zmk,behavior-hold-tap";                                             \
         #binding-cells             = <2>;                                                                 \
-
+        flavor                     = "balanced";                        /* Fast hold behavior */          \
         tapping-term-ms            = <HOME_ROW_MODS_TAPPING_TERM_MS>;   /* Mouse usage */                 \
         quick-tap-ms               = <HOME_ROW_MODS_QUICK_TAP_MS>;      /* Typing cool down */            \
         global-quick-tap;                                               /* Lockout when typing quickly */ \
