@@ -377,17 +377,15 @@ HOLD_TAP_HOLD_PREFERRED(htsn,   bindings = <&mo>, <&sk>;)
 
 HOLD_TAP(rh_th_5, 
     flavor = "hold-preferred";
-    tapping-term-ms = <125>;
-    quick_tap_ms    = <120>;
-    global-quick-tap;
+    tapping-term-ms = <THUMB_TAP_MS>;
+    quick_tap_ms    = <TAPPING_TERM_MS>;
     bindings        = <&mo>, <&sk>;
   )
 
 HOLD_TAP(lh_th_5, 
     flavor = "tap-preferred";
-    tapping-term-ms = <THUMB_TAP_MS>;
-    quick_tap_ms    = <TAPPING_TERM_MS>;
-    global-quick-tap;
+    tapping-term-ms = <125>;
+    quick_tap_ms    = <120>;
     bindings        = <&mo>, <&kp>;
   )
 
@@ -397,7 +395,7 @@ TAP_DANCE_QUICK(td_sw,          bindings = <&sel_word>,     <&ext_word>;)
 TAP_DANCE_QUICK(td_sl,          bindings = <&sel_line>,     <&ext_line>;)
 TAP_DANCE_QUICK(td_paste_undo,  bindings = <&kp LC(V)>,     <&kp LC(Z)>;)
 TAP_DANCE_QUICK(td_copy_paste,  bindings = <&kp LC(C)>,     <&kp LC(V)>;)
-TAP_DANCE_QUICK(td_comma_semi,  bindings = <&kp COMMA,      <&kp SEMICOLON>;)
+TAP_DANCE_QUICK(td_comma_semi,  bindings = <&kp COMMA>,      <&kp SEMICOLON>;)
 
 TAP_DANCE_CUSTOM(lth_1,         tapping-term-ms = <THUMB_TAP_MS>;
                                 bindings = <&kp LC(F8)>,    <&kp LC(F9)>,   <&kp LC(F10)>;
@@ -405,7 +403,7 @@ TAP_DANCE_CUSTOM(lth_1,         tapping-term-ms = <THUMB_TAP_MS>;
 
 TAP_DANCE_QUICK(lth_2,          bindings = <&kp DELETE>,    <&kp LG(S)>;)
 
-TAP_DANCE_CUSTOM(lth_3,         tapping-term-ms = <THUMB_TAP_MS>;
+TAP_DANCE_CUSTOM(lth_3,         tapping-term-ms = <TAPPING_TERM_MS>;
                                 bindings = <&ht_hp SPACE LC(TAB)>, <&kp LG(ESCAPE)>;
 )
 
@@ -413,8 +411,8 @@ TAP_DANCE_CUSTOM(lth_4,         tapping-term-ms = <TAPPING_TERM_MS>;
                                 bindings = <&ht_hp LGUI RETURN>, <&kp LC(RETURN)>;
 )
 
-TAP_DANCE_CUSTOM(lth_5,         tapping-term-ms = <200>;
-                                bindings = <&lh_th_5 3 SPACE>, <&kp LG(D)>;
+TAP_DANCE_CUSTOM(lth_5,         tapping-term-ms = <TAPPING_TERM_MS>;
+                                bindings = <&lh_th_5 2 SPACE>, <&kp LG(D)>;
 )
 
 TAP_DANCE_CUSTOM(lth_6,         tapping-term-ms = <THUMB_TAP_MS>;
@@ -434,7 +432,7 @@ TAP_DANCE_CUSTOM(rth_2,         tapping-term-ms = <THUMB_TAP_MS>;
 )
 
 TAP_DANCE_CUSTOM(rth_3,         tapping-term-ms = <THUMB_TAP_MS>;
-                                bindings = <&kp LA(O)>, <&tog 3>;                /* VURDER */
+                                bindings = <&kp LA(O)>, <&tog 2>;                /* VURDER */
 )
 
 TAP_DANCE_CUSTOM(rth_4,         tapping-term-ms = <THUMB_TAP_MS>;
@@ -442,7 +440,7 @@ TAP_DANCE_CUSTOM(rth_4,         tapping-term-ms = <THUMB_TAP_MS>;
 )
 
 TAP_DANCE_CUSTOM(rth_5,         tapping-term-ms = <200>;
-                                bindings = <&rh_th_5 3 LSHFT>, <&kp LG(ESCAPE)>;  /* TBD */
+                                bindings = <&rh_th_5 2 LSHFT>, <&kp LG(ESCAPE)>;  /* TBD */
 )
 
 TAP_DANCE_CUSTOM(rth_6,         tapping-term-ms = <TAPPING_TERM_MS>;
@@ -508,7 +506,7 @@ FAST_MACRO(dot_sk,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &lth_1        &lth_2         &lth_3           &rth_1        &rth_2         &rth_3           &kp N         &kp M         &td_comma_semi &dot_sk      &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 2 0    &kp LG(ESC)   &kp BSPC      &kp ESC       &td_copy_paste                &lth_4        &lth_5         &lth_6           &rth_4        &rth_5         &rth_6                         &kp BSPC      &kp ESCAPE    &colon_semi   &kp UNDER     &rgb_test
+     &magic 3 0    &kp LG(ESC)   &kp BSPC      &kp ESC       &td_copy_paste                &lth_4        &lth_5         &lth_6           &rth_4        &rth_5         &rth_6                         &kp BSPC      &kp ESCAPE    &colon_semi   &kp UNDER     &rgb_test
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
@@ -526,25 +524,7 @@ FAST_MACRO(dot_sk,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans        &trans        &trans        &trans          &trans        &trans         &trans           &trans        &trans         &trans           &kp RCTRL     &kp LC(LEFT)  &td_sw        &kp LC(RIGHT) &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 2 0    &trans        &trans        &trans        &trans                        &trans        &trans         &trans           &trans        &trans         &trans                         &trans        &td_sl        &trans        &kp TILDE     &trans
-// ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
-            >;
-        };
-
-        layer_Magic {
-            bindings = <
-// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-     &bt BT_CLR    &none         &none         &none         &none                                                                                                                                   &none         &none         &none         &none         &bt BT_CLR_ALL
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &none         &none         &none         &none         &none         &none                                                                                                       &none         &none         &none         &none         &none         &none
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &none      &rgb_ug RGB_SPI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG                                                                                        &none         &none         &none         &none         &none         &none
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &bootloader &rgb_ug RGB_SPD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF                                                                                        &none         &none         &none         &none         &none         &bootloader
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &reset        &none         &none         &none         &none         &none           &bt_2         &bt_3          &none            &none         &none          &none            &none         &none         &none         &none         &none         &reset
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &none         &none         &none         &none         &none                         &bt_0         &bt_1          &out OUT_USB     &none         &none          &none                          &none         &none         &none         &none         &none
+     &magic 3 0    &trans        &trans        &trans        &trans                        &trans        &trans         &trans           &trans        &trans         &trans                         &trans        &td_sl        &trans        &kp TILDE     &trans
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
             >;
         };
@@ -563,6 +543,24 @@ FAST_MACRO(dot_sk,
      &trans        &trans        &trans        &kp END       &kp PG_DN     &trans          &trans        &trans         &trans           &trans        &trans         &trans           &kp KP_MINUS    &kp KP_N1    &kp KP_N2    &kp KP_N3     &kp COMMA     &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans        &kp K_APP     &kp K_COPY                    &trans        &trans         &trans           &trans        &trans         &trans                           &trans       &kp KP_N0    &kp DOT       &colon_semi   &trans
+// ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
+            >;
+        };
+
+        layer_Magic {
+            bindings = <
+// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+     &bt BT_CLR    &none         &none         &none         &none                                                                                                                                   &none         &none         &none         &none         &bt BT_CLR_ALL
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &none         &none         &none         &none         &none         &none                                                                                                       &none         &none         &none         &none         &none         &none
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &none      &rgb_ug RGB_SPI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG                                                                                        &none         &none         &none         &none         &none         &none
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    &bootloader &rgb_ug RGB_SPD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF                                                                                        &none         &none         &none         &none         &none         &bootloader
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &reset        &none         &none         &none         &none         &none           &bt_2         &bt_3          &none            &none         &none          &none            &none         &none         &none         &none         &none         &reset
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     &none         &none         &none         &none         &none                         &bt_0         &bt_1          &out OUT_USB     &none         &none          &none                          &none         &none         &none         &none         &none
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
             >;
         };
