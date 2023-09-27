@@ -324,7 +324,8 @@
         ZMK_COMBO(combo_asterisk,        36 37, &kp STAR)            /* D & S, Home row left hand, 0-gap */
         ZMK_COMBO(combo_enter_lh,        37 38, &kp ENTER)           /* F & D, Home row left hand, 0-gap */
 
-        ZMK_COMBO(combo_lessthan_lh,     48 49, &kp LT)              /* S & D, BTM  row left hand, 0-gap */
+        ZMK_COMBO(combo_lessthan_lh,     48 49, &kp LT)              /* X & C, BTM  row left hand, 0-gap */
+        ZMK_COMBO(combo_greaterthan_rh,  49 50, &kp GT)              /* C & V, BTM  row left hand, 0-gap */
 
         /* ----------------------------- Right Hand ------------------------------------------------------*/
         ZMK_COMBO(combo_lbracket_rh,     17 18, &kp LBKT)            /* 7 & 8, Num  row right hand, 0-gap */
@@ -340,7 +341,6 @@
         ZMK_COMBO(combo_rcurly_rh,       42 43, &kp RBRC)            /* K & L, Home row right hand, 0-gap */
         ZMK_COMBO(combo_tab_rh,          41 43, &kp TAB)             /* J & L, Home row right hand, 1-gap */
 
-        ZMK_COMBO(combo_greaterthan_rh,  60 61, &kp GT)              /* , & ., BTM  row right hand, 0-gap */
         ZMK_COMBO(combo_lparantheses_rh, 59 60, &kp LPAR)            /* M & ,, BTM  row right hand, 0-gap */
         ZMK_COMBO(combo_rparantheses_rh, 60 61, &kp RPAR)            /* , & .  BTM  row right hand, 0-gap */
 
@@ -462,6 +462,15 @@ ZMKMACRO(rgb_test,
         , <&macro_tap &rgb_ug RGB_COLOR_HSB(300,100,50)>;
 )
 
+ZMKMACRO(alttab,
+    wait-ms = <100>;
+    tap-ms = <50>;
+    bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp TAP 
+        , <&macro_release &kp LALT>;
+)
+
 FAST_MACRO(sel_word,
         &macro_tap &kp LC(RIGHT)
         &macro_wait_time 1
@@ -498,7 +507,7 @@ FAST_MACRO(dot_sk,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      &kp F1        &kp F2        &kp  F3       &kp F4        &kp F5                                                                                                                                  &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &kp N1        &kp  N2       &kp N3        &kp N4        &kp N5                                                                                                      &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp F11
+     &alttab       &kp N1        &kp  N2       &kp N3        &kp N4        &kp N5                                                                                                      &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp F11
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &kp Q         &kp W         &kp E         &kp R         &kp T                                                                                                       &kp Y         &kp U         &kp I         &kp O         &kp P         &kp F12
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -506,7 +515,7 @@ FAST_MACRO(dot_sk,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &lth_1        &lth_2         &lth_3           &rth_1        &rth_2         &rth_3           &kp N         &kp M         &td_comma_semi &td_dot_sk   &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 3 0    &kp LG(ESC)   &kp BSPC      &kp ESC       &td_copy_paste                &key_repeat   &lth_5         &lth_6           &rth_4        &rth_5         &rth_6                         &kp BSPC      &kp ESCAPE    &colon_semi   &kp UNDER     &rgb_test
+     &magic 3 0    &trans        &kp bspc      &kp esc       &td_copy_paste                &key_repeat   &lth_5         &lth_6           &rth_4        &rth_5         &rth_6                         &kp BSPC      &kp ESCAPE    &colon_semi   &kp UNDER     &rgb_test
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
