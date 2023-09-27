@@ -388,7 +388,7 @@ HOLD_TAP(ht_mo_kp,
     flavor = "tap-preferred";
     tapping-term-ms = <125>;
     quick_tap_ms    = <120>;
-    bindings        = <&mo>, <&key_repeat>;)
+    bindings        = <&mo>, <&kp>;)
 
 HOLD_TAP(rh_th_5, 
     flavor = "hold-preferred";
