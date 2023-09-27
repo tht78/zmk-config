@@ -317,13 +317,13 @@
         compatible = "zmk,combos";
 
         /* Left Hand */
-        ZMK_COMBO(combo_asterisk_lh,     25 26, &kp STAR)            /* R & E, Top  row left hand, 0-gap */
+        ZMK_COMBO(combo_quotes,          24 25, &kp DQT)             /* W & E, Top  row left hand, 0-gap */
+        ZMK_COMBO(combo_tab_lh,          25 26, &kp TAB)             /* R & E, Top  row left hand, 0-gap */
         ZMK_COMBO(combo_exclamation_lh,  24 26, &kp EXCL)            /* R & W, Top  row left hand, 1-gap */
-        ZMK_COMBO(combo_at_lh,           24 25, &kp AT)              /* E & W, Top  row left hand, 0-gap */
 
-        ZMK_COMBO(combo_question_lh,     37 38, &kp QMARK)           /* F & D, Home row left hand, 0-gap */
-        ZMK_COMBO(combo_tab_lh,          36 38, &kp TAB)             /* F & S, Home row left hand, 1-gap */
-        ZMK_COMBO(combo_quotes_lh,       36 37, &kp DQT)             /* D & S, Home row left hand, 0-gap */
+        ZMK_COMBO(combo_enter_lh,        37 38, &kp ENTER)           /* F & D, Home row left hand, 0-gap */
+        ZMK_COMBO(combo_star_lh,         36 37, &kp STAR)            /* D & S, Home row left hand, 0-gap */
+        ZMK_COMBO(combo_tab_lh,          38 39, &kp TAB)             /* F & G, Home row left hand, 0-gap */
 
         /* Right Hand */
         ZMK_COMBO(combo_lbracket_rh,     17 18, &kp LBKT)            /* Num  row right hand, 0-gap */
@@ -334,9 +334,10 @@
         ZMK_COMBO(combo_and_rh,          28 29, &kp AMPS)            /* Top  row right hand, 0-gap */
         ZMK_COMBO(combo_equals_rh,       29 31, &kp EQUAL)           /* Top  row right hand, 1-gap */
 
-        ZMK_COMBO(combo_lcurly_rh,       41 42, &kp LBRC)            /* Home row right hand, 0-gap */
-        ZMK_COMBO(combo_rcurly_rh,       42 43, &kp RBRC)            /* Home row right hand, 0-gap */
-        ZMK_COMBO(combo_tab_rh,          41 43, &kp TAB)             /* Home row right hand, 1-gap */
+        ZMK_COMBO(combo_star_rh,         40 41, &kp STAR)            /* H & J, Home row right hand, 0-gap */
+        ZMK_COMBO(combo_lcurly_rh,       41 42, &kp LBRC)            /* J & K, Home row right hand, 0-gap */
+        ZMK_COMBO(combo_rcurly_rh,       42 43, &kp RBRC)            /* K & L, Home row right hand, 0-gap */
+        ZMK_COMBO(combo_tab_rh,          41 43, &kp TAB)             /* J & L, Home row right hand, 1-gap */
 
         ZMK_COMBO(combo_slash_rh,        59 60, &kp SLASH)           /* Btm  row right hand, 0-gap */
         ZMK_COMBO(combo_backslash_rh,    60 61, &kp BACKSLASH)       /* Btm  row right hand, 0-gap */
@@ -391,7 +392,7 @@ HOLD_TAP(ht_mo_kp,
 
 HOLD_TAP(rh_th_5, 
     flavor = "hold-preferred";
-    tapping-term-ms = <THUMB_TAP_MS>;
+    tapping-term-ms = <125>;
     quick_tap_ms    = <100>;
     bindings        = <&mo>, <&sk>;)
 
@@ -402,7 +403,7 @@ TAP_DANCE_QUICK(td_sl,          bindings = <&sel_line>,     <&ext_line>;)
 TAP_DANCE_QUICK(td_paste_undo,  bindings = <&kp LC(V)>,     <&kp LC(Z)>;)
 TAP_DANCE_QUICK(td_copy_paste,  bindings = <&kp LC(C)>,     <&kp LC(V)>;)
 
-TAP_DANCE_CUSTOM(td_comma_semi, tapping-term-ms = <THUMB_TAP_MS>;
+TAP_DANCE_CUSTOM(td_comma_semi, tapping-term-ms = <TAPPING_TERM_MS>;
                                 bindings = <&kp COMMA>,     <&kp SEMICOLON>;)
 
 TAP_DANCE_CUSTOM(td_dot_sk,     tapping-term-ms = <THUMB_TAP_MS>;
@@ -417,7 +418,7 @@ TAP_DANCE_CUSTOM(lth_3,         tapping-term-ms = <TAPPING_TERM_MS>;
                                 bindings = <&ht_hp SPACE LC(TAB)>, <&kp LG(ESCAPE)>;)
 
 TAP_DANCE_CUSTOM(lth_4,         tapping-term-ms = <TAPPING_TERM_MS>;
-                                bindings = <&ht_mo_kp 2 RETURN>, <&kp LC(RETURN)>;)
+                                bindings = <&ht_mo_kp 2 key_repeat>, <&alt_tab>;)
 
 TAP_DANCE_CUSTOM(lth_5,         tapping-term-ms = <TAPPING_TERM_MS>;
                                 bindings = <&ht_hp LGUI SPACE>, <&kp LG(D)>;)
@@ -459,8 +460,15 @@ ZMKMACRO(rgb_test,
         , <&macro_tap &rgb_ug RGB_COLOR_HSB(128,100,100)>
         , <&macro_pause_for_release>
         , <&macro_release &mo 1>
-        , <&macro_tap &rgb_ug RGB_COLOR_HSB(300,100,50)>;
-)
+        , <&macro_tap &rgb_ug RGB_COLOR_HSB(300,100,50)>;)
+
+ZMKMACRO(alt_tab,
+    wait-ms = <100>;
+    tap-ms = <50>;
+    bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp TAB>
+        , <&macro_release &kp LALT>;)
 
 FAST_MACRO(sel_word,
         &macro_tap &kp LC(RIGHT)
@@ -584,4 +592,4 @@ FAST_MACRO(dot_sk,
         };
 
     };
-};               /* <-- End of Root node */
+
