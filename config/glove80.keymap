@@ -317,29 +317,29 @@
         compatible = "zmk,combos";
 
         /* Left Hand */
-        ZMK_COMBO(combo_asterisk_lh,     25 26, &kp STAR)            /* R & E, Top  row left hand, 0-gap */
+        ZMK_COMBO(combo_tab_lh,          25 26, &kp TAB)             /* R & E, Top  row left hand, 0-gap */
         ZMK_COMBO(combo_exclamation_lh,  24 26, &kp EXCL)            /* R & W, Top  row left hand, 1-gap */
-        ZMK_COMBO(combo_at_lh,           24 25, &kp AT)              /* E & W, Top  row left hand, 0-gap */
+        ZMK_COMBO(combo_quotes_lh,       24 25, &kp DQT)             /* E & W, Top  row left hand, 0-gap */
 
-        ZMK_COMBO(combo_question_lh,     37 38, &kp QMARK)           /* F & D, Home row left hand, 0-gap */
-        ZMK_COMBO(combo_tab_lh,          36 38, &kp TAB)             /* F & S, Home row left hand, 1-gap */
-        ZMK_COMBO(combo_quotes_lh,       36 37, &kp DQT)             /* D & S, Home row left hand, 0-gap */
+        ZMK_COMBO(combo_asterisk,        36 37, &kp STAR)            /* D & S, Home row left hand, 0-gap */
+        ZMK_COMBO(combo_enter_lh,        37 38, &kp ENTER)           /* F & D, Home row left hand, 0-gap */
 
         /* Right Hand */
-        ZMK_COMBO(combo_lbracket_rh,     17 18, &kp LBKT)            /* Num  row right hand, 0-gap */
-        ZMK_COMBO(combo_rbracket_rh,     18 19, &kp RBKT)            /* Num  row right hand, 0-gap */
+        ZMK_COMBO(combo_lbracket_rh,     17 18, &kp LBKT)            /* 7 & 8, Num  row right hand, 0-gap */
+        ZMK_COMBO(combo_rbracket_rh,     18 19, &kp RBKT)            /* 8 & 9, Num  row right hand, 0-gap */
 
-        ZMK_COMBO(combo_lparantheses_rh, 29 30, &kp LPAR)            /* Top  row right hand, 0-gap */
-        ZMK_COMBO(combo_rparantheses_rh, 30 31, &kp RPAR)            /* Top  row right hand, 0-gap */
-        ZMK_COMBO(combo_and_rh,          28 29, &kp AMPS)            /* Top  row right hand, 0-gap */
-        ZMK_COMBO(combo_equals_rh,       29 31, &kp EQUAL)           /* Top  row right hand, 1-gap */
+        ZMK_COMBO(combo_slash_rh,        29 30, &kp SLASH)           /* U & I, Top  row right hand, 0-gap */
+        ZMK_COMBO(combo_backslash_rh,    30 31, &kp BACKSLASH)       /* I & O, Top  row right hand, 0-gap */
+        ZMK_COMBO(combo_and_rh,          28 29, &kp AMPS)            /* Y & U, Top  row right hand, 0-gap */
+        ZMK_COMBO(combo_equals_rh,       29 31, &kp EQUAL)           /* U & O, Top  row right hand, 1-gap */
 
-        ZMK_COMBO(combo_lcurly_rh,       41 42, &kp LBRC)            /* Home row right hand, 0-gap */
-        ZMK_COMBO(combo_rcurly_rh,       42 43, &kp RBRC)            /* Home row right hand, 0-gap */
-        ZMK_COMBO(combo_tab_rh,          41 43, &kp TAB)             /* Home row right hand, 1-gap */
+        ZMK_COMBO(combo_tilde_rh,        40 41, &kp TILDE)           /* H & J, Home row right hand, 0-gap */
+        ZMK_COMBO(combo_lcurly_rh,       41 42, &kp LBRC)            /* J & K, Home row right hand, 0-gap */
+        ZMK_COMBO(combo_rcurly_rh,       42 43, &kp RBRC)            /* K & L, Home row right hand, 0-gap */
+        ZMK_COMBO(combo_tab_rh,          41 43, &kp TAB)             /* J & L, Home row right hand, 1-gap */
 
-        ZMK_COMBO(combo_slash_rh,        59 60, &kp SLASH)           /* Btm  row right hand, 0-gap */
-        ZMK_COMBO(combo_backslash_rh,    60 61, &kp BACKSLASH)       /* Btm  row right hand, 0-gap */
+        ZMK_COMBO(combo_lparantheses_rh, 59 60, &kp LPAR)            /* M & ,, BTM  row right hand, 0-gap */
+        ZMK_COMBO(combo_rparantheses_rh, 50 51, &kp RPAR)            /* , & . BTM  row right hand, 0-gap */
 
         ZMK_COMBO(combo_lessthan_rh,     75 76, &kp LT)              /* Bsmt row right hand, 0-gap */
         ZMK_COMBO(combo_greaterthan_rh,  76 77, &kp GT)              /* Bsmt row right hand, 0-gap */
