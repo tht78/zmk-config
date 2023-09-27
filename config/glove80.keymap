@@ -387,7 +387,7 @@ HOLD_TAP(ht_mo_kp,
     flavor = "tap-preferred";
     tapping-term-ms = <125>;
     quick_tap_ms    = <120>;
-    bindings        = <&mo>, <&kp>;)
+    bindings        = <&mo>, <&key_repeat>;)
 
 HOLD_TAP(rh_th_5, 
     flavor = "hold-preferred";
@@ -417,7 +417,7 @@ TAP_DANCE_CUSTOM(lth_3,         tapping-term-ms = <TAPPING_TERM_MS>;
                                 bindings = <&ht_hp SPACE LC(TAB)>, <&kp LG(ESCAPE)>;)
 
 TAP_DANCE_CUSTOM(lth_4,         tapping-term-ms = <TAPPING_TERM_MS>;
-                                bindings = <&ht_mo_kp 2 RETURN>, <&kp LC(RETURN)>;)
+                                bindings = <&ht_mo_kp 2 key_repeat>, <&alttab>;)
 
 TAP_DANCE_CUSTOM(lth_5,         tapping-term-ms = <TAPPING_TERM_MS>;
                                 bindings = <&ht_hp LGUI SPACE>, <&kp LG(D)>;)
