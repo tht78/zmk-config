@@ -319,10 +319,11 @@
         /* Left Hand */
         ZMK_COMBO(combo_tab_lh,          25 26, &kp TAB)             /* R & E, Top  row left hand, 0-gap */
         ZMK_COMBO(combo_exclamation_lh,  24 26, &kp EXCL)            /* R & W, Top  row left hand, 1-gap */
-        ZMK_COMBO(combo_quotes_lh,       24 25, &kp DQT)             /* E & W, Top  row left hand, 0-gap */
+        ZMK_COMBO(combo_hash_lh,         24 25, &kp HASH)            /* E & W, Top  row left hand, 0-gap */
 
         ZMK_COMBO(combo_asterisk,        36 37, &kp STAR)            /* D & S, Home row left hand, 0-gap */
         ZMK_COMBO(combo_enter_lh,        37 38, &kp ENTER)           /* F & D, Home row left hand, 0-gap */
+        ZMK_COMBO(combo_lessthan_lh,     48 49, &kp LT)              /* S & D, BTM  row left hand, 0-gap */
 
         /* Right Hand */
         ZMK_COMBO(combo_lbracket_rh,     17 18, &kp LBKT)            /* 7 & 8, Num  row right hand, 0-gap */
@@ -338,11 +339,9 @@
         ZMK_COMBO(combo_rcurly_rh,       42 43, &kp RBRC)            /* K & L, Home row right hand, 0-gap */
         ZMK_COMBO(combo_tab_rh,          41 43, &kp TAB)             /* J & L, Home row right hand, 1-gap */
 
+        ZMK_COMBO(combo_greaterthan_rh,  60 61, &kp GT)              /* , & ., BTM  row right hand, 0-gap */
         ZMK_COMBO(combo_lparantheses_rh, 59 60, &kp LPAR)            /* M & ,, BTM  row right hand, 0-gap */
-        ZMK_COMBO(combo_rparantheses_rh, 50 51, &kp RPAR)            /* , & . BTM  row right hand, 0-gap */
-
-        ZMK_COMBO(combo_lessthan_rh,     75 76, &kp LT)              /* Bsmt row right hand, 0-gap */
-        ZMK_COMBO(combo_greaterthan_rh,  76 77, &kp GT)              /* Bsmt row right hand, 0-gap */
+        ZMK_COMBO(combo_rparantheses_rh, 60 61, &kp RPAR)            /* , & . BTM  row right hand, 0-gap */
 
         /* Both hands */
         ZMK_COMBO(combo_n0,              38 41, &kp N0)              /* Home row both hands, F & J */
@@ -516,11 +515,11 @@ FAST_MACRO(dot_sk,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      &trans        &trans        &trans        &trans        &trans                                                                                                                                  &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &kp AT        &trans        &trans        &trans        &trans                                                                                                      &kp TILDE     &trans        &trans        &trans        &trans        &trans
+     &trans        &trans        &trans        &trans        &trans        &trans                                                                                                      &kp TILDE     &trans        &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &kp EXCL      &kp DQT       &kp HASH      &kp DOLLAR    &kp PRCNT                                                                                                   &kp N0        &td_down_end  &td_up_home  &kp LC(RIGHT)  &kp DOLLAR    &trans
+     &trans        &kp EXCL      &kp AT        &kp HASH      &kp DOLLAR    &kp PRCNT                                                                                                   &kp N0        &td_down_end  &td_up_home  &kp LC(RIGHT)  &kp DOLLAR    &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp CAPS      &trans        &trans        &trans        &trans        &trans                                                                                                      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp RA(L)     &kp RA(Z)
+     &kp CAPS      &SQT          &kp DQT       &trans        &trans        &trans                                                                                                      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp RA(L)     &kp RA(Z)
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans        &trans        &trans        &trans          &trans        &trans         &trans           &trans        &trans         &trans           &kp RCTRL     &kp LC(LEFT)  &td_sw        &kp LC(RIGHT) &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
