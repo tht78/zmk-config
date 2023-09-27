@@ -467,7 +467,7 @@ ZMKMACRO(alttab,
     tap-ms = <50>;
     bindings
         = <&macro_press &kp LALT>
-        , <&macro_tap &kp TAP> 
+        , <&macro_tap &kp TAB> 
         , <&macro_release &kp LALT>;
 )
 
