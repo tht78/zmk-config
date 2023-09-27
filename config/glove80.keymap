@@ -417,7 +417,7 @@ TAP_DANCE_CUSTOM(lth_3,         tapping-term-ms = <TAPPING_TERM_MS>;
                                 bindings = <&ht_hp SPACE LC(TAB)>, <&kp LG(ESCAPE)>;)
 
 TAP_DANCE_CUSTOM(lth_4,         tapping-term-ms = <TAPPING_TERM_MS>;
-                                bindings = <&ht_mo_kp 2 key_repeat>, <&alttab>;)
+                                bindings = <&ht_mo_kp 2 0>, <&alttab>;)
 
 TAP_DANCE_CUSTOM(lth_5,         tapping-term-ms = <TAPPING_TERM_MS>;
                                 bindings = <&ht_hp LGUI SPACE>, <&kp LG(D)>;)
