@@ -443,7 +443,7 @@ TAP_DANCE_CUSTOM(rth_5,         tapping-term-ms = <200>;
                                 bindings = <&rh_th_5 2 LSHFT>, <&kp LG(ESCAPE)>;) /* TBD */
 
 TAP_DANCE_CUSTOM(rth_6,         tapping-term-ms = <TAPPING_TERM_MS>;
-                                bindings = <&mo 1 RETURN>, <&tog 1>;)
+                                bindings = <&lt 1 RETURN>, <&tog 1>;)
 
 /************************************************************/
                         /* Macros */
