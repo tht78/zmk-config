@@ -111,7 +111,7 @@
 #define TAPPING_TERM_MS 200
 #define QUICK_TAP_MS 125
 #define THUMB_TAP_MS 300
-#define STICKY_KEY_RELEASE_AFTER_MS 600    /* How long Sticky Keys stay pressed */
+#define STICKY_KEY_RELEASE_AFTER_MS 2000    /* How long Sticky Keys stay pressed */
 #define HOME_ROW_MODS_TAPPING_TERM_MS 300  /* How long to hold to activate home row mods for same side or mouse usage */
 #define HOME_ROW_MODS_QUICK_TAP_MS 150     /* Cool down after typing before home row mods can be used */
 
@@ -320,11 +320,10 @@
         ZMK_COMBO(combo_tab_lh,          25 26, &kp TAB)             /* R & E, Top  row left hand, 0-gap */
 
         ZMK_COMBO(combo_asterisk,        36 37, &kp STAR)            /* D & S, Home row left hand, 0-gap */
-        ZMK_COMBO(combo_enter_lh,        37 38, &kp ENTER)           /* F & D, Home row left hand, 0-gap */
+        ZMK_COMBO(combo_questionmark,    37 38, &kp QMARK)           /* F & D, BTM  row left hand, 0-gap */
 
         ZMK_COMBO(combo_lessthan_lh,     48 49, &kp LT)              /* X & C, BTM  row left hand, 0-gap */
         ZMK_COMBO(combo_greaterthan_lh,  49 50, &kp GT)              /* C & V, BTM  row left hand, 0-gap */
-        ZMK_COMBO(combo_questionmark,    38 39, &kp QMARK)           /* F & G, BTM  row left hand, 0-gap */
 
         /* ----------------------------- Right Hand ------------------------------------------------------*/
         ZMK_COMBO(combo_lbracket_rh,     17 18, &kp LBKT)            /* 7 & 8, Num  row right hand, 0-gap */
@@ -605,7 +604,7 @@ FAST_MACRO(dot_sk,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans        &trans        &trans        &trans          &trans        &trans         &trans           &trans        &trans         &trans           &trans        &trans        &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &trans        &trans        &trans                        &trans        &trans         &alttab           &trans        &trans         &alttab                        &trans        &trans        &trans        &trans        &trans
+     &trans        &trans        &trans        &trans        &trans                        &trans        &trans         &alttab          &trans        &trans         &trans                         &trans        &trans        &trans        &trans        &trans
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
             >;
         };
