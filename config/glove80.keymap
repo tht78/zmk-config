@@ -404,9 +404,6 @@ TAP_DANCE_QUICK(td_copy_paste,  bindings = <&kp LC(C)>,     <&kp LC(V)>;)
 TAP_DANCE_CUSTOM(td_comma_semi, tapping-term-ms = <THUMB_TAP_MS>;
                                 bindings = <&kp COMMA>,     <&kp SEMICOLON>;)
 
-TAP_DANCE_CUSTOM(td_dot_sk,     tapping-term-ms = <THUMB_TAP_MS>;
-                                bindings = <&kp DOT>,       <&dot_sk>;)
-
 TAP_DANCE_CUSTOM(lth_1,         tapping-term-ms = <THUMB_TAP_MS>;
                                 bindings = <&kp LC(F8)>,    <&kp LC(F9)>,   <&kp LC(F10)>;)
 
@@ -429,19 +426,19 @@ TAP_DANCE_CUSTOM(lth_6,         tapping-term-ms = <THUMB_TAP_MS>;
                                 , <&kp LG(KP_N4)>;)
 
 TAP_DANCE_CUSTOM(rth_1,         tapping-term-ms = <THUMB_TAP_MS>;
-                                bindings = <&kp LC(LS(TAB))>, <&kp LG(E)>;)      /* TBD */
+                                bindings = <&kp LC(LS(TAB))>, <&kp LG(E)>;)       /* TBD: */
 
 TAP_DANCE_CUSTOM(rth_2,         tapping-term-ms = <THUMB_TAP_MS>;
-                                bindings = <&kp LA(P)>, <&kp LG(E)>;)            /* VURDER */
+                                bindings = <&kp LA(P)>, <&kp LG(E)>;)             /* TBD: */
 
 TAP_DANCE_CUSTOM(rth_3,         tapping-term-ms = <THUMB_TAP_MS>;
-                                bindings = <&kp LA(O)>, <&tog 2>;)               /* VURDER */
+                                bindings = <&kp LA(O)>, <&tog 2>;)                /* TBD: */
 
 TAP_DANCE_CUSTOM(rth_4,         tapping-term-ms = <THUMB_TAP_MS>;
-                                bindings = <&ht_hpm RALT LA(SPACE)>, <&to 0>;)   /* TBD */
+                                bindings = <&ht_hpm RALT LA(SPACE)>, <&to 0>;)    /* TBD: */
 
 TAP_DANCE_CUSTOM(rth_5,         tapping-term-ms = <200>;
-                                bindings = <&rh_th_5 2 LSHFT>, <&kp LG(ESCAPE)>;) /* TBD */
+                                bindings = <&rh_th_5 2 LSHFT>, <&kp LG(ESCAPE)>;) /* TBD: */
 
 TAP_DANCE_CUSTOM(rth_6,         tapping-term-ms = <TAPPING_TERM_MS>;
                                 bindings = <&ht_mo_kp 1 0>, <&tog 1>;)
@@ -510,7 +507,7 @@ FAST_MACRO(dot_sk,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &kp Q         &kp W         &kp E         &kp R         &kp T                                                                                                       &kp Y         &kp U         &kp I         &kp O         &kp P         &kp F12
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp SQT       &kp A        &lhm LCTRL S   &lhmlt 5 D    &lhmlt 1 F    &kp G                                                                                                       &kp H         &rhmlt 1 J    &rhm RSHFT K  &rhm RCTRL L  &kp RETURN    &kp NUBS
+     &kp SQT       &kp A        &lhm LCTRL S   &lhm LSHFT D  &lhmlt 1 F    &kp G                                                                                                       &kp H         &rhmlt 1 J    &rhm RSHFT K  &rhm RCTRL L  &kp RETURN    &kp NUBS
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &lth_1        &lth_2         &lth_3           &rth_1        &rth_2         &rth_3           &kp N         &kp M         &td_comma_semi &kp DOT      &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -573,7 +570,7 @@ FAST_MACRO(dot_sk,
             >;
         };
 
-layer_linux {
+        layer_linux {
             bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      &trans        &trans        &trans        &trans        &trans                                                                                                                                  &trans        &trans        &trans        &trans        &trans
