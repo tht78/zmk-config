@@ -304,6 +304,7 @@
         behavior_sticky_key {
             release-after-ms = <STICKY_KEY_RELEASE_AFTER_MS>;
             quick-release;
+            ignore-modifiers;
         };
     };
 
@@ -321,6 +322,7 @@
 
         ZMK_COMBO(combo_asterisk,        36 37, &kp STAR)            /* D & S, Home row left hand, 0-gap */
         ZMK_COMBO(combo_questionmark,    37 38, &kp QMARK)           /* F & D, BTM  row left hand, 0-gap */
+        ZMK_COMBO(combo_alttab,          36 38, &alttab)             /* F & D, BTM  row left hand, 0-gap */
 
         ZMK_COMBO(combo_lessthan_lh,     48 49, &kp LT)              /* X & C, BTM  row left hand, 0-gap */
         ZMK_COMBO(combo_greaterthan_lh,  49 50, &kp GT)              /* C & V, BTM  row left hand, 0-gap */
@@ -535,7 +537,7 @@ FAST_MACRO(dot_sk,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans        &trans        &trans        &trans          &trans        &trans         &trans           &trans        &trans         &trans           &kp RCTRL     &kp LC(LEFT)  &td_sw        &kp LC(RIGHT) &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 3 0    &trans        &trans        &trans        &trans                        &kp ENTER     &trans         &trans           &trans        &kp SPACE      &trans                         &trans        &td_sl        &trans        &kp TILDE     &trans
+     &magic 3 0    &trans        &trans        &trans        &trans                        &trans        &trans         &trans           &trans        &kp SPACE      &trans                         &trans        &td_sl        &trans        &kp TILDE     &trans
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
             >;
         };
