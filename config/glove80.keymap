@@ -304,6 +304,7 @@
         behavior_sticky_key {
             release-after-ms = <STICKY_KEY_RELEASE_AFTER_MS>;
             quick-release;
+            ignore-modifiers;
         };
     };
 
@@ -381,13 +382,13 @@ SHIFT_MORPH(comma_semi, &td_comma_semi, &kp SEMICOLON)
 HOLD_TAP_HOLD_PREFERRED(ht_hp,  bindings = <&kp>, <&kp>;)
 HOLD_TAP_HOLD_PREFERRED(ht_hpm, bindings = <&mt>, <&kp>;)
 
-HOLD_TAP(ht_mo_kp, 
+HOLD_TAP(ht_mo_kp,
     flavor = "tap-preferred";
     tapping-term-ms = <125>;
     quick_tap_ms    = <120>;
     bindings        = <&mo>, <&key_repeat>;)
 
-HOLD_TAP(rh_th_5, 
+HOLD_TAP(ht_mo_sk,
     flavor = "hold-preferred";
     tapping-term-ms = <THUMB_TAP_MS>;
     quick_tap_ms    = <100>;
@@ -437,13 +438,16 @@ TAP_DANCE_CUSTOM(rth_3,         tapping-term-ms = <THUMB_TAP_MS>;
                                 bindings = <&kp LA(O)>, <&tog 2>;)                /* TBD: */
 
 TAP_DANCE_CUSTOM(rth_4,         tapping-term-ms = <THUMB_TAP_MS>;
-                                bindings = <&rh_th_5 6 RCTRL>, <&kp LS(SPACE)>;)    /* TBD: */
+                                bindings = <&ht_mo_sk 6 RCTRL>, <&kp LA(SPACE)>;)    /* TBD: */
 
 TAP_DANCE_CUSTOM(rth_5,         tapping-term-ms = <200>;
-                                bindings = <&rh_th_5 2 LSHFT>, <&kp LG(ESCAPE)>;) /* TBD: */
+                                bindings = <&ht_mo_sk 2 LSHFT>, <&kp LG(ESCAPE)>;) /* TBD: */
 
 TAP_DANCE_CUSTOM(rth_6,         tapping-term-ms = <TAPPING_TERM_MS>;
                                 bindings = <&ht_mo_kp 1 0>, <&tog 1>;)
+
+TAP_DANCE_CUSTOM(rth_5_win,     tapping-term-ms = <TAPPING_TERM_MS>;
+                                bindings = <&ht_mo_sk 2 LSHFT>, <&kp LG(ESCAPE)>;) /* TBD: */
 
 /************************************************************/
                         /* Macros */
@@ -604,7 +608,7 @@ FAST_MACRO(dot_sk,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans        &trans        &trans        &trans          &trans        &trans         &trans           &trans        &trans         &trans           &trans        &trans        &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &trans        &trans        &trans                        &trans        &trans         &alttab          &trans        &trans         &trans                         &trans        &trans        &trans        &trans        &trans
+     &trans        &trans        &trans        &trans        &trans                        &trans        &trans         &alttab          &trans     &rth_5_win 2 LSHFT &trans                        &trans        &trans        &trans        &trans        &trans
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
             >;
         };
