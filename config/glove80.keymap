@@ -300,8 +300,8 @@
                          /* Combos */
 /****************************************************************/
 	
-    combos {
-        compatible = "zmk,combos";
+//    combos {
+//        compatible = "zmk,combos";
 
         /* ----------------------------- Left Hand ------------------------------------------------------*/
         ZMK_COMBO(combo_copy,   &kp LC(C),  24 25, ALL)  // Ctrl + C, active on all layers
@@ -350,7 +350,7 @@
         ZMK_COMBO(combo_comma,           59 60, &kp KP_COMMA)
         ZMK_COMBO(combo_dot,             60 61, &kp KP_DOT)
 */
-    };
+//    };
 
 /*****************************************************************************/
                                 /* Home Row Mods */
