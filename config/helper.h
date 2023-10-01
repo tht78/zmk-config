@@ -5,7 +5,7 @@
  * See https://github.com/urob/zmk-nodefree-config for documentation.
  */
 
-#pragma once
+//#pragma once
 
 #define ZMK_HELPER_STRINGIFY(x) #x
 
