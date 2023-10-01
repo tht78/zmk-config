@@ -5,8 +5,8 @@
 //#include "../zmk-nodefree-config/keypos_def/keypos_36keys.h"
 //#include "../zmk-nodefree-config/international_chars/german.dtsi"
 #include "helper.h"
-#include "keypos_def/keypos_36keys.h"
-#include "international_chars/german.dtsi"
+#include "keypos_glv80.h"
+#include "german.dtsi"
 
 /* layer and key shortcuts */
 
