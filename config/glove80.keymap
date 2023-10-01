@@ -22,6 +22,15 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/outputs.h>
 
+#define BASE 0
+#define LOWER 1
+#define NUMPAD 2
+#define LINUX 3     /* Linux specific layer */
+#define WINDOWS 4   /* Windows specific layer */ 
+#define MACRO 5
+#define TRANS 6
+#define MAGIC 7
+
 / {         /* <-- Start of Root node */
 
     /* Glove80 system behavior & macros */
@@ -514,15 +523,15 @@ FAST_MACRO(dot_sk,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      &kp F1        &kp F2        &kp  F3       &kp F4        &kp F5                                                                                                                                  &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &to 3         &kp N1        &kp  N2       &kp N3        &kp N4        &kp N5                                                                                                      &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp F11
+     &to LINUX     &kp N1        &kp  N2       &kp N3        &kp N4        &kp N5                                                                                                      &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp F11
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &to 4         &kp Q         &kp W         &lhm LALT E   &kp R         &kp T                                                                                                       &kp Y         &kp U         &rhm RALT I   &kp O         &kp P         &kp F12
+     &to WINDOWS   &kp Q         &kp W         &lhm LALT E   &kp R         &kp T                                                                                                       &kp Y         &kp U         &rhm RALT I   &kp O         &kp P         &kp F12
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp SQT       &kp A        &lhm LCTRL S   &lhm LSHFT D  &lhmlt 1 F    &kp G                                                                                                       &kp H         &rhmlt 1 J    &rhm RSHFT K  &rhm RCTRL L  &kp RETURN    &kp NUBS
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &lth_1        &lth_2         &lth_3           &rth_1        &rth_2         &rth_3           &kp N         &kp M         &td_comma_semi &kp DOT      &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic 7 0    &trans        &kp BSPC      &kp ESC       &td_copy_paste                &lth_4        &lth_5         &lth_6           &rth_4        &rth_5         &rth_6                         &kp BSPC      &kp ESCAPE    &colon_semi   &kp UNDER     &rgb_test
+     &magic MAGIC 0 &trans       &kp BSPC      &kp ESC       &td_copy_paste                &lth_4        &lth_5         &lth_6           &rth_4        &rth_5         &rth_6                         &kp BSPC      &kp ESCAPE    &colon_semi   &kp UNDER     &rgb_test
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
             >;
         };
@@ -563,7 +572,7 @@ FAST_MACRO(dot_sk,
             >;
         };
 
-        layer_linux {
+        layer_Linux {
             bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      &trans        &trans        &trans        &trans        &trans                                                                                                                                  &trans        &trans        &trans        &trans        &trans
@@ -582,7 +591,7 @@ FAST_MACRO(dot_sk,
         };
 
 /*TODO: Add custom Windows commands */
-        layer_windows {
+        layer_Windows {
             bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      &trans        &trans        &trans        &trans        &trans                                                                                                                                  &trans        &trans        &trans        &trans        &trans
@@ -600,7 +609,7 @@ FAST_MACRO(dot_sk,
             >;
         };
 
-        layer_macro {
+        layer_Macro {
             bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      &trans        &trans        &trans        &trans        &trans                                                                                                                                  &trans        &trans        &trans        &trans        &trans
@@ -618,7 +627,7 @@ FAST_MACRO(dot_sk,
             >;
         };
 
-        layer_trans {
+        layer_Trans {
             bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      &trans        &trans        &trans        &trans        &trans                                                                                                                                  &trans        &trans        &trans        &trans        &trans
