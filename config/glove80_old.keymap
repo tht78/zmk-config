@@ -22,8 +22,6 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#include "../zmk-nodefree-config/helper.h"
-
 #define BASE 0
 #define LOWER 1
 #define NUMPAD 2
@@ -153,6 +151,26 @@
                          /* Helper functions */
 /****************************************************************/
 
+/* Convert NAME parameters into a ZMK label string */
+#define STRINGIFY(x) #x
+
+/* COMBOS */
+#define ZMK_COMBO(NAME, KEY_POSITIONS, BINDINGS)  \
+    NAME {                                        \
+        timeout-ms    = <COMBO_TIMEOUT_MS>;       \
+        key-positions = <KEY_POSITIONS>;          \
+        bindings      = <BINDINGS>;               \
+    };
+
+/* Create a ZMK behavior without having to specify the name three times */
+#define ZMK_BEHAVIOR(NAME, ...)                   \
+    behaviors {                                   \
+        NAME: NAME {                              \
+            label = STRINGIFY(ZB_ ## NAME);       \
+            __VA_ARGS__                           \
+        };                                        \
+    };
+
 /* "Timerless" home row mod */
 #define HOME_ROW_MOD(NAME, KEY_POSITIONS)                                                                 \
     ZMK_BEHAVIOR(NAME, 											                                                              \
@@ -181,7 +199,8 @@
 
 /* Tap-dance helper */
 #define TAP_DANCE_QUICK(NAME, ...) \
-    ZMK_BEHAVIOR(NAME, "tap_dance"\
+    ZMK_BEHAVIOR(NAME, \
+        compatible      = "zmk,behavior-tap-dance"; \
         #binding-cells  = <0>; \
         tapping-term-ms = <TAPPING_TERM_MS>; \
         __VA_ARGS__ \
@@ -189,14 +208,16 @@
 
 /* Tap-dance helper with custom tapping-term-ms */
 #define TAP_DANCE_CUSTOM(NAME, ...) \
-    ZMK_BEHAVIOR(NAME, "tap_dance"\
+    ZMK_BEHAVIOR(NAME, \
+        compatible = "zmk,behavior-tap-dance"; \
         #binding-cells = <0>; \
         __VA_ARGS__ \
     )
                           
 /* Hold-Tap helper */
 #define HOLD_TAP(NAME, ...) \
-    ZMK_BEHAVIOR(NAME, "hold_tap"\
+    ZMK_BEHAVIOR(NAME, \
+        compatible = "zmk,behavior-hold-tap"; \
         #binding-cells = <2>; \
         __VA_ARGS__ \
     )
@@ -219,7 +240,7 @@
 
 /* Mod-Morph helper */
 #define MOD_MORPH(NAME, STANDARD, MORPHED, MODS) \
-    ZMK_BEHAVIOR(NAME, "mod_morph"\
+    ZMK_BEHAVIOR(NAME, \
         compatible = "zmk,behavior-mod-morph"; \
         #binding-cells = <0>; \
         bindings = <STANDARD>, <MORPHED>; \
