@@ -9,7 +9,7 @@
 #include "keypos_glv80.h"
 #include "german.dtsi"
 
-//#define ___ &trans
+#define ___ &trans
 
 #define BASE 0
 #define LOWER 1
