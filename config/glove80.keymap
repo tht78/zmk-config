@@ -23,7 +23,7 @@
 
 ZMK_BEHAVIOR(lower, tap_dance,
     tapping-term-ms = <200>;
-    bindings = <&mo1>, <&to 1>;
+    bindings = <&mo 1>, <&to 1>;
 )
 
 ZMK_BEHAVIOR(rgb_ug_status_macro, macro,
