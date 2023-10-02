@@ -8,6 +8,7 @@
 #include "helper.h"
 #include "keypos_glv80.h"
 #include "german.dtsi"
+#include "danish.dtsi"
 
 #define ___ &trans
 
@@ -56,10 +57,10 @@ ZMK_BEHAVIOR(win_sleep, macro,
 )
 
 // euro sign
-//ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
+ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 
 // replace a/o/u/s with German umlauts when NAV and NUM are held jointly
-//ZMK_CONDITIONAL_LAYER(NAV NUM, GER)
+// ZMK_CONDITIONAL_LAYER(NAV NUM, GER)
 
 // combos
 #undef COMBO_TERM
@@ -92,29 +93,29 @@ ZMK_LAYER(lower,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans        &trans        &trans        &trans                                                                                                      &kp TILDE     &trans        &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &kp PIPE      &kp AT        &kp CARET     &kp GRAVE     &kp PRCNT                                                                                                   &kp N0        &none  &none  &kp LC(RIGHT)  &kp DOLLAR    &trans
+     &trans        &kp PIPE      &kp AT        &kp CARET     &kp GRAVE     &kp PRCNT                                                                                                   &kp N0        &none         &none         &kp LC(RIGHT) &kp DOLLAR    &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &kp DOLLAR    &kp DQT       &trans        &trans        &trans                                                                                                      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp RA(L)     &kp RA(Z)
+     &trans        &kp DOLLAR    &kp DQT       &trans        &trans        &trans                                                                                                      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &dk_oe        &kp RA(Z)
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &trans        &trans        &trans        &trans          &trans        &trans         &trans           &trans        &trans         &trans           &kp RCTRL     &kp LC(LEFT)  &none        &kp LC(RIGHT) &trans        &trans
+     &trans        &trans        &trans        &trans        &trans        &trans          &trans        &trans         &trans           &trans        &trans         &trans           &kp RCTRL     &kp LC(LEFT)  &none         &kp LC(RIGHT) &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &none         &trans        &trans        &trans        &trans                        &trans        &trans         &trans           &trans        &kp SPACE      &trans                         &trans        &none        &trans        &kp TILDE     &trans
+     &none         &trans        &trans        &trans        &trans                        &trans        &trans         &trans           &trans        &kp SPACE      &trans                         &trans        &none         &trans        &kp TILDE     &trans
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
 ZMK_LAYER(numpad,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-     &trans        &trans        &trans        &trans        &trans                                                                                                                                    &kp KP_NUM   &trans       &trans        &trans        &kp K_WWW
+     &trans        &trans        &trans        &trans        &trans                                                                                                                                  &kp KP_NUM    &trans        &trans        &trans        &kp K_WWW
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &trans        &trans        &trans        &trans                                                                                                      &kp KP_MULTIPLY &trans       &trans       &trans        &trans        &kp K_SLEEP
+     &trans        &trans        &trans        &trans        &trans        &trans                                                                                                      &kp KP_MULTIPLY &trans      &trans        &trans        &trans        &kp K_SLEEP
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &trans        &kp HOME      &kp PG_UP     &trans                                                                                                      &kp KP_SLASH    &kp KP_N7    &kp KP_N8    &kp KP_N9     &kp PSCRN     &trans
+     &trans        &trans        &trans        &kp HOME      &kp PG_UP     &trans                                                                                                      &kp KP_SLASH    &kp KP_N7   &kp KP_N8     &kp KP_N9     &kp PSCRN     &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &kp LEFT      &kp UP        &kp DOWN      &kp RIGHT                                                                                                   &kp KP_PLUS     &kp KP_N4    &kp KP_N5    &kp KP_N6     &kp KP_ENTER  &trans
+     &trans        &trans        &kp LEFT      &kp UP        &kp DOWN      &kp RIGHT                                                                                                   &kp KP_PLUS     &kp KP_N4   &kp KP_N5     &kp KP_N6     &kp KP_ENTER  &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &trans        &kp END       &kp PG_DN     &trans          &trans        &trans         &trans           &trans        &trans         &trans           &kp KP_MINUS    &kp KP_N1    &kp KP_N2    &kp KP_N3     &kp COMMA     &trans
+     &trans        &trans        &trans        &kp END       &kp PG_DN     &trans          &trans        &trans         &trans           &trans        &trans         &trans           &kp KP_MINUS    &kp KP_N1   &kp KP_N2     &kp KP_N3     &kp COMMA     &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &trans        &kp K_APP     &kp K_COPY                    &trans        &trans         &trans           &trans        &trans         &trans                           &trans       &kp KP_N0    &kp DOT       &none   &trans
+     &trans        &trans        &trans        &kp K_APP     &kp K_COPY                    &trans        &trans         &trans           &trans        &trans         &trans                           &trans      &kp KP_N0     &kp DOT       &none         &trans
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
@@ -147,7 +148,7 @@ ZMK_LAYER(windows,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans        &trans        &trans        &trans          &trans        &trans         &trans           &trans        &trans         &trans           &trans        &trans        &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &trans        &trans        &trans                        &trans        &trans         &none       &trans        &none     &trans                         &trans        &trans        &trans        &trans        &trans
+     &trans        &trans        &trans        &trans        &trans                        &trans        &trans         &none            &trans        &none          &trans                         &trans        &trans        &trans        &trans        &trans
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
