@@ -25,7 +25,7 @@ ZMK_BEHAVIOR(lower, tap_dance,
     bindings = <&mo 1>, <&to 1>;
 )
 
-ZMK_BEHAVIOR(rgb_ug_status_macro, macro
+ZMK_BEHAVIOR(rgb_ug_status_macro, macro,
     bindings = <&rgb_ug RGB_STATUS>;
 )
 
