@@ -17,7 +17,7 @@
 #define NUMPAD 2
 #define LINUX 3     /* Linux specific layer */
 #define WINDOWS 4   /* Windows specific layer */
-#define MAGIC 5
+//#define MAGIC 5
 
 /* Glove80 system behavior & macros */
 
