@@ -2,4 +2,4 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: tht78/zmk/.github/workflows/build-user-config.yml@build-with-submodules
+    uses: tht78/zmk/.github/workflows/build-user-config.yml
