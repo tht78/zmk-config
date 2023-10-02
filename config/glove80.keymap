@@ -7,7 +7,7 @@
 
 #include "helper.h"
 #include "keypos_glv80.h"
-#include "german.dtsi"
+// #include "german.dtsi"
 #include "danish.dtsi"
 
 #define ___ &trans
