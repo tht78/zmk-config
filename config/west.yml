@@ -1,0 +1,11 @@
+manifest:
+  remotes:
+    - name: tht78
+      url-base: https://github.com/tht78
+  projects:
+    - name: zmk
+      remote: tht78
+      revision: main
+      import: app/west.yml
+  self:
+    path: config
