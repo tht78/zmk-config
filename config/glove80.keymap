@@ -160,7 +160,7 @@ ZMK_BEHAVIOR(rth_2, tap_dance,
 // tap: holdtap stickyshift &mo NUMPAD | doubletap: <Super-Escape>
 ZMK_BEHAVIOR(rth_5, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&ht_mo_sk NUMPAD LSHFT>, <&kp LG(ESCAPE)>; // TBD:
+    bindings = <&ht_mo_sk 2 LSHFT>, <&kp LG(ESCAPE)>; // TBD:
 )
 
 // tap: comma | doubletap: semicolon
