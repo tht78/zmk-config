@@ -100,7 +100,7 @@ ZMK_BEHAVIOR(ht_mo_sk, hold_tap,
     bindings = <&mo>, <&sk>;
 )
 
-ZMK_BEHAVIOR(ht_ht, hold_tap,
+ZMK_BEHAVIOR(ht_hp, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <125>;
