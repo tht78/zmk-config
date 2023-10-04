@@ -139,22 +139,22 @@ ZMK_BEHAVIOR(lth_5, tap_dance,
 
 ZMK_BEHAVIOR(lth_6, tap_dance,
     tapping-term-ms = <THUMB_TAP_MS>;
-    bindings = <&kp LG(N1), &kp LG(N2), &kp LG(N3), &kp LG(N4)>;
+    bindings = <&kp LG(N1)>, <&kp LG(N2)>, <&kp LG(N3)>, <&kp LG(N4)>;
 )
 
 ZMK_BEHAVIOR(lth_6_win, tap_dance,
     tapping-term-ms = <THUMB_TAP_MS>;
-    bindings = <&alt_tab>, &kp LG(PG_DN);
+    bindings = <&alt_tab>, <&kp LG(PG_DN)>;
 )
 
 ZMK_BEHAVIOR(rth_1, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&kp LC(LS(TAB)), &kp LG(N2)>; // TBD:
+    bindings = <&kp LC(LS(TAB))>, <&kp LG(N2)>; // TBD:
 )
 
 ZMK_BEHAVIOR(rth_2, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&kp LALT(P), &kp LG(E)>; // TBD:
+    bindings = <&kp LALT(P)>, <&kp LG(E)>; // TBD:
 )
 
 // tap: holdtap stickyshift &mo NUMPAD | doubletap: <Super-Escape>
