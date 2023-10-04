@@ -7,7 +7,6 @@
 
 #include "helper.h"
 #include "keypos_glv80.h"
-// #include "german.dtsi"
 #include "danish.dtsi"
 
 #define ___ &trans
@@ -69,7 +68,7 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 
 // replace a/o/u/s with German umlauts when NAV and NUM are held jointly
 // ZMK_CONDITIONAL_LAYER(NAV NUM, GER)
-
+// test av &numwords
 // combos
 #undef COMBO_TERM
 #define COMBO_TERM 50  // timeout of 40ms (default is 30ms if omitted)
@@ -125,7 +124,7 @@ ZMK_LAYER(default_layer,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp SQT       &kp A         &hrm LCTRL S  &hrm LSHFT D  &hrlt 1 F     &kp G                                                                                                       &kp H         &hrlt 1 J     &hrm RSHFT K  &hrm RCTRL L  &kp RETURN    &kp NUBS
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &none         &kp DELETE     &none            &none         &none          &none            &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &to 0
+     &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &none         &kp DELETE     &none            &none         &none          &numwords        &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &magic MAGIC 0 &trans       &kp BSPC      &kp ESC       &kp LC(C)                     &lt 2 RET    &hrm LGUI SPACE &none            &none         &sk RSHFT      &key_repeat                    &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &none
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
