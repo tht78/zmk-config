@@ -172,7 +172,7 @@ ZMK_BEHAVIOR(td_comma_semi, tap_dance,
 // tap: sticky shift | double tap: capsword
 ZMK_BEHAVIOR(ss_cw, tap_dance,
     tapping-term-ms = <200>;
-    bindings = <&sk LSHFT>, <&caps_word>;
+    bindings = <&sk LSHFT>, <&kp L>;
 )
 
 ZMK_BEHAVIOR(cp_paste_cut, tap_dance,
