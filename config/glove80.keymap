@@ -33,6 +33,8 @@ ZMK_BEHAVIOR(magic, hold_tap, flavor = "tap-preferred"; tapping-term-ms = <200>;
     label = "NUM_WORD";
     #binding-cells = <0>;
     layers = <NUMPAD>;
+    continue-list = <BACKSPACE DELETE DOT COMMA>;
+    ignore-numbers;
   };
 };
 
