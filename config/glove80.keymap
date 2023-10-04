@@ -83,8 +83,8 @@ ZMK_COMBO(combo_exclamation_lh,  &kp EXCL,      LT1 LT3, ALL)          // R & W,
 ZMK_COMBO(combo_questionmark,    &kp QMARK,     LM1 LM2, ALL)          // F & D, BTM  row left hand, 0-gap
 ZMK_COMBO(combo_asterisk,        &kp STAR,      LM2 LM3, ALL)          // D & S, Home row left hand, 0-gap
 
-ZMK_COMBO(combo_greaterthan_lh,  &kp GT,        RT1 RT2, ALL)          // C & V, BTM  row left hand, 0-gap
-ZMK_COMBO(combo_lessthan_lh,     &kp LT,        RT2 RT3, ALL)          // X & C, BTM  row left hand, 0-gap
+ZMK_COMBO(combo_greaterthan_lh,  &kp GT,        LB1 LB2, ALL)          // C & V, BTM  row left hand, 0-gap
+ZMK_COMBO(combo_lessthan_lh,     &kp LT,        LB2 LB3, ALL)          // X & C, BTM  row left hand, 0-gap
 
 /* ----------------------------- Right Hand ------------------------------------------------------------*/
 ZMK_COMBO(combo_lbracket_rh,     &kp LBKT,      RM1 RM2, ALL)          // 7 & 8, Num  row right hand, 0-gap
@@ -127,7 +127,7 @@ ZMK_LAYER(default_layer,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &none         &kp DELETE     &none            &none         &none          &none            &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic MAGIC 0 &trans       &kp BSPC      &kp ESC       &none                         &lt 2 RET     &kp SPACE      &none            &none         &sk RSHFT      &key_repeat                    &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &none
+     &magic MAGIC 0 &trans       &kp BSPC      &kp ESC       &kp LC(C)                     &lt 2 RET    &hrm LGUI SPACE &none            &none         &sk RSHFT      &key_repeat                    &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &none
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 )
 
