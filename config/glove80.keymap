@@ -27,6 +27,41 @@ ZMK_BEHAVIOR(bt_2, macro, bindings = <&out OUT_BLE>, <&bt BT_SEL 2>;)
 ZMK_BEHAVIOR(bt_3, macro, bindings = <&out OUT_BLE>, <&bt BT_SEL 3>;)
 ZMK_BEHAVIOR(magic, hold_tap, flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&rgb_ug_status_macro>;)
 
+/****************************************************************/
+                         /* VARIABLES */
+/****************************************************************/
+	
+#define COMBO_TIMEOUT_MS 50                /* How quickly combo keys must be pressed together */
+#define TAPPING_TERM_MS 200
+#define QUICK_TAP_MS 125
+#define THUMB_TAP_MS 300
+#define STICKY_KEY_RELEASE_AFTER_MS 2000    /* How long Sticky Keys stay pressed */
+#define HOME_ROW_MODS_TAPPING_TERM_MS 300  /* How long to hold to activate home row mods for same side or mouse usage */
+#define HOME_ROW_MODS_QUICK_TAP_MS 150     /* Cool down after typing before home row mods can be used */
+
+/* Left hand key positions for use with right hand mods */
+#define LEFT_HAND_KEYS \
+    0  1  2  3  4      \
+    10 11 12 13 14 15  \
+    22 23 24 25 26 27  \
+    34 35 36 37 38 39  \
+    46 47 48 49 50 51  \
+    64 65 66 67 68
+
+/* Right hand key positions for use with left hand mods */
+#define RIGHT_HAND_KEYS \
+        5  6  7  8  9   \
+    16 17 18 19 20 21   \
+    28 29 30 31 32 33   \
+    40 41 42 43 44 45   \
+    58 59 60 61 62 63   \
+       75 76 77 78 79
+
+/* Thumb key positions for use with mods on both hands */
+#define THUMB_KEYS       \
+    52 53 54    55 56 57 \
+    69 70 71    72 73 74
+
 / {
   behaviors {
     num_word: behavior_num_word {
@@ -34,13 +69,13 @@ ZMK_BEHAVIOR(magic, hold_tap, flavor = "tap-preferred"; tapping-term-ms = <200>;
       label = "NUM_WORD";
       #binding-cells = <0>;
       layers = <NUMPAD>;
-      continue-list = <BACKSPACE DELETE DOT COMMA>;
+      continue-list = <BACKSPACE DELETE DOT COMMA KP_N0 KP_N1 KP_N2 KP_N3 KP_N4 KP_N5 KP_N6 KP_N7 KP_N8 KP_N9 KP_DOT KP_EQUAL KP_SLASH KP_PLUS KP_MULTIPLY KP_MINUS KP_ENTER UP DOWN LEFT RIGHT>;
       ignore-numbers;
     };
   };
 };
 
-// homerow mods
+// homerow modifiers
 ZMK_BEHAVIOR(hrm, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <280>;
@@ -48,7 +83,7 @@ ZMK_BEHAVIOR(hrm, hold_tap,
     global-quick-tap;
     bindings = <&kp>, <&kp>;
 )
-
+// homerow layertaps
 ZMK_BEHAVIOR(hrlt, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <280>;
@@ -57,8 +92,38 @@ ZMK_BEHAVIOR(hrlt, hold_tap,
     bindings = <&mo>, <&kp>;
 )
 
-ZMK_BEHAVIOR(td_comma_semi, tap_dance,
+ZMK_BEHAVIOR(ht_mo_sk, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <THUMB_TAP_MS>;
+    quick-tap-ms = <125>;
+    global-quick-tap;
+    bindings = <&mo>, <&sk>;
+)
+
+ZMK_BEHAVIOR(ht_ht, hold_tap,
+    flavor = "balanced";
     tapping-term-ms = <200>;
+    quick-tap-ms = <125>;
+    global-quick-tap;
+    bindings = <&kp>, <&kp>;
+)
+
+/* Thumb keys */
+
+ZMK_BEHAVIOR(lth_5, tap_dance,
+    tapping-term-ms = <THUMB_TAP_MS>;
+    bindings = <&ht_hp LGUI SPACE>, <&kp LG(D)>; // TBD:
+)
+
+// tap: holdtap stickyshift &mo NUMPAD | doubletap: <Super-Escape>
+ZMK_BEHAVIOR(rth_5, tap_dance,
+    tapping-term-ms = <THUMB_TAP_MS>;
+    bindings = <&ht_mo_sk NUMPAD LSHFT>, <&kp LG(ESCAPE)>; // TBD:
+)
+
+// tap: comma | doubletap: semicolon
+ZMK_BEHAVIOR(td_comma_semi, tap_dance,
+    tapping-term-ms = <THUMB_TAP_MS>;
     bindings = <&kp COMMA>, <&kp SEMICOLON>;
 )
 
@@ -72,6 +137,46 @@ ZMK_BEHAVIOR(ss_cw, tap_dance,
 ZMK_BEHAVIOR(bs_del_num, mod_morph,
     bindings = <&lt NUMPAD BSPC>, <&kp DEL>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+
+// Alt tab
+ZMK_BEHAVIOR(alt_tab, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_press &kp LALT>
+          <&macro_tap &kp TAB>
+          <&macro_release &kp LALT>;
+)
+
+ZMK_BEHAVIOR(sel_word, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_tap &kp LC(RIGHT)
+          &macro_wait_time 1
+          &macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
+)
+
+ZMK_BEHAVIOR(ext_word, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_tap &kp LC(LS(RIGHT))>;
+)
+
+ZMK_BEHAVIOR(sel_line, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_tap &kp HOME &kp LS(END)>;
+)
+
+ZMK_BEHAVIOR(ext_line, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_tap &kp LS(DOWN) &kp LS(END)>;
 )
 
 // windows sleep macro
@@ -115,6 +220,8 @@ ZMK_COMBO(combo_equals_rh,       &kp EQUAL,     RT1 RT3, ALL)          // U & O,
 ZMK_COMBO(combo_tilde_rh,        &kp TILDE,     RM0 RM1, ALL)          // H & J, Home row right hand, 0-gap
 ZMK_COMBO(combo_lcurly_rh,       &kp LBRC,      RM1 RM2, ALL)          // J & K, Home row right hand, 0-gap
 ZMK_COMBO(combo_rcurly_rh,       &kp RBRC,      RM2 RM3, ALL)          // K & L, Home row right hand, 0-gap
+ZMK_COMBO(combo_pddwn_rh,        &kp PG_DN,     RM1 RM2, NUMPAD)       // J & K, Home row right hand, 0-gap
+ZMK_COMBO(combo_pgup_rh,         &kp PG_UP,     RM2 RM3, NUMPAD)       // K & L, Home row right hand, 0-gap
 ZMK_COMBO(combo_tab_rh,          &kp TAB,       RM1 RM3, ALL)          // J & L, Home row right hand, 1-gap
 
 ZMK_COMBO(combo_lparantheses_rh, &kp LPAR,      RB1 RB2, ALL)          // M & ,, BTM  row right hand, 0-gap
@@ -144,7 +251,7 @@ ZMK_LAYER(default_layer,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &none         &kp DELETE     &none            &none         &none          &num_word        &kp N         &kp M        &td_comma_semi &kp DOT       &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic MAGIC 0 &trans       &kp BSPC      &kp ESC       &kp LC(C)                     &lt 2 RET    &hrm LGUI SPACE &none            &none         &sk RSHFT      &key_repeat                    &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &none
+     &magic MAGIC 0 &trans       &kp BSPC      &kp ESC       &kp LC(C)                     &lt 2 RET     &lth_5         &none            &alt_tab      &rth_5         &key_repeat                    &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &none
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 )
 
@@ -158,9 +265,9 @@ ZMK_LAYER(lower,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &kp DOLLAR    &kp DQT       &trans        &trans        &trans                                                                                                      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &dk_oe        &dk_ae
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &trans        &trans        &trans        &trans          &trans        &trans         &trans           &trans        &trans         &trans           &kp RCTRL     &kp LC(LEFT)  &none         &kp LC(RIGHT) &trans        &trans
+     &trans        &trans        &trans        &trans        &trans        &trans          &trans        &trans         &trans           &trans        &trans         &trans           &kp RCTRL     &kp LC(LEFT)  &sel_word     &kp LC(RIGHT) &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic MAGIC 0 &trans       &trans        &trans        &trans                        &trans        &trans         &trans           &trans        &kp SPACE      &trans                         &trans        &none         &trans        &kp TILDE     &trans
+     &magic MAGIC 0 &trans       &trans        &trans        &trans                        &trans        &trans         &trans           &trans        &kp SPACE      &trans                         &trans        &kp RCTRL     &trans        &kp TILDE     &trans
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
