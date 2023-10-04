@@ -145,8 +145,8 @@ ZMK_BEHAVIOR(alt_tab, macro,
     tap-ms  = <5>;
     bindings
         = <&macro_press &kp LALT>
-          <&macro_tap &kp TAB>
-          <&macro_release &kp LALT>;
+        , <&macro_tap &kp TAB>
+        , <&macro_release &kp LALT>;
 )
 
 ZMK_BEHAVIOR(sel_word, macro,
@@ -154,8 +154,8 @@ ZMK_BEHAVIOR(sel_word, macro,
     tap-ms  = <5>;
     bindings
         = <&macro_tap &kp LC(RIGHT)
-          &macro_wait_time 1
-          &macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
+        , &macro_wait_time 1
+        , &macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
 )
 
 ZMK_BEHAVIOR(ext_word, macro,
