@@ -27,6 +27,15 @@ ZMK_BEHAVIOR(bt_2, macro, bindings = <&out OUT_BLE>, <&bt BT_SEL 2>;)
 ZMK_BEHAVIOR(bt_3, macro, bindings = <&out OUT_BLE>, <&bt BT_SEL 3>;)
 ZMK_BEHAVIOR(magic, hold_tap, flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&rgb_ug_status_macro>;)
 
+/ {
+  behaviors {
+    compatible = "zmk,behavior-caps-word";
+    label = "NUM_WORD";
+    #binding-cells = <0>;
+    layers = <NUMPAD>;
+  };
+};
+
 // homerow mods
 ZMK_BEHAVIOR(hrm, hold_tap,
     flavor = "balanced";
@@ -86,8 +95,8 @@ ZMK_COMBO(combo_greaterthan_lh,  &kp GT,        LB1 LB2, ALL)          // C & V,
 ZMK_COMBO(combo_lessthan_lh,     &kp LT,        LB2 LB3, ALL)          // X & C, BTM  row left hand, 0-gap
 
 /* ----------------------------- Right Hand ------------------------------------------------------------*/
-ZMK_COMBO(combo_lbracket_rh,     &kp LBKT,      RM1 RM2, ALL)          // 7 & 8, Num  row right hand, 0-gap
-ZMK_COMBO(combo_rbracket_rh,     &kp RBKT,      RM2 RM3, ALL)          // 8 & 9, Num  row right hand, 0-gap
+ZMK_COMBO(combo_lbracket_rh,     &kp LBKT,      RC1 RC2, ALL)          // 7 & 8, Num  row right hand, 0-gap
+ZMK_COMBO(combo_rbracket_rh,     &kp RBKT,      RC2 RC3, ALL)          // 8 & 9, Num  row right hand, 0-gap
 
 ZMK_COMBO(combo_slash_rh,        &kp SLASH,     RT1 RT2, ALL)          // U & I, Top  row right hand, 0-gap
 ZMK_COMBO(combo_backslash_rh,    &kp BACKSLASH, RT2 RT3, ALL)          // I & O, Top  row right hand, 0-gap
