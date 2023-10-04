@@ -29,12 +29,14 @@ ZMK_BEHAVIOR(magic, hold_tap, flavor = "tap-preferred"; tapping-term-ms = <200>;
 
 / {
   behaviors {
-    compatible = "zmk,behavior-caps-word";
-    label = "NUM_WORD";
-    #binding-cells = <0>;
-    layers = <NUMPAD>;
-    continue-list = <BACKSPACE DELETE DOT COMMA>;
-    ignore-numbers;
+    num_word: behavior_num_word {
+      compatible = "zmk,behavior-caps-word";
+      label = "NUM_WORD";
+      #binding-cells = <0>;
+      layers = <NUMPAD>;
+      continue-list = <BACKSPACE DELETE DOT COMMA>;
+      ignore-numbers;
+    };
   };
 };
 
@@ -53,6 +55,11 @@ ZMK_BEHAVIOR(hrlt, hold_tap,
     quick-tap-ms = <125>;
     global-quick-tap;
     bindings = <&mo>, <&kp>;
+)
+
+ZMK_BEHAVIOR(td_comma_semi, tap_dance,
+    tapping-term-ms = <200>;
+    bindings = <&kp COMMA>, <&kp SEMICOLON>;
 )
 
 // tap: sticky shift | double tap: capsword
@@ -135,7 +142,7 @@ ZMK_LAYER(default_layer,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp SQT       &kp A         &hrm LCTRL S  &hrm LSHFT D  &hrlt 1 F     &kp G                                                                                                       &kp H         &hrlt 1 J     &hrm RSHFT K  &hrm RCTRL L  &kp RETURN    &kp NUBS
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &none         &kp DELETE     &none            &none         &none          &num_word         &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &to 0
+     &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &none         &kp DELETE     &none            &none         &none          &num_word        &kp N         &kp M        &td_comma_semi &kp DOT       &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &magic MAGIC 0 &trans       &kp BSPC      &kp ESC       &kp LC(C)                     &lt 2 RET    &hrm LGUI SPACE &none            &none         &sk RSHFT      &key_repeat                    &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &none
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
