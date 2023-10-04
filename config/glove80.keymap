@@ -83,7 +83,7 @@ ZMK_COMBO(combo_tab_lh,          &kp TAB,    25 26, ALL)           // R & E, Top
 ZMK_COMBO(combo_asterisk,        &kp STAR,   36 37, ALL)           // D & S, Home row left hand, 0-gap
 ZMK_COMBO(combo_questionmark,    &kp QMARK,  37 38, ALL)           //  F & D, BTM  row left hand, 0-gap
 
-ZMK_COMBO(combo_lessthan_lh,     &kp LT,     48 49, All)           //  X & C, BTM  row left hand, 0-gap
+ZMK_COMBO(combo_lessthan_lh,     &kp LT,     48 49, ALL)           //  X & C, BTM  row left hand, 0-gap
 ZMK_COMBO(combo_greaterthan_lh,  &kp GT,     49 50, ALL)           // C & V, BTM  row left hand, 0-gap
 
 /* keymap */
