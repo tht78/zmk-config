@@ -37,6 +37,14 @@ ZMK_BEHAVIOR(hrm, hold_tap,
     bindings = <&kp>, <&kp>;
 )
 
+ZMK_BEHAVIOR(hrlt, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <125>;
+    global-quick-tap;
+    bindings = <&lt>, <&kp>;
+)
+
 // tap: sticky shift | double tap: capsword
 ZMK_BEHAVIOR(ss_cw, tap_dance,
     tapping-term-ms = <200>;
@@ -64,10 +72,20 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 
 // combos
 #undef COMBO_TERM
-#define COMBO_TERM 40  // timeout of 40ms (default is 30ms if omitted)
-ZMK_COMBO(combo_sleep,  &win_sleep, RT3 RT4, ALL)  // custom sleep macro, only active on NAV layer
-ZMK_COMBO(combo_copy,   &kp LC(C),  LB2 LB3, ALL)  // Ctrl + C, active on all layers
-ZMK_COMBO(combo_paste,  &kp LC(V),  LB1 LB2, ALL)  // Ctrl + V, active on all layers
+#define COMBO_TERM 50  // timeout of 40ms (default is 30ms if omitted)
+ZMK_COMBO(combo_sleep,           &win_sleep, RT3 RT4, ALL)  // custom sleep macro, only active on NAV layer
+ZMK_COMBO(combo_copy,            &kp LC(C),  LB2 LB3, ALL)  // Ctrl + C, active on all layers
+ZMK_COMBO(combo_paste,           &kp LC(V),  LB1 LB2, ALL)  // Ctrl + V, active on all layers
+ZMK_COMBO(combo_hash_lh,         &kp HASH,   24 25, ALL)            /* E & W, Top  row left hand, 0-gap */
+ZMK_COMBO(combo_exclamation_lh,  &kp EXCL,   24 26, ALL)            /* R & W, Top  row left hand, 1-gap */
+ZMK_COMBO(combo_tab_lh,          &kp TAB,    25 26, ALL)             /* R & E, Top  row left hand, 0-gap */
+
+ZMK_COMBO(combo_asterisk,        &kp STAR,   36 37, ALL)            /* D & S, Home row left hand, 0-gap */
+ZMK_COMBO(combo_questionmark,    &kp QMARK,  37 38, ALL)           /* F & D, BTM  row left hand, 0-gap */
+// ZMK_COMBO(combo_alttab,          &alttab,    36,38, ALL)             /* F & D, BTM  row left hand, 0-gap */
+
+ZMK_COMBO(combo_lessthan_lh,     &kp LT,     48 49, All)              /* X & C, BTM  row left hand, 0-gap */
+ZMK_COMBO(combo_greaterthan_lh,  &kp GT,     49 50, ALL)              /* C & V, BTM  row left hand, 0-gap */
 
 /* keymap */
 
@@ -75,15 +93,15 @@ ZMK_LAYER(default_layer,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      &kp F1        &kp F2        &kp  F3       &kp F4        &kp F5                                                                                                                                  &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &none         &kp N1        &kp  N2       &kp N3        &kp N4        &kp N5                                                                                                      &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp F11
+     &to LINUX     &kp N1        &kp  N2       &kp N3        &kp N4        &kp N5                                                                                                      &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp F11
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &none         &kp Q         &kp W         &kp E         &kp R         &kp T                                                                                                       &kp Y         &kp U         &kp I         &kp O         &kp P         &kp F12
+     &to WINDOWS   &kp Q         &kp W         &hrm LALT E   &kp R         &kp T                                                                                                       &kp Y         &kp U         &hrm RALT I   &kp O         &kp P         &kp F12
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp SQT       &kp A         &kp S         &kp D         &kp F         &kp G                                                                                                       &kp H         &kp J         &kp K         &kp L         &kp RETURN    &kp NUBS
+     &kp SQT       &kp A         &hrm LCTRL S  &hrm LSHFT D  &hrlt 1 F     &kp G                                                                                                       &kp H         &hrlt 1 J     &hrm RSHFT K  &hrm RCTRL L  &kp RETURN    &kp NUBS
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &none         &kp DELETE     &none            &none         &none          &none            &kp N         &kp M         &kp COMMA     &kp DOT       &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic MAGIC 0 &trans       &kp BSPC      &kp ESC       &none                         &kp RET       &kp SPACE      &none            &none         &sk RSHFT      &none                          &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &dk_oe
+     &magic MAGIC 0 &trans       &kp BSPC      &kp ESC       &none                         &kp RET       &kp SPACE      &none            &none         &sk RSHFT      &none                          &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &none
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 )
 
@@ -91,11 +109,11 @@ ZMK_LAYER(lower,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      &trans        &trans        &trans        &trans        &trans                                                                                                                                  &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &trans        &trans        &trans        &trans        &trans                                                                                                      &kp TILDE     &trans        &trans        &trans        &trans        &trans
+     &trans        &trans        &euro_sign    &trans        &trans        &trans                                                                                                      &kp TILDE     &trans        &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &kp PIPE      &kp AT        &kp CARET     &kp GRAVE     &kp PRCNT                                                                                                   &kp N0        &none         &none         &kp LC(RIGHT) &kp DOLLAR    &trans
+     &trans        &kp PIPE      &kp AT        &kp CARET     &kp GRAVE     &kp PRCNT                                                                                                   &kp N0        &none         &none         &kp LC(RIGHT) &dk_aa        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &trans        &kp DOLLAR    &kp DQT       &trans        &trans        &trans                                                                                                      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &dk_oe        &kp RA(Z)
+     &trans        &kp DOLLAR    &kp DQT       &trans        &trans        &trans                                                                                                      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &dk_oe        &dk_ae
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans        &trans        &trans        &trans          &trans        &trans         &trans           &trans        &trans         &trans           &kp RCTRL     &kp LC(LEFT)  &none         &kp LC(RIGHT) &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -138,7 +156,7 @@ ZMK_LAYER(linux,
 /*TODO: Add custom Windows commands */
 ZMK_LAYER(windows,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-     &trans        &trans        &trans        &trans        &trans                                                                                                                                  &trans        &trans        &trans        &trans        &trans
+     &___          &___          &___          &___          &___                                                                                                                                    &___          &___          &___          &___          &___
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &trans        &trans        &trans        &trans        &trans        &trans                                                                                                      &trans        &trans        &trans        &trans        &trans        &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
