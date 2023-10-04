@@ -177,13 +177,7 @@ ZMK_BEHAVIOR(ss_cw, tap_dance,
 
 ZMK_BEHAVIOR(cp_paste_cut, tap_dance,
     tapping-term-ms = <200>;
-    bindings = <&kp LC(C)>, <&kp LC(V)>, <kp LC(X)>;
-)
-
-// tap: backspace | shift + tap: delete | hold: num layer
-ZMK_BEHAVIOR(bs_del_num, mod_morph,
-    bindings = <&lt NUMPAD BSPC>, <&kp DEL>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
+    bindings = <&kp LC(C)>, <&kp LC(V)>, <&kp LC(X)>;
 )
 
 // Alt tab
