@@ -175,7 +175,7 @@ ZMK_BEHAVIOR(ss_cw, tap_dance,
     bindings = <&sk LSHFT>, <&caps_word>;
 )
 
-ZMK_BEHAVIOR(c-c_c-v_c-x, tap_dance,
+ZMK_BEHAVIOR(cp_paste_cut, tap_dance,
     tapping-term-ms = <200>;
     bindings = <&kp LC(C)>, <&kp LC(V)>, <kp LC(X)>;
 )
@@ -298,7 +298,7 @@ ZMK_LAYER(default_layer,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &lth_1        &lth_2         &lth_3           &rth_1        &rth_2         &num_word        &kp N         &kp M        &td_comma_semi &kp DOT       &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic MAGIC 0 &trans       &kp BSPC      &kp ESC       &kp LC(C)     &kp c-c_c-v_c-x &lt 2 RET     &lth_5         &lth_6           &alt_tab      &rth_5         &key_repeat                    &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &none
+     &magic MAGIC 0 &trans       &kp BSPC      &kp ESC       &cp_paste_cut                 &lt 2 RET     &lth_5         &lth_6           &alt_tab      &rth_5         &key_repeat                    &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &none
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 )
 
