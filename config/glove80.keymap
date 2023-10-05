@@ -137,10 +137,10 @@ ZMK_BEHAVIOR(lth_5, tap_dance,
     bindings = <&ht_hp LGUI SPACE>, <&kp LG(D)>; // TBD:
 )
 
-ZMK_BEHAVIOR(lth_6, tap_dance,
-    tapping-term-ms = <THUMB_TAP_MS>;
-    bindings = <&kp LG(N1)>, <&kp LG(N2)>, <&kp LG(N3)>, <&kp LG(N4)>;
-)
+//ZMK_BEHAVIOR(lth_6, tap_dance,
+//    tapping-term-ms = <THUMB_TAP_MS>;
+//    bindings = <&kp LG(N1)>, <&kp LG(N2)>, <&kp LG(N3)>, <&kp LG(N4)>;
+//)
 
 //ZMK_BEHAVIOR(lth_6_win, tap_dance,
 //    tapping-term-ms = <THUMB_TAP_MS>;
@@ -152,23 +152,23 @@ ZMK_BEHAVIOR(lth_6, tap_dance,
 //    bindings = <&kp LC(LS(TAB))>, <&kp LG(N2)>; // TBD:
 //)
 //
-ZMK_BEHAVIOR(rth_2, tap_dance,
-    tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&kp LALT(P)>, <&kp LG(E)>; // TBD:
-)
-
+//ZMK_BEHAVIOR(rth_2, tap_dance,
+//    tapping-term-ms = <TAPPING_TERM_MS>;
+//    bindings = <&kp LALT(P)>, <&kp LG(E)>; // TBD:
+//)
+//
 //// tap: holdtap stickyshift &mo NUMPAD | doubletap: <Super-Escape>
 //ZMK_BEHAVIOR(rth_5, tap_dance,
 //    tapping-term-ms = <TAPPING_TERM_MS>;
 //    bindings = <&ht_mo_sk 2 LSHFT>, <&kp LG(ESCAPE)>; // TBD:
 //)
 //
-// tap: comma | doubletap: semicolon
-ZMK_BEHAVIOR(td_comma_semi, tap_dance,
-    tapping-term-ms = <THUMB_TAP_MS>;
-    bindings = <&kp COMMA>, <&kp SEMICOLON>;
-)
-
+//// tap: comma | doubletap: semicolon
+//ZMK_BEHAVIOR(td_comma_semi, tap_dance,
+//    tapping-term-ms = <THUMB_TAP_MS>;
+//    bindings = <&kp COMMA>, <&kp SEMICOLON>;
+//)
+//
 // tap: sticky shift | double tap: capsword
 ZMK_BEHAVIOR(ss_cw, tap_dance,
     tapping-term-ms = <200>;
