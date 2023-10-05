@@ -126,11 +126,11 @@ ZMK_BEHAVIOR(lth_3, tap_dance,
     tapping-term-ms = <THUMB_TAP_MS>;
     bindings = <&kp LC(TAB)>, <&kp LG(S)>; // TBD:
 )
-//
-//ZMK_BEHAVIOR(lth_4, tap_dance,
-//    tapping-term-ms = <THUMB_TAP_MS>;
-//    bindings = <&lt 1 RETURN>, <&kp LG(S)>; // TBD:
-//)
+
+ZMK_BEHAVIOR(lth_4, tap_dance,
+    tapping-term-ms = <THUMB_TAP_MS>;
+    bindings = <&lt 1 RETURN>, <&kp LG(S)>; // TBD:
+)
 //
 //ZMK_BEHAVIOR(lth_5, tap_dance,
 //    tapping-term-ms = <150>;
