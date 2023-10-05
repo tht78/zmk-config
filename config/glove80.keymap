@@ -239,44 +239,44 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 // ZMK_COMBO(combo_sleep,           &win_sleep, RT3 RT4, ALL)         // custom sleep macro, only active on NAV layer
 // ZMK_COMBO(combo_copy,            &kp LC(C),  LB2 LB3, ALL)         // Ctrl + C, active on all layers
 // ZMK_COMBO(combo_paste,           &kp LC(V),  LB1 LB2, ALL)         // Ctrl + V, active on all layers
-//ZMK_COMBO(combo_tab_lh,          &kp TAB,       LT1 LT2, ALL)          // R & E, Top  row left hand, 0-gap
-//ZMK_COMBO(combo_hash_lh,         &kp HASH,      LT2 LT3, ALL)          // E & W, Top  row left hand, 0-gap
-//ZMK_COMBO(combo_exclamation_lh,  &kp EXCL,      LT1 LT3, ALL)          // R & W, Top  row left hand, 1-gap
-//
-//ZMK_COMBO(combo_questionmark,    &kp QMARK,     LM1 LM2, ALL)          // F & D, BTM  row left hand, 0-gap
-//ZMK_COMBO(combo_asterisk,        &kp STAR,      LM2 LM3, ALL)          // D & S, Home row left hand, 0-gap
-//
-//ZMK_COMBO(combo_greaterthan_lh,  &kp GT,        LB1 LB2, ALL)          // C & V, BTM  row left hand, 0-gap
-//ZMK_COMBO(combo_lessthan_lh,     &kp LT,        LB2 LB3, ALL)          // X & C, BTM  row left hand, 0-gap
-//
-///* ----------------------------- Right Hand ------------------------------------------------------------*/
-//ZMK_COMBO(combo_lbracket_rh,     &kp LBKT,      RC1 RC2, ALL)          // 7 & 8, Num  row right hand, 0-gap
-//ZMK_COMBO(combo_rbracket_rh,     &kp RBKT,      RC2 RC3, ALL)          // 8 & 9, Num  row right hand, 0-gap
-//
-//ZMK_COMBO(combo_slash_rh,        &kp SLASH,     RT1 RT2, ALL)          // U & I, Top  row right hand, 0-gap
-//ZMK_COMBO(combo_backslash_rh,    &kp BACKSLASH, RT2 RT3, ALL)          // I & O, Top  row right hand, 0-gap
-//ZMK_COMBO(combo_and_rh,          &kp AMPS,      RT0 RT1, ALL)          // Y & U, Top  row right hand, 0-gap
-//ZMK_COMBO(combo_equals_rh,       &kp EQUAL,     RT1 RT3, ALL)          // U & O, Top  row right hand, 1-gap
-//
-//ZMK_COMBO(combo_tilde_rh,        &kp TILDE,     RM0 RM1, ALL)          // H & J, Home row right hand, 0-gap
-//ZMK_COMBO(combo_lcurly_rh,       &kp LBRC,      RM1 RM2, ALL)          // J & K, Home row right hand, 0-gap
-//ZMK_COMBO(combo_rcurly_rh,       &kp RBRC,      RM2 RM3, ALL)          // K & L, Home row right hand, 0-gap
-//ZMK_COMBO(combo_pddwn_rh,        &kp PG_DN,     RM1 RM2, NUMPAD)       // J & K, Home row right hand, 0-gap
-//ZMK_COMBO(combo_pgup_rh,         &kp PG_UP,     RM2 RM3, NUMPAD)       // K & L, Home row right hand, 0-gap
-//ZMK_COMBO(combo_tab_rh,          &kp TAB,       RM1 RM3, ALL)          // J & L, Home row right hand, 1-gap
-//
-//ZMK_COMBO(combo_lparantheses_rh, &kp LPAR,      RB1 RB2, ALL)          // M & ,, BTM  row right hand, 0-gap
-//ZMK_COMBO(combo_rparantheses_rh, &kp RPAR,      RB2 RB3, ALL)          // , & .  BTM  row right hand, 0-gap
-//
-///* ----------------------------- Both hands ------------------------------------------------------------*/
-//ZMK_COMBO(combo_n0,              &kp N0,        LM1 RM1, ALL)          // Home row both hands, F & J
-//ZMK_COMBO(combo_dollasign,       &kp DOLLAR,    LM1 RM3, ALL)          // Home row both hands, F & L
-//
-////ZMK_COMBO(combo_caps_word,       &caps_word,    LM2 RM2, ALL)          // Home row both hands, D & K
-//
-//ZMK_COMBO(combo_percent,         &kp PERCENT,   LM3 RM3, ALL)          // Home row both hands, S & L
-//ZMK_COMBO(combo_caret,           &kp CARET,     LT2 RT2, ALL)          // Home row both hands, E & I
-//ZMK_COMBO(combo_grave,           &kp GRAVE,     LB2 RB2, ALL)          // Home row both hands, X & C
+ZMK_COMBO(combo_tab_lh,          &kp TAB,       LT1 LT2, ALL)          // R & E, Top  row left hand, 0-gap
+ZMK_COMBO(combo_hash_lh,         &kp HASH,      LT2 LT3, ALL)          // E & W, Top  row left hand, 0-gap
+ZMK_COMBO(combo_exclamation_lh,  &kp EXCL,      LT1 LT3, ALL)          // R & W, Top  row left hand, 1-gap
+
+ZMK_COMBO(combo_questionmark,    &kp QMARK,     LM1 LM2, ALL)          // F & D, BTM  row left hand, 0-gap
+ZMK_COMBO(combo_asterisk,        &kp STAR,      LM2 LM3, ALL)          // D & S, Home row left hand, 0-gap
+
+ZMK_COMBO(combo_greaterthan_lh,  &kp GT,        LB1 LB2, ALL)          // C & V, BTM  row left hand, 0-gap
+ZMK_COMBO(combo_lessthan_lh,     &kp LT,        LB2 LB3, ALL)          // X & C, BTM  row left hand, 0-gap
+
+/* ----------------------------- Right Hand ------------------------------------------------------------*/
+ZMK_COMBO(combo_lbracket_rh,     &kp LBKT,      RN1 RN2, ALL)          // 7 & 8, Num  row right hand, 0-gap
+ZMK_COMBO(combo_rbracket_rh,     &kp RBKT,      RN2 RN3, ALL)          // 8 & 9, Num  row right hand, 0-gap
+
+ZMK_COMBO(combo_slash_rh,        &kp SLASH,     RT1 RT2, ALL)          // U & I, Top  row right hand, 0-gap
+ZMK_COMBO(combo_backslash_rh,    &kp BACKSLASH, RT2 RT3, ALL)          // I & O, Top  row right hand, 0-gap
+ZMK_COMBO(combo_and_rh,          &kp AMPS,      RT0 RT1, ALL)          // Y & U, Top  row right hand, 0-gap
+ZMK_COMBO(combo_equals_rh,       &kp EQUAL,     RT1 RT3, ALL)          // U & O, Top  row right hand, 1-gap
+
+ZMK_COMBO(combo_tilde_rh,        &kp TILDE,     RM0 RM1, ALL)          // H & J, Home row right hand, 0-gap
+ZMK_COMBO(combo_lcurly_rh,       &kp LBRC,      RM1 RM2, ALL)          // J & K, Home row right hand, 0-gap
+ZMK_COMBO(combo_rcurly_rh,       &kp RBRC,      RM2 RM3, ALL)          // K & L, Home row right hand, 0-gap
+ZMK_COMBO(combo_pddwn_rh,        &kp PG_DN,     RM1 RM2, NUMPAD)       // J & K, Home row right hand, 0-gap
+ZMK_COMBO(combo_pgup_rh,         &kp PG_UP,     RM2 RM3, NUMPAD)       // K & L, Home row right hand, 0-gap
+ZMK_COMBO(combo_tab_rh,          &kp TAB,       RM1 RM3, ALL)          // J & L, Home row right hand, 1-gap
+
+ZMK_COMBO(combo_lparantheses_rh, &kp LPAR,      RB1 RB2, ALL)          // M & ,, BTM  row right hand, 0-gap
+ZMK_COMBO(combo_rparantheses_rh, &kp RPAR,      RB2 RB3, ALL)          // , & .  BTM  row right hand, 0-gap
+
+/* ----------------------------- Both hands ------------------------------------------------------------*/
+ZMK_COMBO(combo_n0,              &kp N0,        LM1 RM1, ALL)          // Home row both hands, F & J
+ZMK_COMBO(combo_dollasign,       &kp DOLLAR,    LM1 RM3, ALL)          // Home row both hands, F & L
+
+ZMK_COMBO(combo_caps_word,       &caps_word,    LM2 RM2, ALL)          // Home row both hands, D & K
+
+ZMK_COMBO(combo_percent,         &kp PERCENT,   LM3 RM3, ALL)          // Home row both hands, S & L
+ZMK_COMBO(combo_caret,           &kp CARET,     LT2 RT2, ALL)          // Home row both hands, E & I
+ZMK_COMBO(combo_grave,           &kp GRAVE,     LB2 RB2, ALL)          // Home row both hands, X & C
 
 /* keymap */
 
