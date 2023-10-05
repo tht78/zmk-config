@@ -181,23 +181,23 @@ ZMK_BEHAVIOR(lth_1, tap_dance,
 //)
 
 // Alt tab
-ZMK_BEHAVIOR(alt_tab, macro,
-    wait-ms = <100>;
-    tap-ms  = <5>;
-    bindings
-        = <&macro_press &kp LALT>
-        , <&macro_tap &kp TAB>
-        , <&macro_release &kp LALT>;
-)
-//
-//ZMK_BEHAVIOR(sel_word, macro,
+//ZMK_BEHAVIOR(alt_tab, macro,
 //    wait-ms = <100>;
 //    tap-ms  = <5>;
 //    bindings
-//        = <&macro_tap &kp LC(RIGHT)>
-//        , <&macro_wait_time 1>
-//        , <&macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
+//        = <&macro_press &kp LALT>
+//        , <&macro_tap &kp TAB>
+//        , <&macro_release &kp LALT>;
 //)
+//
+ZMK_BEHAVIOR(sel_word, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_tap &kp LC(RIGHT)>
+        , <&macro_wait_time 1>
+        , <&macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
+)
 //
 //ZMK_BEHAVIOR(ext_word, macro,
 //    wait-ms = <100>;
