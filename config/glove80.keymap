@@ -154,7 +154,7 @@ ZMK_BEHAVIOR(lth_5, tap_dance,
 //
 ZMK_BEHAVIOR(rth_2, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&kp LALT(P)>, <&kp LG(E)>; // TBD:
+    bindings = <&kp LA(P)>, <&kp LG(E)>; // TBD:
 )
 
 //// tap: holdtap stickyshift &mo NUMPAD | doubletap: <Super-Escape>
