@@ -62,20 +62,20 @@ ZMK_BEHAVIOR(magic, hold_tap, flavor = "tap-preferred"; tapping-term-ms = <200>;
     52 53 54    55 56 57 \
     69 70 71    72 73 74
 
-/// {
-//  behaviors {
-//    num_word: behavior_num_word {
-//      compatible     = "zmk,behavior-caps-word";
-//      label          = "NUM_WORD";
-//      #binding-cells = <0>;
-//      layers         = <NUMPAD>;
-//      continue-list  = <BACKSPACE DELETE DOT COMMA UP DOWN LEFT RIGHT               \
-//                        KP_DOT KP_SLASH KP_PLUS KP_MULTIPLY KP_MINUS KP_ENTER       \
-//                        KP_N0 KP_N1 KP_N2 KP_N3 KP_N4 KP_N5 KP_N6 KP_N7 KP_N8 KP_N9>;
-//      ignore-numbers;
-//    };
-//  };
-//};
+/ {
+  behaviors {
+    num_word: behavior_num_word {
+      compatible     = "zmk,behavior-caps-word";
+      label          = "NUM_WORD";
+      #binding-cells = <0>;
+      layers         = <NUMPAD>;
+      continue-list  = <BACKSPACE DELETE DOT COMMA UP DOWN LEFT RIGHT               \
+                        KP_DOT KP_SLASH KP_PLUS KP_MULTIPLY KP_MINUS KP_ENTER       \
+                        KP_N0 KP_N1 KP_N2 KP_N3 KP_N4 KP_N5 KP_N6 KP_N7 KP_N8 KP_N9>;
+      ignore-numbers;
+    };
+  };
+};
 
 // homerow modifiers
 ZMK_BEHAVIOR(hrm, hold_tap,
