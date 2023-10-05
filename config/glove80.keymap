@@ -131,12 +131,12 @@ ZMK_BEHAVIOR(lth_4, tap_dance,
     tapping-term-ms = <THUMB_TAP_MS>;
     bindings = <&lt 1 RETURN>, <&kp LG(S)>; // TBD:
 )
-//
-//ZMK_BEHAVIOR(lth_5, tap_dance,
-//    tapping-term-ms = <150>;
-//    bindings = <&ht_hp LGUI SPACE>, <&kp LG(D)>; // TBD:
-//)
-//
+
+ZMK_BEHAVIOR(lth_5, tap_dance,
+    tapping-term-ms = <150>;
+    bindings = <&ht_hp LGUI SPACE>, <&kp LG(D)>; // TBD:
+)
+
 //ZMK_BEHAVIOR(lth_6, tap_dance,
 //    tapping-term-ms = <THUMB_TAP_MS>;
 //    bindings = <&kp LG(N1)>, <&kp LG(N2)>, <&kp LG(N3)>, <&kp LG(N4)>;
