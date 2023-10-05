@@ -164,11 +164,11 @@ ZMK_BEHAVIOR(lth_5, tap_dance,
 //)
 //
 //// tap: comma | doubletap: semicolon
-//ZMK_BEHAVIOR(td_comma_semi, tap_dance,
-//    tapping-term-ms = <THUMB_TAP_MS>;
-//    bindings = <&kp COMMA>, <&kp SEMICOLON>;
-//)
-//
+ZMK_BEHAVIOR(td_comma_semi, tap_dance,
+    tapping-term-ms = <THUMB_TAP_MS>;
+    bindings = <&kp COMMA>, <&kp SEMICOLON>;
+)
+
 // tap: sticky shift | double tap: capsword
 ZMK_BEHAVIOR(ss_cw, tap_dance,
     tapping-term-ms = <200>;
