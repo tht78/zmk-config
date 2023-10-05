@@ -175,10 +175,10 @@ ZMK_BEHAVIOR(lth_5, tap_dance,
 //    bindings = <&sk LSHFT>, <&kp L>;
 //)
 //
-//ZMK_BEHAVIOR(cp_paste_cut, tap_dance,
-//    tapping-term-ms = <200>;
-//    bindings = <&kp LC(C)>, <&kp LC(V)>, <&kp LC(X)>;
-//)
+ZMK_BEHAVIOR(cp_paste_cut, tap_dance,
+    tapping-term-ms = <200>;
+    bindings = <&kp LC(C)>, <&kp LC(V)>, <&kp LC(X)>;
+)
 
 // Alt tab
 //ZMK_BEHAVIOR(alt_tab, macro,
