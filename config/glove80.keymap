@@ -111,7 +111,7 @@ ZMK_BEHAVIOR(ht_hp, hold_tap,
 )
 
 /* Thumb keys */
-/
+
 ZMK_BEHAVIOR(lth_1, tap_dance,
     tapping-term-ms = <THUMB_TAP_MS>;
     bindings = <&kp LC(F8)>, <&kp LC(F9)>, <&kp LC(F10)>;
