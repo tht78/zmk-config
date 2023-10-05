@@ -190,43 +190,43 @@ ZMK_BEHAVIOR(alt_tab, macro,
         , <&macro_release &kp LALT>;
 )
 
-//ZMK_BEHAVIOR(sel_word, macro,
-//    wait-ms = <100>;
-//    tap-ms  = <5>;
-//    bindings
-//        = <&macro_tap &kp LC(RIGHT)>
-//        , <&macro_wait_time 1>
-//        , <&macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
-//)
-//
-//ZMK_BEHAVIOR(ext_word, macro,
-//    wait-ms = <100>;
-//    tap-ms  = <5>;
-//    bindings
-//        = <&macro_tap &kp LC(LS(RIGHT))>;
-//)
-//
-//ZMK_BEHAVIOR(sel_line, macro,
-//    wait-ms = <100>;
-//    tap-ms  = <5>;
-//    bindings
-//        = <&macro_tap &kp HOME &kp LS(END)>;
-//)
-//
-//ZMK_BEHAVIOR(ext_line, macro,
-//    wait-ms = <100>;
-//    tap-ms  = <5>;
-//    bindings
-//        = <&macro_tap &kp LS(DOWN) &kp LS(END)>;
-//)
-//
-//// windows sleep macro
-//ZMK_BEHAVIOR(win_sleep, macro,
-//    wait-ms = <100>;
-//    tap-ms = <5>;
-//    bindings = <&kp LG(X) &kp U &kp S>;
-//)
-//
+ZMK_BEHAVIOR(sel_word, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_tap &kp LC(RIGHT)>
+        , <&macro_wait_time 1>
+        , <&macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
+)
+
+ZMK_BEHAVIOR(ext_word, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_tap &kp LC(LS(RIGHT))>;
+)
+
+ZMK_BEHAVIOR(sel_line, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_tap &kp HOME &kp LS(END)>;
+)
+
+ZMK_BEHAVIOR(ext_line, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_tap &kp LS(DOWN) &kp LS(END)>;
+)
+
+// windows sleep macro
+ZMK_BEHAVIOR(win_sleep, macro,
+    wait-ms = <100>;
+    tap-ms = <5>;
+    bindings = <&kp LG(X) &kp U &kp S>;
+)
+
 //// euro sign
 //ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 
