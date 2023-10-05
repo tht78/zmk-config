@@ -244,8 +244,8 @@ ZMK_COMBO(combo_tab_lh,          &kp TAB,       LT1 LT2, ALL)          // R & E,
 ZMK_COMBO(combo_hash_lh,         &kp HASH,      LT2 LT3, ALL)          // E & W, Top  row left hand, 0-gap
 ZMK_COMBO(combo_exclamation_lh,  &kp EXCL,      LT1 LT3, ALL)          // R & W, Top  row left hand, 1-gap
 
-ZMK_COMBO(combo_questionmark,    &kp QMARK,     LM1 LM2, BASE)          // F & D, BTM  row left hand, 0-gap
-ZMK_COMBO(combo_asterisk,        &kp STAR,      LM2 LM3, BASE)          // D & S, Home row left hand, 0-gap
+ZMK_COMBO(combo_questionmark,    &kp QMARK,     LM1 LM2, ALL)          // F & D, BTM  row left hand, 0-gap
+ZMK_COMBO(combo_asterisk,        &kp STAR,      LM2 LM3, ALL)          // D & S, Home row left hand, 0-gap
 
 ZMK_COMBO(combo_greaterthan_lh,  &kp GT,        LB1 LB2, ALL)          // C & V, BTM  row left hand, 0-gap
 ZMK_COMBO(combo_lessthan_lh,     &kp LT,        LB2 LB3, ALL)          // X & C, BTM  row left hand, 0-gap
@@ -260,10 +260,10 @@ ZMK_COMBO(combo_and_rh,          &kp AMPS,      RT0 RT1, ALL)          // Y & U,
 ZMK_COMBO(combo_equals_rh,       &kp EQUAL,     RT1 RT3, ALL)          // U & O, Top  row right hand, 1-gap
 
 ZMK_COMBO(combo_tilde_rh,        &kp TILDE,     RM0 RM1, ALL)          // H & J, Home row right hand, 0-gap
-ZMK_COMBO(combo_lcurly_rh,       &kp LBRC,      RM1 RM2, ALL)          // J & K, Home row right hand, 0-gap
-ZMK_COMBO(combo_rcurly_rh,       &kp RBRC,      RM2 RM3, ALL)          // K & L, Home row right hand, 0-gap
 ZMK_COMBO(combo_pddwn_rh,        &kp PG_DN,     RM1 RM2, NUMPAD)       // J & K, Home row right hand, 0-gap
 ZMK_COMBO(combo_pgup_rh,         &kp PG_UP,     RM2 RM3, NUMPAD)       // K & L, Home row right hand, 0-gap
+ZMK_COMBO(combo_lcurly_rh,       &kp LBRC,      RM1 RM2, BASE)         // J & K, Home row right hand, 0-gap
+ZMK_COMBO(combo_rcurly_rh,       &kp RBRC,      RM2 RM3, BASE)         // K & L, Home row right hand, 0-gap
 ZMK_COMBO(combo_tab_rh,          &kp TAB,       RM1 RM3, ALL)          // J & L, Home row right hand, 1-gap
 
 ZMK_COMBO(combo_lparantheses_rh, &kp LPAR,      RB1 RB2, ALL)          // M & ,, BTM  row right hand, 0-gap
