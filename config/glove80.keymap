@@ -111,7 +111,7 @@ ZMK_BEHAVIOR(ht_hp, hold_tap,
 )
 
 /* Thumb keys */
-
+/
 ZMK_BEHAVIOR(lth_1, tap_dance,
     tapping-term-ms = <THUMB_TAP_MS>;
     bindings = <&kp LC(F8)>, <&kp LC(F9)>, <&kp LC(F10)>;
@@ -181,14 +181,14 @@ ZMK_BEHAVIOR(lth_1, tap_dance,
 //)
 
 // Alt tab
-//ZMK_BEHAVIOR(alt_tab, macro,
-//    wait-ms = <100>;
-//    tap-ms  = <5>;
-//    bindings
-//        = <&macro_press &kp LALT>
-//        , <&macro_tap &kp TAB>
-//        , <&macro_release &kp LALT>;
-//)
+ZMK_BEHAVIOR(alt_tab, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp TAB>
+        , <&macro_release &kp LALT>;
+)
 //
 //ZMK_BEHAVIOR(sel_word, macro,
 //    wait-ms = <100>;
