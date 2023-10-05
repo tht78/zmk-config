@@ -7,7 +7,7 @@
 
 #include "helper.h"
 #include "keypos_glv80.h"
-//#include "danish.dtsi"
+#include "danish.dtsi"
 
 #define ___ &trans
 
@@ -137,21 +137,21 @@ ZMK_BEHAVIOR(lth_5, tap_dance,
     bindings = <&ht_hp LGUI SPACE>, <&kp LG(D)>; // TBD:
 )
 
-//ZMK_BEHAVIOR(lth_6, tap_dance,
-//    tapping-term-ms = <THUMB_TAP_MS>;
-//    bindings = <&kp LG(N1)>, <&kp LG(N2)>, <&kp LG(N3)>, <&kp LG(N4)>;
-//)
+ZMK_BEHAVIOR(lth_6, tap_dance,
+    tapping-term-ms = <THUMB_TAP_MS>;
+    bindings = <&kp LG(N1)>, <&kp LG(N2)>, <&kp LG(N3)>, <&kp LG(N4)>;
+)
 
-//ZMK_BEHAVIOR(lth_6_win, tap_dance,
-//    tapping-term-ms = <THUMB_TAP_MS>;
-//    bindings = <&alt_tab>, <&kp LG(PG_DN)>;
-//)
+ZMK_BEHAVIOR(lth_6_win, tap_dance,
+    tapping-term-ms = <THUMB_TAP_MS>;
+    bindings = <&alt_tab>, <&kp LG(PG_DN)>;
+)
 
-//ZMK_BEHAVIOR(rth_1, tap_dance,
-//    tapping-term-ms = <TAPPING_TERM_MS>;
-//    bindings = <&kp LC(LS(TAB))>, <&kp LG(N2)>; // TBD:
-//)
-//
+ZMK_BEHAVIOR(rth_1, tap_dance,
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    bindings = <&kp LC(LS(TAB))>, <&kp LG(N2)>; // TBD:
+)
+
 ZMK_BEHAVIOR(rth_2, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
     bindings = <&kp LA(P)>, <&kp LG(E)>; // TBD:
@@ -228,11 +228,11 @@ ZMK_BEHAVIOR(win_sleep, macro,
 )
 
 //// euro sign
-//ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
+ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 
 // replace a/o/u/s with German umlauts when NAV and NUM are held jointly
-// ZMK_CONDITIONAL_LAYER(NAV NUM, GER)
-// test av &numwords
+ ZMK_CONDITIONAL_LAYER(NAV NUM, GER)
+
 // combos
 #undef COMBO_TERM
 #define COMBO_TERM 50  // timeout of 40ms (default is 30ms if omitted)
