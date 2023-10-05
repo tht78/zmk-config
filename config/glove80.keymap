@@ -6,8 +6,8 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #include "helper.h"
-#include "keypos_glv80.h"
-#include "danish.dtsi"
+//#include "keypos_glv80.h"
+//#include "danish.dtsi"
 
 #define ___ &trans
 
@@ -62,20 +62,20 @@ ZMK_BEHAVIOR(magic, hold_tap, flavor = "tap-preferred"; tapping-term-ms = <200>;
 //    52 53 54    55 56 57 \
 //    69 70 71    72 73 74
 
-/ {
-  behaviors {
-    num_word: behavior_num_word {
-      compatible     = "zmk,behavior-caps-word";
-      label          = "NUM_WORD";
-      #binding-cells = <0>;
-      layers         = <NUMPAD>;
-      continue-list  = <BACKSPACE DELETE DOT COMMA UP DOWN LEFT RIGHT               \
-                        KP_DOT KP_SLASH KP_PLUS KP_MULTIPLY KP_MINUS KP_ENTER       \
-                        KP_N0 KP_N1 KP_N2 KP_N3 KP_N4 KP_N5 KP_N6 KP_N7 KP_N8 KP_N9>;
-      ignore-numbers;
-    };
-  };
-};
+/// {
+//  behaviors {
+//    num_word: behavior_num_word {
+//      compatible     = "zmk,behavior-caps-word";
+//      label          = "NUM_WORD";
+//      #binding-cells = <0>;
+//      layers         = <NUMPAD>;
+//      continue-list  = <BACKSPACE DELETE DOT COMMA UP DOWN LEFT RIGHT               \
+//                        KP_DOT KP_SLASH KP_PLUS KP_MULTIPLY KP_MINUS KP_ENTER       \
+//                        KP_N0 KP_N1 KP_N2 KP_N3 KP_N4 KP_N5 KP_N6 KP_N7 KP_N8 KP_N9>;
+//      ignore-numbers;
+//    };
+//  };
+//};
 
 // homerow modifiers
 ZMK_BEHAVIOR(hrm, hold_tap,
@@ -181,54 +181,54 @@ ZMK_BEHAVIOR(ht_hp, hold_tap,
 //)
 
 // Alt tab
-ZMK_BEHAVIOR(alt_tab, macro,
-    wait-ms = <100>;
-    tap-ms  = <5>;
-    bindings
-        = <&macro_press &kp LALT>
-        , <&macro_tap &kp TAB>
-        , <&macro_release &kp LALT>;
-)
-
-ZMK_BEHAVIOR(sel_word, macro,
-    wait-ms = <100>;
-    tap-ms  = <5>;
-    bindings
-        = <&macro_tap &kp LC(RIGHT)>
-        , <&macro_wait_time 1>
-        , <&macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
-)
-
-ZMK_BEHAVIOR(ext_word, macro,
-    wait-ms = <100>;
-    tap-ms  = <5>;
-    bindings
-        = <&macro_tap &kp LC(LS(RIGHT))>;
-)
-
-ZMK_BEHAVIOR(sel_line, macro,
-    wait-ms = <100>;
-    tap-ms  = <5>;
-    bindings
-        = <&macro_tap &kp HOME &kp LS(END)>;
-)
-
-ZMK_BEHAVIOR(ext_line, macro,
-    wait-ms = <100>;
-    tap-ms  = <5>;
-    bindings
-        = <&macro_tap &kp LS(DOWN) &kp LS(END)>;
-)
-
-// windows sleep macro
-ZMK_BEHAVIOR(win_sleep, macro,
-    wait-ms = <100>;
-    tap-ms = <5>;
-    bindings = <&kp LG(X) &kp U &kp S>;
-)
-
-// euro sign
-ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
+//ZMK_BEHAVIOR(alt_tab, macro,
+//    wait-ms = <100>;
+//    tap-ms  = <5>;
+//    bindings
+//        = <&macro_press &kp LALT>
+//        , <&macro_tap &kp TAB>
+//        , <&macro_release &kp LALT>;
+//)
+//
+//ZMK_BEHAVIOR(sel_word, macro,
+//    wait-ms = <100>;
+//    tap-ms  = <5>;
+//    bindings
+//        = <&macro_tap &kp LC(RIGHT)>
+//        , <&macro_wait_time 1>
+//        , <&macro_tap &kp LC(LEFT) &kp LC(LS(RIGHT))>;
+//)
+//
+//ZMK_BEHAVIOR(ext_word, macro,
+//    wait-ms = <100>;
+//    tap-ms  = <5>;
+//    bindings
+//        = <&macro_tap &kp LC(LS(RIGHT))>;
+//)
+//
+//ZMK_BEHAVIOR(sel_line, macro,
+//    wait-ms = <100>;
+//    tap-ms  = <5>;
+//    bindings
+//        = <&macro_tap &kp HOME &kp LS(END)>;
+//)
+//
+//ZMK_BEHAVIOR(ext_line, macro,
+//    wait-ms = <100>;
+//    tap-ms  = <5>;
+//    bindings
+//        = <&macro_tap &kp LS(DOWN) &kp LS(END)>;
+//)
+//
+//// windows sleep macro
+//ZMK_BEHAVIOR(win_sleep, macro,
+//    wait-ms = <100>;
+//    tap-ms = <5>;
+//    bindings = <&kp LG(X) &kp U &kp S>;
+//)
+//
+//// euro sign
+//ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 
 // replace a/o/u/s with German umlauts when NAV and NUM are held jointly
 // ZMK_CONDITIONAL_LAYER(NAV NUM, GER)
@@ -239,44 +239,44 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 // ZMK_COMBO(combo_sleep,           &win_sleep, RT3 RT4, ALL)         // custom sleep macro, only active on NAV layer
 // ZMK_COMBO(combo_copy,            &kp LC(C),  LB2 LB3, ALL)         // Ctrl + C, active on all layers
 // ZMK_COMBO(combo_paste,           &kp LC(V),  LB1 LB2, ALL)         // Ctrl + V, active on all layers
-ZMK_COMBO(combo_tab_lh,          &kp TAB,       LT1 LT2, ALL)          // R & E, Top  row left hand, 0-gap
-ZMK_COMBO(combo_hash_lh,         &kp HASH,      LT2 LT3, ALL)          // E & W, Top  row left hand, 0-gap
-ZMK_COMBO(combo_exclamation_lh,  &kp EXCL,      LT1 LT3, ALL)          // R & W, Top  row left hand, 1-gap
-
-ZMK_COMBO(combo_questionmark,    &kp QMARK,     LM1 LM2, ALL)          // F & D, BTM  row left hand, 0-gap
-ZMK_COMBO(combo_asterisk,        &kp STAR,      LM2 LM3, ALL)          // D & S, Home row left hand, 0-gap
-
-ZMK_COMBO(combo_greaterthan_lh,  &kp GT,        LB1 LB2, ALL)          // C & V, BTM  row left hand, 0-gap
-ZMK_COMBO(combo_lessthan_lh,     &kp LT,        LB2 LB3, ALL)          // X & C, BTM  row left hand, 0-gap
-
-/* ----------------------------- Right Hand ------------------------------------------------------------*/
-ZMK_COMBO(combo_lbracket_rh,     &kp LBKT,      RC1 RC2, ALL)          // 7 & 8, Num  row right hand, 0-gap
-ZMK_COMBO(combo_rbracket_rh,     &kp RBKT,      RC2 RC3, ALL)          // 8 & 9, Num  row right hand, 0-gap
-
-ZMK_COMBO(combo_slash_rh,        &kp SLASH,     RT1 RT2, ALL)          // U & I, Top  row right hand, 0-gap
-ZMK_COMBO(combo_backslash_rh,    &kp BACKSLASH, RT2 RT3, ALL)          // I & O, Top  row right hand, 0-gap
-ZMK_COMBO(combo_and_rh,          &kp AMPS,      RT0 RT1, ALL)          // Y & U, Top  row right hand, 0-gap
-ZMK_COMBO(combo_equals_rh,       &kp EQUAL,     RT1 RT3, ALL)          // U & O, Top  row right hand, 1-gap
-
-ZMK_COMBO(combo_tilde_rh,        &kp TILDE,     RM0 RM1, ALL)          // H & J, Home row right hand, 0-gap
-ZMK_COMBO(combo_lcurly_rh,       &kp LBRC,      RM1 RM2, ALL)          // J & K, Home row right hand, 0-gap
-ZMK_COMBO(combo_rcurly_rh,       &kp RBRC,      RM2 RM3, ALL)          // K & L, Home row right hand, 0-gap
-ZMK_COMBO(combo_pddwn_rh,        &kp PG_DN,     RM1 RM2, NUMPAD)       // J & K, Home row right hand, 0-gap
-ZMK_COMBO(combo_pgup_rh,         &kp PG_UP,     RM2 RM3, NUMPAD)       // K & L, Home row right hand, 0-gap
-ZMK_COMBO(combo_tab_rh,          &kp TAB,       RM1 RM3, ALL)          // J & L, Home row right hand, 1-gap
-
-ZMK_COMBO(combo_lparantheses_rh, &kp LPAR,      RB1 RB2, ALL)          // M & ,, BTM  row right hand, 0-gap
-ZMK_COMBO(combo_rparantheses_rh, &kp RPAR,      RB2 RB3, ALL)          // , & .  BTM  row right hand, 0-gap
-
-/* ----------------------------- Both hands ------------------------------------------------------------*/
-ZMK_COMBO(combo_n0,              &kp N0,        LM1 RM1, ALL)          // Home row both hands, F & J
-ZMK_COMBO(combo_dollasign,       &kp DOLLAR,    LM1 RM3, ALL)          // Home row both hands, F & L
-
-//ZMK_COMBO(combo_caps_word,       &caps_word,    LM2 RM2, ALL)          // Home row both hands, D & K
-
-ZMK_COMBO(combo_percent,         &kp PERCENT,   LM3 RM3, ALL)          // Home row both hands, S & L
-ZMK_COMBO(combo_caret,           &kp CARET,     LT2 RT2, ALL)          // Home row both hands, E & I
-ZMK_COMBO(combo_grave,           &kp GRAVE,     LB2 RB2, ALL)          // Home row both hands, X & C
+//ZMK_COMBO(combo_tab_lh,          &kp TAB,       LT1 LT2, ALL)          // R & E, Top  row left hand, 0-gap
+//ZMK_COMBO(combo_hash_lh,         &kp HASH,      LT2 LT3, ALL)          // E & W, Top  row left hand, 0-gap
+//ZMK_COMBO(combo_exclamation_lh,  &kp EXCL,      LT1 LT3, ALL)          // R & W, Top  row left hand, 1-gap
+//
+//ZMK_COMBO(combo_questionmark,    &kp QMARK,     LM1 LM2, ALL)          // F & D, BTM  row left hand, 0-gap
+//ZMK_COMBO(combo_asterisk,        &kp STAR,      LM2 LM3, ALL)          // D & S, Home row left hand, 0-gap
+//
+//ZMK_COMBO(combo_greaterthan_lh,  &kp GT,        LB1 LB2, ALL)          // C & V, BTM  row left hand, 0-gap
+//ZMK_COMBO(combo_lessthan_lh,     &kp LT,        LB2 LB3, ALL)          // X & C, BTM  row left hand, 0-gap
+//
+///* ----------------------------- Right Hand ------------------------------------------------------------*/
+//ZMK_COMBO(combo_lbracket_rh,     &kp LBKT,      RC1 RC2, ALL)          // 7 & 8, Num  row right hand, 0-gap
+//ZMK_COMBO(combo_rbracket_rh,     &kp RBKT,      RC2 RC3, ALL)          // 8 & 9, Num  row right hand, 0-gap
+//
+//ZMK_COMBO(combo_slash_rh,        &kp SLASH,     RT1 RT2, ALL)          // U & I, Top  row right hand, 0-gap
+//ZMK_COMBO(combo_backslash_rh,    &kp BACKSLASH, RT2 RT3, ALL)          // I & O, Top  row right hand, 0-gap
+//ZMK_COMBO(combo_and_rh,          &kp AMPS,      RT0 RT1, ALL)          // Y & U, Top  row right hand, 0-gap
+//ZMK_COMBO(combo_equals_rh,       &kp EQUAL,     RT1 RT3, ALL)          // U & O, Top  row right hand, 1-gap
+//
+//ZMK_COMBO(combo_tilde_rh,        &kp TILDE,     RM0 RM1, ALL)          // H & J, Home row right hand, 0-gap
+//ZMK_COMBO(combo_lcurly_rh,       &kp LBRC,      RM1 RM2, ALL)          // J & K, Home row right hand, 0-gap
+//ZMK_COMBO(combo_rcurly_rh,       &kp RBRC,      RM2 RM3, ALL)          // K & L, Home row right hand, 0-gap
+//ZMK_COMBO(combo_pddwn_rh,        &kp PG_DN,     RM1 RM2, NUMPAD)       // J & K, Home row right hand, 0-gap
+//ZMK_COMBO(combo_pgup_rh,         &kp PG_UP,     RM2 RM3, NUMPAD)       // K & L, Home row right hand, 0-gap
+//ZMK_COMBO(combo_tab_rh,          &kp TAB,       RM1 RM3, ALL)          // J & L, Home row right hand, 1-gap
+//
+//ZMK_COMBO(combo_lparantheses_rh, &kp LPAR,      RB1 RB2, ALL)          // M & ,, BTM  row right hand, 0-gap
+//ZMK_COMBO(combo_rparantheses_rh, &kp RPAR,      RB2 RB3, ALL)          // , & .  BTM  row right hand, 0-gap
+//
+///* ----------------------------- Both hands ------------------------------------------------------------*/
+//ZMK_COMBO(combo_n0,              &kp N0,        LM1 RM1, ALL)          // Home row both hands, F & J
+//ZMK_COMBO(combo_dollasign,       &kp DOLLAR,    LM1 RM3, ALL)          // Home row both hands, F & L
+//
+////ZMK_COMBO(combo_caps_word,       &caps_word,    LM2 RM2, ALL)          // Home row both hands, D & K
+//
+//ZMK_COMBO(combo_percent,         &kp PERCENT,   LM3 RM3, ALL)          // Home row both hands, S & L
+//ZMK_COMBO(combo_caret,           &kp CARET,     LT2 RT2, ALL)          // Home row both hands, E & I
+//ZMK_COMBO(combo_grave,           &kp GRAVE,     LB2 RB2, ALL)          // Home row both hands, X & C
 
 /* keymap */
 
@@ -292,7 +292,7 @@ ZMK_LAYER(default_layer,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &kp A        &kp A         &kp A           &kp A        &kp A         &num_word        &kp N         &kp M        &kp A &kp DOT       &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic MAGIC 0 &trans       &kp BSPC      &kp ESC       &cp_paste_cut                 &lt 2 RET     &kp A         &kp A           &alt_tab      &kp A         &key_repeat                    &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &none
+     &magic MAGIC 0 &trans       &kp BSPC      &kp ESC       &cp_paste_cut                 &lt 2 RET     &kp A         &kp A           &kp A      &kp A         &key_repeat                    &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &none
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 )
 
