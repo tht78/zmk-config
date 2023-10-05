@@ -272,7 +272,7 @@ ZMK_COMBO(combo_rparantheses_rh, &kp RPAR,      RB2 RB3, ALL)          // , & . 
 ZMK_COMBO(combo_n0,              &kp N0,        LM1 RM1, ALL)          // Home row both hands, F & J
 ZMK_COMBO(combo_dollasign,       &kp DOLLAR,    LM1 RM3, ALL)          // Home row both hands, F & L
 
-ZMK_COMBO(combo_caps_word,       &caps_word,    LM2 RM2, ALL)          // Home row both hands, D & K
+//ZMK_COMBO(combo_caps_word,       &caps_word,    LM2 RM2, ALL)          // Home row both hands, D & K
 
 ZMK_COMBO(combo_percent,         &kp PERCENT,   LM3 RM3, ALL)          // Home row both hands, S & L
 ZMK_COMBO(combo_caret,           &kp CARET,     LT2 RT2, ALL)          // Home row both hands, E & I
@@ -290,7 +290,7 @@ ZMK_LAYER(default_layer,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp SQT       &kp A         &hrm LCTRL S  &hrm LSHFT D  &hrlt 1 F     &kp G                                                                                                       &kp H         &hrlt 1 J     &hrm RSHFT K  &hrm RCTRL L  &kp RETURN    &kp NUBS
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &kp A        &kp A         &kp A           &kp A        &kp A         &num_word        &kp N         &kp M        &td_comma_semi &kp DOT       &kp MINUS     &to 0
+     &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &kp A        &kp A         &kp A           &kp A        &kp A         &num_word        &kp N         &kp M        &kp A &kp DOT       &kp MINUS     &to 0
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &magic MAGIC 0 &trans       &kp BSPC      &kp ESC       &cp_paste_cut                 &lt 2 RET     &kp A         &kp A           &alt_tab      &kp A         &key_repeat                    &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &none
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
