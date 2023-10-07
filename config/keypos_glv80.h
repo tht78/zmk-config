@@ -12,16 +12,30 @@
              ╰────────────┴────────────╯                         ╰────────────┴────────────╯
  */
 
-//#pragma once
-
 /*
- * Convenience macro allowing for layer definitions in a key arrangement like
- * the above key matrix. See https://github.com/urob/zmk-nodefree-config/pull/22
- * for a template. (Mind the commas!)
- *
+┌───┬───┬───┬───┬───┐                               ┌────┬────┬────┬────┬────┐
+│LC5│LC4│LC3│LC2│LC1│                               │ 5  │ 6  │ 7  │ 8  │ 9  │
+├───┼───┼───┼───┼───┼───┐                     ┌────┼────┼────┼────┼────┼────┤
+│LN5│LN4│LN3│LN2│LN1│LN0│                     │ 16 │ 17 │ 18 │ 19 │ 20 │ 21 │
+├───┼───┼───┼───┼───┼───┤                     ├────┼────┼────┼────┼────┼────┤
+│LT5│LT4│LT3│LT2│LT1│LT0│                     │ 28 │ 29 │ 30 │ 31 │ 32 │ 33 │
+├───┼───┼───┼───┼───┼───┤                     ├────┼────┼────┼────┼────┼────┤
+│LM5│LM4│LM3│LM2│LM1│LM0│                     │ 40 │ 41 │ 42 │ 43 │ 44 │ 45 │
+├───┼─==┼─==┼─==┼─==┼───┤                     ├────┼─==─┼─==─┼─==─┼─==─┼────┤
+│LB5│LB4│LB3│LB2│LB1│LB0│                     │ 58 │ 59 │ 60 │ 61 │ 62 │ 63 │
+│───┼───┼───┼───┼───┼───┘                     └────┼────┼────┼────┼────┼────┤
+│LF5│LF4│LF3│LF2│LF1│                               │ 75 │ 76 │ 77 │ 78 │ 79 │
+└───┴───┴───┴───┴───┘                               └────┴────┴────┴────┴────┘
+                         ┌────┬────┬────┐ ┌────┬────┬────┐
+                         │ 52   53   54 │ │ 55   56   57 │
+                         ├────┼────┼────┤ ├────┼────┼────┤
+                         │ 69   70   71 │ │ 72   73   74 │
+                         └────┴────┴────┘ └────┴────┴────┘
  * Note that this file needs to be sourced *after* helper.h so that ZMK_LAYER is
  * already defined.
  */
+
+#pragma once
 
 #define GLV80_LAYER(name, start, mid, end, thumb_row_1, thumb_row_2) \
   ZMK_LAYER(name, start thumb_row_1 mid thumb_row_2 end)
