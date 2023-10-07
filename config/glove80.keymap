@@ -104,10 +104,17 @@ ZMK_BEHAVIOR(ht_mo_sk, hold_tap,
 )
 
 ZMK_BEHAVIOR(ht_hp, hold_tap,
-    flavor = "balanced";
-    tapping-term-ms = <QUICK_TAP_MS>;
+    flavor = "hold-preferred";
+    tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&kp>;
+)
+
+ZMK_BEHAVIOR(ht_hp_mo, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&kp>;
 )
 
 /* Thumb keys */
@@ -235,6 +242,13 @@ ZMK_BEHAVIOR(ext_line, macro,
         = <&macro_tap &kp LS(DOWN) &kp LS(END)>;
 )
 
+ZMK_BEHAVIOR(2xcontrol, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_tap &kp LCTRL &kp LCTRL>;
+)
+
 // windows sleep macro
 ZMK_BEHAVIOR(win_sleep, macro,
     wait-ms = <100>;
@@ -254,42 +268,48 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 // ZMK_COMBO(combo_sleep,           &win_sleep, RT3 RT4, ALL)         // custom sleep macro, only active on NAV layer
 // ZMK_COMBO(combo_copy,            &kp LC(C),  LB2 LB3, ALL)         // Ctrl + C, active on all layers
 // ZMK_COMBO(combo_paste,           &kp LC(V),  LB1 LB2, ALL)         // Ctrl + V, active on all layers
-ZMK_COMBO(combo_rbracket_lh,     &kp RBKT,      LT1 LT2, ALL)          // [ ] ] Right bracket,    0-gap
-ZMK_COMBO(combo_lbracket_lh,     &kp LBKT,      LT2 LT3, ALL)          // [ [ ] Left bracket,     0-gap
-ZMK_COMBO(combo_exclamation_lh,  &kp EXCL,      LT1 LT3, ALL)          // [ ! ] Exclamationmark,  0-gap
+ZMK_COMBO(combo_rbracket_lh,     &kp RBKT,      LT1 LT2, CORE)         // [ ] ]             Right bracket     0-gap
+ZMK_COMBO(combo_lbracket_lh,     &kp LBKT,      LT2 LT3, CORE)         // [ [ ]             Left bracket      0-gap
+ZMK_COMBO(combo_hash_lh,         &kp HASH,      LT2 LT3, LOWER)        // [ # ]             Hash              0-gap
+ZMK_COMBO(combo_exclamation_lh,  &kp EXCL,      LT1 LT3, ALL)          // [ ! ]             Exclamationmark   1-gap
 
-ZMK_COMBO(combo_questionmark,    &kp QMARK,     LM1 LM2, ALL)          // [ ? ] Questionmark,     0-gap
-ZMK_COMBO(combo_asterisk,        &kp STAR,      LM2 LM3, ALL)          // [ * ] Asterisk,         0-gap
+ZMK_COMBO(combo_singleqts_lh,    &kp SQT,       LM1 LM2, CORE)         // [ ' ]             Singlequotes      0-gap
+ZMK_COMBO(combo_doubleqts_lh,    &kp DQT,       LM2 LM3, CORE)         // [ " ]             Doublequotes      0-gap
+ZMK_COMBO(combo_tab_lh,          &kp TAB,       LM1 LM3, CORE NUMPAD)  // [ TAB ]                             1-gap
 
-ZMK_COMBO(combo_slash_lh,        &kp SLASH,     LB2 LB3, ALL)          // [ / ] Slash,            0-gap
-ZMK_COMBO(combo_backslash_lh,    &kp BACKSLASH, LB1 LB2, ALL)          // [ \ ] Backslash         0-gap
-//ZMK_COMBO(combo_hash_lh,         &kp HASH,      LB2 LB3, ALL)          // [ # ] Hash,            0-gap
+ZMK_COMBO(combo_slash_lh,        &kp SLASH,     LB2 LB3, ALL)          // [ / ]             Slash             0-gap
+ZMK_COMBO(combo_backslash_lh,    &kp BACKSLASH, LB1 LB2, ALL)          // [ \ ]             Backslash         0-gap
 
 /* ----------------------------- Right Hand ------------------------------------------------------------*/
-ZMK_COMBO(combo_lparantheses_rh, &kp LPAR,      RT1 RT2, ALL)          // [ ( ] Left parantheses, 0-gap
-ZMK_COMBO(combo_rparantheses_rh, &kp RPAR,      RT2 RT3, ALL)          // [ ) ] Right parantheses,0-gap
-ZMK_COMBO(combo_and_rh,          &kp AMPS,      RT0 RT1, ALL)          // [ & ] Ampersand,        0-gap
-ZMK_COMBO(combo_equals_rh,       &kp EQUAL,     RT1 RT3, ALL)          // [ = ] Equals,           0-gap
+ZMK_COMBO(combo_lparantheses_rh, &kp LPAR,      RT1 RT2, ALL)          // [ ( ]             Left parantheses  0-gap
+ZMK_COMBO(combo_rparantheses_rh, &kp RPAR,      RT2 RT3, ALL)          // [ ) ]             Right parantheses 0-gap
+ZMK_COMBO(combo_and_rh,          &kp AMPS,      RT0 RT1, ALL)          // [ & ]             Ampersand         0-gap
+ZMK_COMBO(combo_equals_rh,       &kp EQUAL,     RT1 RT3, CORE)         // [ = ]             Equals            1-gap
+ZMK_COMBO(combo_home_rh,         &kp HOME,      RT1 RT3, NUMPAD LOWER) // [ HOME ]                            1-gap
 
-ZMK_COMBO(combo_tilde_rh,        &kp TILDE,     RM0 RM1, ALL)          // [ ~ ] Tilde,            0-gap
-ZMK_COMBO(combo_lcurly_rh,       &kp LBRC,      RM1 RM2, CORE)         // [ { ], Left curly,      0-gap
-ZMK_COMBO(combo_rcurly_rh,       &kp RBRC,      RM2 RM3, CORE)         // [ } ], Right curly,     0-gap
-ZMK_COMBO(combo_pddwn_rh,        &kp PG_DN,     RM1 RM2, NUMPAD)       // [ PageDown ],           0-gap
-ZMK_COMBO(combo_pgup_rh,         &kp PG_UP,     RM2 RM3, NUMPAD)       // [ PageUp ],             0-gap
-ZMK_COMBO(combo_tab_rh,          &kp TAB,       RM1 RM3, ALL)          // [ TAB ],                0-gap
+ZMK_COMBO(combo_tilde_rh,        &kp TILDE,     RM0 RM1, ALL)          // [ ~ ]             Tilde             0-gap
+ZMK_COMBO(combo_lcurly_rh,       &kp LBRC,      RM1 RM2, CORE)         // [ { ]             Left curly        0-gap
+ZMK_COMBO(combo_prev_word_rh,    &kp LC(LEFT),  RM1 RM2, NUMPAD LOWER) // [ Previous word ]                   0-gap
+ZMK_COMBO(combo_next_word_rh,    &kp LC(RIGHT), RM2 RM3, NUMPAD LOWER) // [ Next word ]                       0-gap
+ZMK_COMBO(combo_rcurly_rh,       &kp RBRC,      RM2 RM3, CORE)         // [ } ]             Right curly       0-gap
+ZMK_COMBO(combo_pgup_rh,         &kp PG_UP,     RM2 RM3, NUMPAD LOWER) // [ PageUp ]                          0-gap
+ZMK_COMBO(combo_tab_rh,          &kp TAB,       RM1 RM3, CORE NUMPAD)  // [ TAB ]                             1-gap
+ZMK_COMBO(combo_sel_word_rh,     &sel_word,     RM1 RM3, LOWER)        // [ Select word ]                     1-gap
 
-ZMK_COMBO(combo_greaterthan_rh,  &kp GT,        RB2 RB3, ALL)          // [ < ] Greater than,     0-gap
-ZMK_COMBO(combo_lessthan_rh,     &kp LT,        RB1 RB2, ALL)          // [ > ] Less than,        0-gap
+ZMK_COMBO(combo_pddwn_rh,        &kp PG_DN,     RB1 RB2, NUMPAD LOWER) // [ PageDown ]                        0-gap
+ZMK_COMBO(combo_end_rh,          &kp END,       RB1 RB3, NUMPAD LOWER) // [ END ]                             1-gap
+ZMK_COMBO(combo_greaterthan_rh,  &kp GT,        RB2 RB3, CORE)         // [ < ]            Greater than       0-gap
+ZMK_COMBO(combo_lessthan_rh,     &kp LT,        RB1 RB2, CORE)         // [ > ]            Less than          0-gap
 
 /* ----------------------------- Both hands ------------------------------------------------------------*/
-ZMK_COMBO(combo_n0,              &kp N0,        LM1 RM1, ALL)          // [ 0 ] Number 0
-ZMK_COMBO(combo_dollasign,       &kp DOLLAR,    LM1 RM3, ALL)          // [ $ ] Dollarsign
+ZMK_COMBO(combo_n0,              &kp N0,        LM1 RM1, ALL)          // [ 0 ]             Number 0
+ZMK_COMBO(combo_dollasign,       &kp DOLLAR,    LM1 RM3, ALL)          // [ $ ]             Dollarsign
 
 ZMK_COMBO(combo_caps_word,       &caps_word,    LM2 RM2, ALL)          // [ caps_word ]
 
-ZMK_COMBO(combo_percent,         &kp PERCENT,   LM3 RM3, ALL)          // [ % ] Percent
-ZMK_COMBO(combo_caret,           &kp CARET,     LT2 RT2, ALL)          // [ ^ ] Caret
-ZMK_COMBO(combo_grave,           &kp GRAVE,     LB2 RB2, ALL)          // [ ` ] Grave
+ZMK_COMBO(combo_percent,         &kp PERCENT,   LM3 RM3, ALL)          // [ % ]             Percent
+ZMK_COMBO(combo_caret,           &kp CARET,     LT2 RT2, ALL)          // [ ^ ]             Caret
+ZMK_COMBO(combo_grave,           &kp GRAVE,     LB2 RB2, ALL)          // [ ` ]             Grave
 
 /* keymap */
 
@@ -305,7 +325,7 @@ ZMK_LAYER(default_layer,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &lth_1        &lth_2         &lth_3           &rth_1        &rth_2         &key_repeat      &kp N         &kp M        &td_comma_semi &kp DOT       &kp MINUS     &dk_oe
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic MAGIC 0 XXX          &kp BACKSPACE &kp ESCAPE    &cp_paste_cut                 &lt 2 RET     &lth_5         &alt_tab         &sk RCTRL   &ht_mo_sk 2 LSHFT &num_word                     &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &to BASE
+     &magic MAGIC 0 XXX          &kp BACKSPACE &kp ESCAPE    &cp_paste_cut               &ht_hp_mo 2 RET &ht_hp LGUI SPACE &alt_tab      &sk RCTRL   &ht_mo_sk 2 LSHFT &num_word                     &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &to BASE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 )
 
@@ -313,15 +333,15 @@ ZMK_LAYER(lower,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
          ___           ___           ___           ___           ___                                                                                                                                 &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP      ___           ___
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         ___           ___       &euro_sign        ___           ___           ___                                                                                                     &kp TILDE         ___           ___           ___           ___           ___
+         ___           ___       &euro_sign        ___           ___           ___                                                                                                         ___           ___           ___           ___           ___           ___
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         ___       &kp PIPE      &kp AT        &kp CARET     &kp GRAVE     &kp PRCNT                                                                                                   &kp N0            ___           ___       &kp LC(RIGHT)     ___           ___
+         ___       &kp PIPE      &kp AT        &kp CARET     &kp GRAVE     &kp PRCNT                                                                                                       ___           ___           ___           ___           ___           ___
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         ___       &kp DOLLAR    &kp DQT           ___           ___           ___                                                                                                     &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT         ___           ___
+         ___       &kp DOLLAR    &kp DQT       &kp STAR      &kp QMARK         ___                                                                                                     &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT         ___           ___
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         ___           ___           ___           ___           ___           ___             ___           ___            ___              ___           ___            ___          &kp RCTRL     &kp LC(LEFT)  &sel_word     &kp LC(RIGHT)     ___           ___
+         ___           ___           ___           ___           ___           ___             ___           ___            ___              ___           ___            ___              ___           ___       &2xcontrol        ___           ___           ___
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic MAGIC 0    ___           ___           ___           ___                           ___       &alt_tab           ___              ___       &alt_tab           ___                            ___       &kp RCTRL         ___       &kp TILDE         ___
+     &magic MAGIC 0    ___           ___           ___           ___                           ___       &alt_tab           ___              ___       &alt_tab           ___                            ___           ___           ___           ___           ___
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
