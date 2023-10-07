@@ -246,8 +246,8 @@ ZMK_BEHAVIOR(ctrl_ctrl, macro,
     wait-ms = <100>;
     tap-ms  = <5>;
     bindings
-        = &kp LCTRL>
-        , &kp LCTRL>;
+        = <&kp LCTRL>
+        , <&kp LCTRL>;
 )
 
 // windows sleep macro
@@ -281,7 +281,7 @@ ZMK_COMBO(combo_tab_lh,          &kp TAB,       LM1 LM3, CORE NUMPAD)  // [ TAB 
 ZMK_COMBO(combo_slash_lh,        &kp SLASH,     LB2 LB3, ALL)          // [ / ]             Slash             0-gap
 ZMK_COMBO(combo_backslash_lh,    &kp BACKSLASH, LB1 LB2, ALL)          // [ \ ]             Backslash         0-gap
 
-/* ----------------------------- Right Hand ------------------------------------------------------------*/
+/* ----------------------------- Right Hand ---------------------------------------------------------------------*/
 ZMK_COMBO(combo_lparantheses_rh, &kp LPAR,      RT1 RT2, ALL)          // [ ( ]             Left parantheses  0-gap
 ZMK_COMBO(combo_rparantheses_rh, &kp RPAR,      RT2 RT3, ALL)          // [ ) ]             Right parantheses 0-gap
 ZMK_COMBO(combo_and_rh,          &kp AMPS,      RT0 RT1, ALL)          // [ & ]             Ampersand         0-gap
@@ -302,7 +302,7 @@ ZMK_COMBO(combo_end_rh,          &kp END,       RB1 RB3, NUMPAD LOWER) // [ END 
 ZMK_COMBO(combo_greaterthan_rh,  &kp GT,        RB2 RB3, CORE)         // [ < ]            Greater than       0-gap
 ZMK_COMBO(combo_lessthan_rh,     &kp LT,        RB1 RB2, CORE)         // [ > ]            Less than          0-gap
 
-/* ----------------------------- Both hands ------------------------------------------------------------*/
+/* ----------------------------- Both hands ---------------------------------------------------------------------*/
 ZMK_COMBO(combo_n0,              &kp N0,        LM1 RM1, ALL)          // [ 0 ]             Number 0
 ZMK_COMBO(combo_dollasign,       &kp DOLLAR,    LM1 RM3, ALL)          // [ $ ]             Dollarsign
 
