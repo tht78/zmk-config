@@ -242,13 +242,13 @@ ZMK_BEHAVIOR(ext_line, macro,
         = <&macro_tap &kp LS(DOWN) &kp LS(END)>;
 )
 
-ZMK_BEHAVIOR(2xcontrol, macro,
-    wait-ms = <100>;
-    tap-ms  = <5>;
-    bindings
-        = <&macro_tap &kp LCTRL>,
-          <&macro_tap &kp LCTRL>;
-)
+//ZMK_BEHAVIOR(2xcontrol, macro,
+//    wait-ms = <100>;
+//    tap-ms  = <5>;
+//    bindings
+//        = <&macro_tap &kp LCTRL>
+//        , <&macro_tap &kp LCTRL>;
+//)
 
 // windows sleep macro
 ZMK_BEHAVIOR(win_sleep, macro,
