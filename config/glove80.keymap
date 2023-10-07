@@ -19,6 +19,7 @@
 #define WINDOWS 4
 #define MAGIC 5
 
+#define CORE BASE LINUX WINDOWS
 /* Glove80 system behavior & macros */
 ZMK_BEHAVIOR(lower, tap_dance, tapping-term-ms = <200>; bindings = <&mo 1>, <&to 1>;)
 ZMK_BEHAVIOR(rgb_ug_status_macro, macro, bindings = <&rgb_ug RGB_STATUS>;)
@@ -97,9 +98,8 @@ ZMK_BEHAVIOR(hrlt, hold_tap,
 
 ZMK_BEHAVIOR(ht_mo_sk, hold_tap,
     flavor = "hold-preferred";
-    tapping-term-ms = <THUMB_TAP_MS>;
+    tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    global-quick-tap;
     bindings = <&mo>, <&sk>;
 )
 
@@ -172,7 +172,7 @@ ZMK_BEHAVIOR(rth_4_lin, tap_dance,
     bindings = <&sk RCTRL>, <&kp LA(SPACE)>, <&kp LA(TAB)>;
 )
 
-//// tap: holdtap stickyshift &mo NUMPAD | doubletap: <Super-Escape>
+//// tap: holdtap stickyshift &mo NUMPAD | doubletap: <WIN-Escape>
 ZMK_BEHAVIOR(rth_5, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
     bindings = <&ht_mo_sk 2 LSHFT>, <&kp LG(ESCAPE)>; // TBD:
@@ -272,8 +272,8 @@ ZMK_COMBO(combo_and_rh,          &kp AMPS,      RT0 RT1, ALL)          // [ & ] 
 ZMK_COMBO(combo_equals_rh,       &kp EQUAL,     RT1 RT3, ALL)          // [ = ] Equals,           0-gap
 
 ZMK_COMBO(combo_tilde_rh,        &kp TILDE,     RM0 RM1, ALL)          // [ ~ ] Tilde,            0-gap
-ZMK_COMBO(combo_lcurly_rh,       &kp LBRC,      RM1 RM2, ALL)          // [ { ], Left curly,      0-gap
-ZMK_COMBO(combo_rcurly_rh,       &kp RBRC,      RM2 RM3, ALL)          // [ } ], Right curly,     0-gap
+ZMK_COMBO(combo_lcurly_rh,       &kp LBRC,      RM1 RM2, CORE)         // [ { ], Left curly,      0-gap
+ZMK_COMBO(combo_rcurly_rh,       &kp RBRC,      RM2 RM3, CORE)         // [ } ], Right curly,     0-gap
 ZMK_COMBO(combo_pddwn_rh,        &kp PG_DN,     RM1 RM2, NUMPAD)       // [ PageDown ],           0-gap
 ZMK_COMBO(combo_pgup_rh,         &kp PG_UP,     RM2 RM3, NUMPAD)       // [ PageUp ],             0-gap
 ZMK_COMBO(combo_tab_rh,          &kp TAB,       RM1 RM3, ALL)          // [ TAB ],                0-gap
@@ -305,7 +305,7 @@ ZMK_LAYER(default_layer,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &lth_1        &lth_2         &lth_3           &rth_1        &rth_2         &key_repeat      &kp N         &kp M        &td_comma_semi &kp DOT       &kp MINUS     &dk_oe
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &magic MAGIC 0 XXX          &kp BACKSPACE &kp ESCAPE    &cp_paste_cut                 &lt 2 RET     &lth_5         &alt_tab         &sk RCTRL     &rth_5         &num_word                      &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &to BASE
+     &magic MAGIC 0 XXX          &kp BACKSPACE &kp ESCAPE    &cp_paste_cut                 &lt 2 RET     &lth_5         &alt_tab         &sk RCTRL   &ht_mo_sk 2 LSHFT &num_word                     &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &to BASE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 )
 
