@@ -246,7 +246,8 @@ ZMK_BEHAVIOR(2xcontrol, macro,
     wait-ms = <100>;
     tap-ms  = <5>;
     bindings
-        = <&macro_tap &kp LCTRL &kp LCTRL>;
+        = <&macro_tap &kp LCTRL>,
+          <&macro_tap &kp LCTRL>;
 )
 
 // windows sleep macro
