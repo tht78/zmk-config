@@ -14,9 +14,9 @@
 
 #define BASE 0
 #define LINUX 1
-#define LOWER 2
-#define NUMPAD 3
-#define WINDOWS 4
+#define WINDOWS 2
+#define LOWER 3
+#define NUMPAD 4
 #define MAGIC 5
 
 #define CORE BASE LINUX WINDOWS
