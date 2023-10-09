@@ -284,12 +284,16 @@ ZMK_COMBO(combo_lbracket_lh,     &kp LBKT,      LB2 LB3, CORE)         // [ [ ] 
 /* ----------------------------- Right Hand ---------------------------------------------------------------------*/
 ZMK_COMBO(combo_lparantheses_rh, &kp LPAR,      RT1 RT2, ALL)          // [ ( ]             Left parantheses  0-gap
 ZMK_COMBO(combo_rparantheses_rh, &kp RPAR,      RT2 RT3, ALL)          // [ ) ]             Right parantheses 0-gap
+ZMK_COMBO(combo_kpmultiply_rh,   &kp KP_MULTIPLY,RT1 RT2, NUMPAD)      // [ KP_MULTIPLY ]                     0-gap
+ZMK_COMBO(combo_kpdivide_rh,     &kp KP_DIVIDE, RT2 RT3, NUMPAD)       // [ KP_DIVIDE ]                       0-gap
 ZMK_COMBO(combo_and_rh,          &kp AMPS,      RT0 RT1, ALL)          // [ & ]             Ampersand         0-gap
 ZMK_COMBO(combo_equals_rh,       &kp EQUAL,     RT1 RT3, CORE)         // [ = ]             Equals            1-gap
 ZMK_COMBO(combo_home_rh,         &kp HOME,      RT1 RT3, NUMPAD LOWER) // [ HOME ]                            1-gap
 
 ZMK_COMBO(combo_tilde_rh,        &kp TILDE,     RM0 RM1, ALL)          // [ ~ ]             Tilde             0-gap
 ZMK_COMBO(combo_lcurly_rh,       &kp LBRC,      RM1 RM2, CORE)         // [ { ]             Left curly        0-gap
+ZMK_COMBO(combo_kpplus_rh,       &kp KP_PLUS,   RM1 RM2, NUMPAD)       // [ KP_PLUS ]                         0-gap
+ZMK_COMBO(combo_kpminus_rh,      &kp KP_MINUS,  RM2 RM3, NUMPAD)       // [ KP_MINUS ]                        0-gap
 ZMK_COMBO(combo_prev_word_rh,    &kp LC(LEFT),  RM1 RM2, NUMPAD LOWER) // [ Previous word ]                   0-gap
 ZMK_COMBO(combo_next_word_rh,    &kp LC(RIGHT), RM2 RM3, NUMPAD LOWER) // [ Next word ]                       0-gap
 ZMK_COMBO(combo_rcurly_rh,       &kp RBRC,      RM2 RM3, CORE)         // [ } ]             Right curly       0-gap
@@ -297,8 +301,10 @@ ZMK_COMBO(combo_pgup_rh,         &kp PG_UP,     RM2 RM3, NUMPAD LOWER) // [ Page
 ZMK_COMBO(combo_tab_rh,          &kp TAB,       RM1 RM3, CORE NUMPAD)  // [ TAB ]                             1-gap
 ZMK_COMBO(combo_sel_word_rh,     &sel_word,     RM1 RM3, LOWER)        // [ Select word ]                     1-gap
 
-ZMK_COMBO(combo_pddwn_rh,        &kp PG_DN,     RB1 RB2, NUMPAD LOWER) // [ PageDown ]                        0-gap
-ZMK_COMBO(combo_end_rh,          &kp END,       RB1 RB3, NUMPAD LOWER) // [ END ]                             1-gap
+ZMK_COMBO(combo_pddwn_rh,        &kp PG_DN,     RB1 RB2, LOWER)        // [ PageDown ]                        0-gap
+ZMK_COMBO(combo_end_rh,          &kp END,       RB1 RB3, LOWER)        // [ END ]                             1-gap
+ZMK_COMBO(combo_kpcomma_rh,      &kp KP_COMMA,  RB1 RB2, NUMPAD)       // [ KP_COMMA ]                        0-gap
+ZMK_COMBO(combo_kpminus_rh,      &kp KP_DOT,    RB2 RB3, NUMPAD)       // [ KP_DOT ]                          0-gap
 ZMK_COMBO(combo_greaterthan_rh,  &kp GT,        RB2 RB3, CORE)         // [ < ]            Greater than       0-gap
 ZMK_COMBO(combo_lessthan_rh,     &kp LT,        RB1 RB2, CORE)         // [ > ]            Less than          0-gap
 
@@ -372,9 +378,9 @@ ZMK_LAYER(lower,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
          ___       &kp PIPE      &kp AT        &kp CARET     &kp GRAVE     &kp PRCNT                                                                                                       ___           ___           ___           ___           ___           ___
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         ___       &kp DOLLAR    &kp DQT       &kp STAR      &kp QMARK         ___                                                                                                     &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT         ___           ___
+         ___       &kp DOLLAR    &kp STAR      &kp DQT       &kp QMARK         ___                                                                                                     &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT         ___           ___
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         ___           ___           ___           ___           ___           ___             ___           ___            ___              ___           ___            ___              ___           ___       &ctrl_ctrl        ___           ___           ___
+         ___       &kp CARET         ___           ___           ___           ___             ___           ___            ___              ___           ___            ___              ___           ___       &ctrl_ctrl        ___           ___           ___
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &magic MAGIC 0    ___           ___           ___           ___                           ___       &alt_tab           ___              ___       &alt_tab           ___                            ___           ___           ___           ___           ___
 // ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
