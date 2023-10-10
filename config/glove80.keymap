@@ -248,10 +248,10 @@ ZMK_BEHAVIOR(ae_low, macro,
     tap-ms  = <5>;
     bindings
         = <&macro_press &kp LALT>
-        , <&macro_tap &kp KP_0>
-        , <&macro_tap &kp KP_2>
-        , <&macro_tap &kp KP_3>
-        , <&macro_tap &kp KP_0>
+        , <&macro_tap &kp KP_N0>
+        , <&macro_tap &kp KP_N2>
+        , <&macro_tap &kp KP_N3>
+        , <&macro_tap &kp KP_N0>
         , <&macro_release &kp LALT>;
 )
 
@@ -260,10 +260,10 @@ ZMK_BEHAVIOR(ae_cap, macro,
     tap-ms  = <5>;
     bindings
         = <&macro_press &kp LALT>
-        , <&macro_tap &kp KP_0>
-        , <&macro_tap &kp KP_1>
-        , <&macro_tap &kp KP_9>
-        , <&macro_tap &kp KP_8>
+        , <&macro_tap &kp KP_N0>
+        , <&macro_tap &kp KP_N1>
+        , <&macro_tap &kp KP_N9>
+        , <&macro_tap &kp KP_N8>
         , <&macro_release &kp LALT>;
 )
 
@@ -272,10 +272,10 @@ ZMK_BEHAVIOR(oe_low, macro,
     tap-ms  = <5>;
     bindings
         = <&macro_press &kp LALT>
-        , <&macro_tap &kp KP_0>
-        , <&macro_tap &kp KP_2>
-        , <&macro_tap &kp KP_4>
-        , <&macro_tap &kp KP_8>
+        , <&macro_tap &kp KP_N0>
+        , <&macro_tap &kp KP_N2>
+        , <&macro_tap &kp KP_N4>
+        , <&macro_tap &kp KP_N8>
         , <&macro_release &kp LALT>;
 )
 
@@ -284,10 +284,10 @@ ZMK_BEHAVIOR(oe_cap, macro,
     tap-ms  = <5>;
     bindings
         = <&macro_press &kp LALT>
-        , <&macro_tap &kp KP_0>
-        , <&macro_tap &kp KP_2>
-        , <&macro_tap &kp KP_1>
-        , <&macro_tap &kp KP_6>
+        , <&macro_tap &kp KP_N0>
+        , <&macro_tap &kp KP_N2>
+        , <&macro_tap &kp KP_N1>
+        , <&macro_tap &kp KP_N6>
         , <&macro_release &kp LALT>;
 )
 
@@ -296,10 +296,10 @@ ZMK_BEHAVIOR(aa_low, macro,
     tap-ms  = <5>;
     bindings
         = <&macro_press &kp LALT>
-        , <&macro_tap &kp KP_0>
-        , <&macro_tap &kp KP_2>
-        , <&macro_tap &kp KP_2>
-        , <&macro_tap &kp KP_9>
+        , <&macro_tap &kp KP_N0>
+        , <&macro_tap &kp KP_N2>
+        , <&macro_tap &kp KP_N2>
+        , <&macro_tap &kp KP_N9>
         , <&macro_release &kp LALT>;
 )
 
@@ -308,10 +308,10 @@ ZMK_BEHAVIOR(aa_cap, macro,
     tap-ms  = <5>;
     bindings
         = <&macro_press &kp LALT>
-        , <&macro_tap &kp KP_0>
-        , <&macro_tap &kp KP_1>
-        , <&macro_tap &kp KP_9>
-        , <&macro_tap &kp KP_7>
+        , <&macro_tap &kp KP_N0>
+        , <&macro_tap &kp KP_N1>
+        , <&macro_tap &kp KP_N9>
+        , <&macro_tap &kp KP_N7>
         , <&macro_release &kp LALT>;
 )
 
