@@ -20,8 +20,9 @@
 #define MAGIC 5
 
 #define CORE BASE LINUX WINDOWS
+
 /* Glove80 system behavior & macros */
-ZMK_BEHAVIOR(lower, tap_dance, tapping-term-ms = <200>; bindings = <&mo 1>, <&to 1>;)
+ZMK_BEHAVIOR(lower, tap_dance, tapping-term-ms = <200>; bindings = <&mo LOWER>, <&to LOWER>;)
 ZMK_BEHAVIOR(rgb_ug_status_macro, macro, bindings = <&rgb_ug RGB_STATUS>;)
 ZMK_BEHAVIOR(bt_0, macro, bindings = <&out OUT_BLE>, <&bt BT_SEL 0>;)
 ZMK_BEHAVIOR(bt_1, macro, bindings = <&out OUT_BLE>, <&bt BT_SEL 1>;)
@@ -42,21 +43,21 @@ ZMK_BEHAVIOR(magic, hold_tap, flavor = "tap-preferred"; tapping-term-ms = <200>;
 #define HOME_ROW_MODS_QUICK_TAP_MS 150     /* Cool down after typing before home row mods can be used */
 
 /* Left hand key positions for use with right hand mods */
-#define LEFT_HAND_KEYS \
-    0  1  2  3  4      \
-    10 11 12 13 14 15  \
-    22 23 24 25 26 27  \
-    34 35 36 37 38 39  \
-    46 47 48 49 50 51  \
+#define LEFT_HAND_KEYS   \
+    0  1  2  3  4        \
+    10 11 12 13 14 15    \
+    22 23 24 25 26 27    \
+    34 35 36 37 38 39    \
+    46 47 48 49 50 51    \
     64 65 66 67 68
 
 /* Right hand key positions for use with left hand mods */
-#define RIGHT_HAND_KEYS \
-        5  6  7  8  9   \
-    16 17 18 19 20 21   \
-    28 29 30 31 32 33   \
-    40 41 42 43 44 45   \
-    58 59 60 61 62 63   \
+#define RIGHT_HAND_KEYS  \
+        5  6  7  8  9    \
+    16 17 18 19 20 21    \
+    28 29 30 31 32 33    \
+    40 41 42 43 44 45    \
+    58 59 60 61 62 63    \
        75 76 77 78 79
 
 /* Thumb key positions for use with mods on both hands */
@@ -242,6 +243,78 @@ ZMK_BEHAVIOR(ext_line, macro,
         = <&macro_tap &kp LS(DOWN) &kp LS(END)>;
 )
 
+ZMK_BEHAVIOR(ae_low, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp KP_0>
+        , <&macro_tap &kp KP_2>
+        , <&macro_tap &kp KP_3>
+        , <&macro_tap &kp KP_0>
+        , <&macro_release &kp LALT>;
+)
+
+ZMK_BEHAVIOR(ae_cap, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp KP_0>
+        , <&macro_tap &kp KP_1>
+        , <&macro_tap &kp KP_9>
+        , <&macro_tap &kp KP_8>
+        , <&macro_release &kp LALT>;
+)
+
+ZMK_BEHAVIOR(oe_low, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp KP_0>
+        , <&macro_tap &kp KP_2>
+        , <&macro_tap &kp KP_4>
+        , <&macro_tap &kp KP_8>
+        , <&macro_release &kp LALT>;
+)
+
+ZMK_BEHAVIOR(oe_cap, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp KP_0>
+        , <&macro_tap &kp KP_2>
+        , <&macro_tap &kp KP_1>
+        , <&macro_tap &kp KP_6>
+        , <&macro_release &kp LALT>;
+)
+
+ZMK_BEHAVIOR(aa_low, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp KP_0>
+        , <&macro_tap &kp KP_2>
+        , <&macro_tap &kp KP_2>
+        , <&macro_tap &kp KP_9>
+        , <&macro_release &kp LALT>;
+)
+
+ZMK_BEHAVIOR(aa_cap, macro,
+    wait-ms = <100>;
+    tap-ms  = <5>;
+    bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp KP_0>
+        , <&macro_tap &kp KP_1>
+        , <&macro_tap &kp KP_9>
+        , <&macro_tap &kp KP_7>
+        , <&macro_release &kp LALT>;
+)
+
 ZMK_BEHAVIOR(ctrl_ctrl, macro,
     wait-ms = <100>;
     tap-ms  = <5>;
@@ -255,6 +328,21 @@ ZMK_BEHAVIOR(win_sleep, macro,
     wait-ms = <100>;
     tap-ms = <5>;
     bindings = <&kp LG(X) &kp U &kp S>;
+)
+
+ZMK_BEHAVIOR(ae, mod_morph,)
+    bindings = <&ae_low>, <&ae_cap>;
+    mods = <MOD_LSFT>;
+)
+
+ZMK_BEHAVIOR(oe, mod_morph,)
+    bindings = <&oe_low>, <&oe_cap>;
+    mods = <MOD_LSFT>;
+)
+
+ZMK_BEHAVIOR(aa, mod_morph,)
+    bindings = <&aa_low>, <&aa_cap>;
+    mods = <MOD_LSFT>;
 )
 
 // euro sign
@@ -325,11 +413,11 @@ ZMK_LAYER(default_layer,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &to LINUX     &kp N1        &kp  N2       &kp N3        &kp N4        &kp N5                                                                                                      &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp F11
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &to WINDOWS   &kp Q         &kp W         &hrm LALT E   &kp R         &kp T                                                                                                       &kp Y         &kp U         &hrm RALT I   &kp O         &kp P         &dk_aa
+     &to WINDOWS   &kp Q         &kp W         &hrm LALT E   &kp R         &kp T                                                                                                       &kp Y         &kp U         &hrm RALT I   &kp O         &kp P         &aa
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp SQT       &kp A         &hrm LCTRL S  &hrm LSHFT D  &hrlt LOWER F &kp G                                                                                                       &kp H         &hrlt LOWER J &hrm RSHFT K  &hrm RCTRL L  &kp RETURN    &dk_ae
+     &kp SQT       &kp A         &hrm LCTRL S  &hrm LSHFT D  &hrlt LOWER F &kp G                                                                                                       &kp H         &hrlt LOWER J &hrm RSHFT K  &hrm RCTRL L  &kp RETURN    &ae
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ╭─────────────┬──────────────┬──────────────╮ ╭─────────────┬──────────────┬──────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &lth_1        &lth_2         &lth_3           &rth_1        &rth_2         &kp SPACE        &kp N         &kp M        &td_comma_semi &kp DOT       &kp MINUS     &dk_oe
+     &kp PSCRN     &kp Z         &kp X         &kp C         &kp V         &kp B           &lth_1        &lth_2         &lth_3           &rth_1        &rth_2         &kp SPACE        &kp N         &kp M        &td_comma_semi &kp DOT       &kp MINUS     &oe
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼──────────────┼──────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &magic MAGIC 0 XXX          &kp BACKSPACE &kp ESCAPE    &cp_paste_cut               &ht_hp_mo NUMPAD RET &ht_hp LGUI SPACE &alt_tab &sk RCTRL   &ht_mo_sk NUMPAD LSHFT &num_word                &kp BSPC      &kp ESCAPE    &kp COLON     &kp UNDER     &to BASE
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┴──────────────┴──────────────╯ ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
