@@ -330,17 +330,17 @@ ZMK_BEHAVIOR(win_sleep, macro,
     bindings = <&kp LG(X) &kp U &kp S>;
 )
 
-ZMK_BEHAVIOR(ae, mod_morph,)
+ZMK_BEHAVIOR(ae, mod_morph,
     bindings = <&ae_low>, <&ae_cap>;
     mods = <MOD_LSFT>;
 )
 
-ZMK_BEHAVIOR(oe, mod_morph,)
+ZMK_BEHAVIOR(oe, mod_morph,
     bindings = <&oe_low>, <&oe_cap>;
     mods = <MOD_LSFT>;
 )
 
-ZMK_BEHAVIOR(aa, mod_morph,)
+ZMK_BEHAVIOR(aa, mod_morph,
     bindings = <&aa_low>, <&aa_cap>;
     mods = <MOD_LSFT>;
 )
