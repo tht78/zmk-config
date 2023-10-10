@@ -357,38 +357,38 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 // ZMK_COMBO(combo_copy,            &kp LC(C),  LB2 LB3, ALL)         // Ctrl + C, active on all layers
 // ZMK_COMBO(combo_paste,           &kp LC(V),  LB1 LB2, ALL)         // Ctrl + V, active on all layers
 ZMK_COMBO(combo_hash_lh,         &kp HASH,      LT2 LT3, LOWER)        // [ # ]             Hash              0-gap
-ZMK_COMBO(combo_exclamation_lh,  &kp EXCL,      LT1 LT3, CORE)          // [ ! ]             Exclamationmark   1-gap
+ZMK_COMBO(combo_exclamation_lh,  &kp EXCL,      LT1 LT3, CORE)         // [ ! ]             Exclamationmark   1-gap
 ZMK_COMBO(combo_singleqts_lh,    &kp SQT,       LT1 LT2, CORE)         // [ ' ]             Singlequotes      0-gap
 ZMK_COMBO(combo_doubleqts_lh,    &kp DQT,       LT2 LT3, CORE)         // [ " ]             Doublequotes      0-gap
 
-ZMK_COMBO(combo_backslash_lh,    &kp BACKSLASH, LM1 LM2, CORE)          // [ \ ]             Backslash         0-gap
-ZMK_COMBO(combo_slash_lh,        &kp SLASH,     LM2 LM3, CORE)          // [ / ]             Slash             0-gap
+ZMK_COMBO(combo_backslash_lh,    &kp BACKSLASH, LM1 LM2, CORE)         // [ \ ]             Backslash         0-gap
+ZMK_COMBO(combo_slash_lh,        &kp SLASH,     LM2 LM3, CORE)         // [ / ]             Slash             0-gap
 ZMK_COMBO(combo_tab_lh,          &kp TAB,       LM1 LM3, CORE NUMPAD)  // [ TAB ]           TAB               1-gap
 
 ZMK_COMBO(combo_rbracket_lh,     &kp RBKT,      LB1 LB2, CORE)         // [ ] ]             Right bracket     0-gap
 ZMK_COMBO(combo_lbracket_lh,     &kp LBKT,      LB2 LB3, CORE)         // [ [ ]             Left  bracket     0-gap
 
 /* ----------------------------- Right Hand ---------------------------------------------------------------------*/
-ZMK_COMBO(combo_lparantheses_rh, &kp LPAR,      RT1 RT2, CORE)          // [ ( ]             Left  parantheses 0-gap
-ZMK_COMBO(combo_rparantheses_rh, &kp RPAR,      RT2 RT3, CORE)          // [ ) ]             Right parantheses 0-gap
-ZMK_COMBO(combo_kpmultiply_rh,   &kp KP_MULTIPLY,RT1 RT2, NUMPAD)      // [ KP_MULTIPLY ]   KP_MULTIPLY       0-gap
-ZMK_COMBO(combo_kpdivide_rh,     &kp KP_DIVIDE, RT2 RT3, NUMPAD)       // [ KP_DIVIDE ]     KP_DIVIDE         0-gap
-ZMK_COMBO(combo_and_rh,          &kp AMPS,      RT0 RT1, CORE)          // [ & ]             Ampersand         0-gap
+ZMK_COMBO(combo_lparantheses_rh, &kp LPAR,      RT1 RT2, CORE)         // [ ( ]             Left  parantheses 0-gap
+ZMK_COMBO(combo_rparantheses_rh, &kp RPAR,      RT2 RT3, CORE)         // [ ) ]             Right parantheses 0-gap
+ZMK_COMBO(combo_kpmultiply_rh, &kp KP_MULTIPLY, RT1 RT2, NUMPAD)       // [ KP_MULTIPLY ]   KP_MULTIPLY       0-gap
+ZMK_COMBO(combo_kpdivide_rh,     &kp SLASH,     RT2 RT3, NUMPAD)       // [ / ]             KP_DIVIDE         0-gap
+ZMK_COMBO(combo_and_rh,          &kp AMPS,      RT0 RT1, CORE)         // [ & ]             Ampersand         0-gap
 ZMK_COMBO(combo_equals_rh,       &kp EQUAL,     RT1 RT3, CORE)         // [ = ]             Equals            1-gap
-ZMK_COMBO(combo_home_rh,         &kp HOME,      RT1 RT3, NUMPAD LOWER) // [ HOME ]          HOME              1-gap
+ZMK_COMBO(combo_home_rh,         &kp HOME,      RT1 RT3, LOWER)        // [ HOME ]          HOME              1-gap
 
-ZMK_COMBO(combo_tilde_rh,        &kp TILDE,     RM0 RM1, CORE)          // [ ~ ]             Tilde             0-gap
+ZMK_COMBO(combo_tilde_rh,        &kp TILDE,     RM0 RM1, CORE)         // [ ~ ]             Tilde             0-gap
 ZMK_COMBO(combo_lcurly_rh,       &kp LBRC,      RM1 RM2, CORE)         // [ { ]             Left curly        0-gap
 ZMK_COMBO(combo_kpplus_rh,       &kp KP_PLUS,   RM1 RM2, NUMPAD)       // [ KP_PLUS ]       KP_PLUS           0-gap
 ZMK_COMBO(combo_kpminus_rh,      &kp KP_MINUS,  RM2 RM3, NUMPAD)       // [ KP_MINUS ]      KP_MINUS          0-gap
 ZMK_COMBO(combo_prev_word_rh,    &kp LC(LEFT),  RM1 RM2, NUMPAD LOWER) // [ Previous word ] Previous Word     0-gap
 ZMK_COMBO(combo_next_word_rh,    &kp LC(RIGHT), RM2 RM3, NUMPAD LOWER) // [ Next word ]     Next Word         0-gap
 ZMK_COMBO(combo_rcurly_rh,       &kp RBRC,      RM2 RM3, CORE)         // [ } ]             Right curly       0-gap
-ZMK_COMBO(combo_pgup_rh,         &kp PG_UP,     RM2 RM3, NUMPAD LOWER) // [ PageUp ]        PageUp            0-gap
 ZMK_COMBO(combo_tab_rh,          &kp TAB,       RM1 RM3, CORE NUMPAD)  // [ TAB ]           TAB               1-gap
 ZMK_COMBO(combo_sel_word_rh,     &sel_word,     RM1 RM3, LOWER)        // [ Select word ]   Select Word       1-gap
 
 ZMK_COMBO(combo_pddwn_rh,        &kp PG_DN,     RB1 RB2, LOWER)        // [ PageDown ]      PageDown          0-gap
+ZMK_COMBO(combo_pgup_rh,         &kp PG_UP,     RB2 RB3, LOWER)        // [ PageUp ]        PageUp            0-gap
 ZMK_COMBO(combo_end_rh,          &kp END,       RB1 RB3, LOWER)        // [ END ]           END               1-gap
 ZMK_COMBO(combo_kpcomma_rh,      &kp COMMA,     RB1 RB2, NUMPAD)       // [ COMMA ]         COMMA             0-gap
 ZMK_COMBO(combo_kpminus_rh,      &kp KP_DOT,    RB2 RB3, NUMPAD)       // [ KP_DOT ]        KP_DOT            0-gap
