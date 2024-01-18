@@ -386,7 +386,7 @@ ZMK_COMBO(combo_tab_rh,          &kp TAB,       RM1 RM3, CORE NUMPAD)  // [ TAB 
 
 ZMK_COMBO(combo_lessthan_rh,     &kp LT,        RB1 RB2, CORE)         // [ > ]             Less than         0-gap
 ZMK_COMBO(combo_greaterthan_rh,  &kp GT,        RB2 RB3, CORE)         // [ < ]             Greater than      0-gap
-ZMK_COMBO(combo_slash_rh,        &kp SLASH,     Rb1 RB3, CORE)         // [ / ]             Slash             0-gap
+ZMK_COMBO(combo_slash_rh,        &kp SLASH,     RB1 RB3, CORE)         // [ / ]             Slash             0-gap
 
 /* SEVERAL LAYERS */
 ZMK_COMBO(combo_prev_word_rh,    &kp LC(LEFT),  RM1 RM2, NUMPAD LOWER) // [ Previous word ] Previous Word     0-gap
